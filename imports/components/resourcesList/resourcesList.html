@@ -1,5 +1,10 @@
 <header>
   <h1>Resource List</h1>
+
+  <form class="new-item" ng-submit="$ctrl.addItem($ctrl.newItem)">
+    <input ng-model="$ctrl.newItem" type="text" name="text" placeholder="Type to add new tasks"/>
+  </form>
+
 </header>
 
 <ul>

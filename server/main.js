@@ -1,1 +1,1 @@
-import '../imports/api/resources.js';
+import '../imports/api/items.js';
