@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import resourcesList from '../imports/components/resourcesList/resourcesList';
 
-angular.module('simple-todos', [
-  angularMeteor
+angular.module('neuralnet', [
+  angularMeteor,
+  resourcesList.name
 ]);
