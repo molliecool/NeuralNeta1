@@ -14,7 +14,7 @@ class ResourcesListCtrl {
       }
     })
   }
-  
+
   addItem(newItem) {
     // Insert a task into the collection
     Items.insert({
@@ -26,8 +26,6 @@ class ResourcesListCtrl {
     this.newItem = '';
   }
 }
-
-
 
 export default angular.module('resourcesList', [
   angularMeteor
