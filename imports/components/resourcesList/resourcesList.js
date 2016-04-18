@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Items } from '../../api/items.js'
+import { Resources } from '../../api/resources.js'
 
 import template from './resourcesList.html';
 
@@ -9,21 +9,10 @@ class ResourcesListCtrl {
     $scope.viewModel(this);
 
     this.helpers({
-      items() {
-        return Items.find({});
+      resources() {
+        return Resources.find({});
       }
     })
-  }
-
-  addItem(newItem) {
-    // Insert a task into the collection
-    Items.insert({
-      text: newItem,
-      createdAt: new Date
-    });
-
-    // Clear form
-    this.newItem = '';
   }
 }
 

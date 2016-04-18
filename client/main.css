@@ -50,7 +50,7 @@ form {
   position: relative;
 }
 
-.new-item input {
+.new-resource input {
   box-sizing: border-box;
   padding: 10px 0;
   background: transparent;
@@ -121,7 +121,7 @@ header .hide-completed {
     clear: both;
   }
 
-  .new-item input {
+  .new-resource input {
     padding-bottom: 5px;
   }
 }
