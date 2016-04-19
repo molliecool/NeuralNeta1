@@ -3,11 +3,11 @@
 </header>
 
   <form name="submitResourceForm" class="new-resource" ng-submit="$ctrl.addResource($ctrl.submittedResource)">
-    <blockquote>
-      <b>stars: {{resource.text}}</b>
+    <!--blockquote>
+      <b>name: {{resource.text}}</b><br/>
       {{resource.description}}
       <cite>type: {{resource.type}}</cite>
-    </blockquote>
+    </blockquote-->
     <textarea ng-model="resource.text" placeholder="enter name"></textarea>
     <textarea ng-model="resource.description" placeholder="enter description"></textarea>
     <input ng-model="resource.type" type="checkbox"/>Game

@@ -1,18 +1,33 @@
-/*import angular from 'angular';
+import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
 
-import './navigation.html';
+import template from './navigation.html';
 
-const name = 'navigation';
+class NavigationCtrl {
+  constructor($scope) {
+  }
+}
 
-
-
-export default angular.module(name, [
-  angularMeteor
+export default angular.module("navigation", [
+  angularMeteor,
+  uiRouter
 ])
-  .component(name, {
-  templateUrl: 'imports/ui/components/${name}/${name}.html',
-  controllerAs: name
-});
+  .component("navigation", {
+  templateUrl: 'imports/components/navigation/navigation.html',
+  controller:  ['$scope', NavigationCtrl]
+})
+ .config(function($stateProvider, $urlRouterProvider){
+  //for an unmatched url redirect to list
+  $urlRouterProvider.otherwise("/list");
 
-console.log("nav");*/
+  $stateProvider
+    .state("list", {
+      url: "/list",
+      templateUrl: 'imports/components/resourcesList/resourcesList.html'
+    })
+    .state('submit', {
+      url: "/submit",
+      templateUrl: 'imports/components/resourceSubmit/resourceSubmit.html'
+    })
+})
