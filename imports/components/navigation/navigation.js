@@ -3,11 +3,18 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import template from './navigation.html';
+import resourcesList from '../resourcesList/resourcesList';
+import resourceDetail from '../resourceDetail/resourceDetail';
+import resourceSubmit from '../resourceSubmit/resourceSubmit';
 
+
+/*
 class NavigationCtrl {
   constructor($scope) {
+
   }
 }
+*/
 
 export default angular.module("navigation", [
   angularMeteor,
@@ -15,9 +22,21 @@ export default angular.module("navigation", [
 ])
   .component("navigation", {
   templateUrl: 'imports/components/navigation/navigation.html',
-  controller:  ['$scope', NavigationCtrl]
 })
- .config(function($stateProvider, $urlRouterProvider){
+  .controller("navigationCtrl", ["$scope", function($scope) {
+
+    this.tab = 1;
+
+    this.selectTab = function(setTab) {
+      this.tab = setTab;
+    }
+
+    this.isSelected = function(checkTab) {
+      return this.tab === checkTab;
+    }
+  }]);
+
+/* .config(function($stateProvider, $urlRouterProvider){
   //for an unmatched url redirect to list
   $urlRouterProvider.otherwise("/list");
 
@@ -30,4 +49,4 @@ export default angular.module("navigation", [
       url: "/submit",
       templateUrl: 'imports/components/resourceSubmit/resourceSubmit.html'
     })
-})
+})*/

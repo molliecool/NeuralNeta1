@@ -6,24 +6,14 @@ import template from './resourceSubmit.html';
 
 class ResourceSubmitCtrl {
   constructor($scope) {
+    console.log("resoucre submit ctrl made");
     $scope.viewModel(this);
 
     this.helpers({
     })
   }
 
-  addResource(submittedResource) {
-    // Insert a task into the collection
-    Resources.insert({
-      name: submittedResource.text,
-      description: submittedResource.description,
-      type: submittedResource.type,
-      createdAt: new Date
-    });
 
-    // Clear form
-    this.submitResource.name = '';
-  }
 }
 
 export default angular.module('resourceSubmit', [
@@ -31,5 +21,25 @@ export default angular.module('resourceSubmit', [
 ])
   .component('resourceSubmit', {
     templateUrl: 'imports/components/resourceSubmit/resourceSubmit.html',
-    controller: ['$scope', ResourceSubmitCtrl]
-  });
+  })
+  .controller('ResourceSubmitCtrl', ['$scope', function($scope) {
+    this.submittedResource = {};
+
+    this.addResource = function(submittedResource) {
+      console.log("begin insert");
+      // Insert a task into the collection
+      Resources.insert({
+        name: submittedResource.text,
+        description: submittedResource.description,
+        type: submittedResource.type,
+        subject: submittedResource.subject,
+        createdAt: new Date
+      });
+
+      // Clear form - replace this with a method
+      this.submittedResource.name = '';
+      this.submittedResource.description = '';
+      this.submittedResource.type = '';
+      this.submittedResource.subject = '';
+    }
+  }])

@@ -2,18 +2,26 @@
   <h1>Submit Resource</h1>
 </header>
 
-  <form name="submitResourceForm" class="new-resource" ng-submit="$ctrl.addResource($ctrl.submittedResource)">
-    <!--blockquote>
-      <b>name: {{resource.text}}</b><br/>
-      {{resource.description}}
-      <cite>type: {{resource.type}}</cite>
-    </blockquote-->
-    <textarea ng-model="resource.text" placeholder="enter name"></textarea>
-    <textarea ng-model="resource.description" placeholder="enter description"></textarea>
-    <input ng-model="resource.type" type="checkbox"/>Game
-    <input ng-model="resource.type" type="checkbox"/>Website
-    <input ng-model="resource.type" type="checkbox"/>Book
-    <input ng-model="resource.type" type="checkbox"/>Activity
-    <input type="submit" value="Submit"/>
+  <form name="submitResourceForm" ng-controller="ResourceSubmitCtrl as rsCtrl" ng-submit="rsCtrl.addResource(rsCtrl.submittedResource)">
+    <div class="form-field">
+      <h5>Resource name:</h5>
+      <textarea ng-model="rsCtrl.submittedResource.text" placeholder="enter name"></textarea> <br/>
+    </div>
+    <div class="form-field">
+      <h5>Brief description:</h5>
+    <textarea ng-model="rsCtrl.submittedResource.description" placeholder="enter description"></textarea>
+    </div>
+    <div class="form-field">
+      <h5>What type of resource is it?</h5>
+      <textarea ng-model="rsCtrl.submittedResource.type" placeholder="enter type"></textarea>
+      <!--input ng-model="resource.type" type="checkbox"/>Game
+      <input ng-model="resource.type" type="checkbox"/>Website
+      <input ng-model="resource.type" type="checkbox"/>Book
+      <input ng-model="resource.type" type="checkbox"/>Activity-->
+    </div>
+    <div class="form-field">
+      <h5>What subjects does it cover?</h5>
+      <textarea ng-model="rsCtrl.submittedResource.subject" placeholder="enter subject"></textarea>
+    </div>
+    <input type="submit" value="Submit" />
   </form>
-<!---->

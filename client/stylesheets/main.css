@@ -2,11 +2,7 @@
 /* CSS declarations go here */
 body {
   font-family: sans-serif;
-  background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
-  background-attachment: fixed;
-
-  position: absolute;
+  background-color: white;
   top: 0;
   bottom: 0;
   left: 0;
@@ -19,18 +15,12 @@ body {
 }
 
 .container {
-  max-width: 1000px;
-  margin: 0 auto;
+  width: 1000px;
+  margin: 50px auto;
   min-height: 100%;
   background: white;
 }
 
-header {
-  background: #d2edf4;
-  background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
-  padding: 20px 15px 15px 15px;
-  position: relative;
-}
 
 #login-buttons {
   display: block;
@@ -124,4 +114,26 @@ header .hide-completed {
   .new-resource input {
     padding-bottom: 5px;
   }
+}
+
+/* navigation */
+.header-container {
+  height: 50px;
+  background-color: orange;
+}
+
+.logo {
+  float: left;
+  min-width: 200px;
+}
+
+.navbar {
+  float: right;
+  margin: 10px 20px;
+  clear: both;
+}
+
+.navbar a {
+  color: black;
+  padding-right: 20px;
 }
