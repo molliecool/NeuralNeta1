@@ -12,8 +12,6 @@ class ResourceSubmitCtrl {
     this.helpers({
     })
   }
-
-
 }
 
 export default angular.module('resourceSubmit', [
@@ -31,8 +29,10 @@ export default angular.module('resourceSubmit', [
       Resources.insert({
         name: submittedResource.text,
         description: submittedResource.description,
-        type: submittedResource.type,
-        subject: submittedResource.subject,
+        type: [submittedResource.isBook, submittedResource.isGame,
+          submittedResource.isWebsite, submittedResource.isClassActivity],
+        subject: [submittedResource.isMath, submittedResource.isHistory, 
+          submittedResource.isScience, submittedResource.isHealth],
         createdAt: new Date
       });
 

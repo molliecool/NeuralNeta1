@@ -13,15 +13,17 @@
     </div>
     <div class="form-field">
       <h5>What type of resource is it?</h5>
-      <textarea ng-model="rsCtrl.submittedResource.type" placeholder="enter type"></textarea>
-      <!--input ng-model="resource.type" type="checkbox"/>Game
-      <input ng-model="resource.type" type="checkbox"/>Website
-      <input ng-model="resource.type" type="checkbox"/>Book
-      <input ng-model="resource.type" type="checkbox"/>Activity-->
+      <input ng-model="rsCtrl.submittedResource.isBook" type="checkbox"/>Book
+      <input ng-model="rsCtrl.submittedResource.isGame" type="checkbox"/>Game
+      <input ng-model="rsCtrl.submittedResource.isWebsite" type="checkbox"/>Website
+      <input ng-model="rsCtrl.submittedResource.isClassActivity" type="checkbox"/>Class Activity
     </div>
     <div class="form-field">
       <h5>What subjects does it cover?</h5>
-      <textarea ng-model="rsCtrl.submittedResource.subject" placeholder="enter subject"></textarea>
+      <input ng-model="rsCtrl.submittedResource.isMath" type="checkbox"/>Math
+      <input ng-model="rsCtrl.submittedResource.isHistory" type="checkbox"/>History
+      <input ng-model="rsCtrl.submittedResource.isScience" type="checkbox"/>Science
+      <input ng-model="rsCtrl.submittedResource.isHealth" type="checkbox"/>Health
     </div>
     <input type="submit" value="Submit" />
   </form>
