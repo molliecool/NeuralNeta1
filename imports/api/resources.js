@@ -1,9 +1,9 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-class ResourcesCollection extends Mongo.Collection {
+/*class ResourcesCollection extends Mongo.Collection {
 
-}
+}*/
 
 /*      isBook: Boolean,
       isGame: Boolean,
@@ -14,9 +14,9 @@ class ResourcesCollection extends Mongo.Collection {
       isHistory: Boolean,
       isHealth: Boolean*/
 
-export const Resources = new ResourcesCollection('Resources');
+export const Resources = new Mongo.Collection('Resources');
 
-
+/*
 Resources.schema = new SimpleSchema({
   _id:  {type: Number},
   name: {type: String},
@@ -24,3 +24,4 @@ Resources.schema = new SimpleSchema({
   type: {type:[Boolean]},
   subject: {type: [Boolean]}
 });
+*/

@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import { Resources } from '../../api/resources.js'
+import { Resources } from '../../api/resources.js';
 
 import template from './resourceSubmit.html';
 
@@ -31,7 +31,7 @@ export default angular.module('resourceSubmit', [
         description: submittedResource.description,
         type: [submittedResource.isBook, submittedResource.isGame,
           submittedResource.isWebsite, submittedResource.isClassActivity],
-        subject: [submittedResource.isMath, submittedResource.isHistory, 
+        subject: [submittedResource.isMath, submittedResource.isHistory,
           submittedResource.isScience, submittedResource.isHealth],
         createdAt: new Date
       });

@@ -2,14 +2,10 @@
   <h1>Resource List</h1>
 </header>
 
-<div>
+<div ng-controller="ResourcesListCtrl as rlCtrl">
   <ul>more text to try
-    <li ng-repeat="item in $ctrl.resources">
-      {{item.text}}
-      {{item.description}}
-      {{item.type}}
+    <li ng-repeat="res in rlCtrl.resList">
+      {{res.description}}
     </li>
-    <li>one</li>
-    <li>two</li>
-  </ul>seriously
+  </ul>
 </div>
