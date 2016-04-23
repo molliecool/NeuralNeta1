@@ -2,10 +2,13 @@
   <h1>Resource List</h1>
 </header>
 
-<div ng-controller="ResourcesListCtrl as rlCtrl">
-  <ul>more text to try
-    <li ng-repeat="res in rlCtrl.resList">
-      {{res.description}}
-    </li>
-  </ul>
+<div class="resource-container">
+  <div class="masonry" >
+    <div ng-repeat="res in $ctrl.resources" class="brick">
+      Name: {{res.name}}<br/>
+      Description: {{res.description}}<br/>
+      Type: {{res.type}}<br/>
+      Subject: {{res.subject}}<br/>
+    </div>
+  </div>
 </div>

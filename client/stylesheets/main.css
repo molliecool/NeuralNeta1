@@ -7,18 +7,15 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-
   padding: 0;
   margin: 0;
-
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .container {
-  width: 1000px;
-  margin: 50px auto;
+  margin: 50px 0;
   min-height: 100%;
-  background: white;
+  width: 100%;
 }
 
 
@@ -136,4 +133,8 @@ header .hide-completed {
 .navbar a {
   color: black;
   padding-right: 20px;
+}
+
+.navbar div {
+   float: left;
 }

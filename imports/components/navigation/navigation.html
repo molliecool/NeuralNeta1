@@ -2,14 +2,12 @@
   <div class="header-container">
     <div class="logo"></div>
     <div class="navbar">
-      <ul>
-        <li ng-class="{active:navCtrl.isSelected(1)}">
+        <div ng-class="{active:navCtrl.isSelected(1)}">
           <a href ng-click="navCtrl.selectTab(1)">Submit Resource</a>
-        </li>
-        <li ng-class="{active:navCtrl.isSelected(2)}">
+        </div>
+        <div ng-class="{active:navCtrl.isSelected(2)}">
           <a href ng-click="navCtrl.selectTab(2)">Resource List</a>
-        </li>
-      </ul>
+        </div>
     </div>
   </div>
   <div class="container">
