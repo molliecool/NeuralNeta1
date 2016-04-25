@@ -1,0 +1,26 @@
+
+<div layout="column" ng-controller="UploadImageCtrl as imageCtrl">
+  <div ngf-drop
+    ngf-select
+    ng-model="files"
+    ngf-change="imageCtrl.addImages($files)"
+    ngf-drag-over-class="dragover"
+    class="drop-box"
+    ngf-multiple="false"
+    ngf-allow-dir="false"
+    accept="image/*"
+    ngf-pattern="image/*"
+    ngf-drop-available="true">
+      <div>Click here to select image</div>
+      <div>
+        <strong>OR</strong>
+      </div>
+      <div>You can also drop image to here</div>
+  </div>
+  Files:
+    <ul>
+        <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+    </ul>
+    Upload Log:
+    <pre>{{log}}</pre>
+</div>

@@ -6,7 +6,7 @@ import template from './resourcesList.html';
 
 class ResourcesListCtrl {
   constructor($scope) {
-    //console.log(Resources.count());
+    //console.log("list works");
     $scope.viewModel(this);
 
     this.helpers({

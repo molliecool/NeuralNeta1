@@ -25,7 +25,7 @@ export default angular.module("navigation", [
 })
   .controller("navigationCtrl", ["$scope", function($scope) {
 
-    this.tab = 2;
+    this.tab = 1;
 
     this.selectTab = function(setTab) {
       this.tab = setTab;

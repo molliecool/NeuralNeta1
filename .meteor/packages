@@ -23,3 +23,4 @@ twbs:bootstrap
 aldeed:simple-schema
 jalik:ufs
 jalik:ufs-gridfs
+raix:ui-dropped-event

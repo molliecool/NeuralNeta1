@@ -1,0 +1,8 @@
+{
+"name": "Operation Neptune",
+"description": "A platformer game where you play as a submarine and need to solve math word problems to proceed through the game.",
+"type": "game",
+"subject": [
+    { "id": "0001", "subject": "math" },
+  ]
+}
