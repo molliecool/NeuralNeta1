@@ -1,17 +1,22 @@
+
 <div  ng-controller="navigationCtrl as navCtrl">
   <div class="header-container">
     <div class="logo"></div>
     <div class="navbar">
-        <div ng-class="{active:navCtrl.isSelected(1)}">
-          <a href ng-click="navCtrl.selectTab(1)">Submit Resource</a>
-        </div>
-        <div ng-class="{active:navCtrl.isSelected(2)}">
-          <a href ng-click="navCtrl.selectTab(2)">Resource List</a>
-        </div>
+      <div ng-class="{active:navCtrl.isSelected(1)}">
+        <a href ng-click="navCtrl.selectTab(1)">Submit Resource</a>
+      </div>
+      <div ng-class="{active:navCtrl.isSelected(2)}">
+        <a href ng-click="navCtrl.selectTab(2)">Resource List</a>
+      </div>
+      <div ng-class="{active:navCtrl.isSelected(3)}">
+        <a href ng-click="navCtrl.selectTab(3)">{{navCtrl.currentUser().username}}</a>
+      </div>
     </div>
   </div>
   <div class="container">
-    <resource-submit ng-show="navCtrl.isSelected(1)"></resource-submit>
-    <resources-list ng-show="navCtrl.isSelected(2)"></resources-list>
+    <sign-up ng-show="navCtrl.isSelected(3)"></sign-up>
+    <resource-submit ng-show="navCtrl.currentUser() && navCtrl.isSelected(1)"></resource-submit>
+    <resources-list ng-show="navCtrl.currentUser() && navCtrl.isSelected(2)"></resources-list>
   </div>
 </div>

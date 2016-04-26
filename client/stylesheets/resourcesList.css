@@ -23,3 +23,8 @@
     border: #eee solid 1px;
     margin: 5px;
 }
+
+.brick img {
+  width: 100%;
+  padding: 10px;
+}

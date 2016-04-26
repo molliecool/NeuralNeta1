@@ -1,14 +1,18 @@
 <header>
   <h1>Resource List</h1>
+
 </header>
 
 <div class="resource-container">
   <div class="masonry" >
     <div ng-repeat="res in $ctrl.resources" class="brick">
-      Name: {{res.name}}<br/>
-      Description: {{res.description}}<br/>
-      Type: {{res.type}}<br/>
-      Subject: {{res.subject}}<br/>
+        <img src="/happyorange.png"/>
+      <div>
+        Name: {{res.name}}<br/>
+        Description: {{res.description}}<br/>
+        Type: {{res.type}}<br/>
+        Subject: {{res.subject}}<br/>
+      </div>
     </div>
   </div>
 </div>
