@@ -6,13 +6,11 @@
 <div class="resource-container">
   <div class="masonry" >
     <div ng-repeat="res in $ctrl.resources" class="brick">
-        <img src="/happyorange.png"/>
-      <div>
+        <img ng-src="{{res.image}}"/>
         Name: {{res.name}}<br/>
-        Description: {{res.description}}<br/>
+        Description: {{res.shortDescription}}<br/>
         Type: {{res.type}}<br/>
         Subject: {{res.subject}}<br/>
-      </div>
     </div>
   </div>
 </div>
