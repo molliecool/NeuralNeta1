@@ -7,10 +7,14 @@
   <div class="masonry" >
     <div ng-repeat="res in $ctrl.resources" class="brick">
         <img ng-src="{{res.image}}"/>
-        Name: {{res.name}}<br/>
-        Description: {{res.shortDescription}}<br/>
-        Type: {{res.type}}<br/>
-        Subject: {{res.subject}}<br/>
+        <div class="res-header">
+          <h2 class="res-name">{{res.name}}</h2>
+          <p class="res-type">{{res.type}}</p>
+        </div>
+        <div class="clearfix"></div>
+        <p class="res-summary">{{res.shortDescription}}</p>
+        <div class="res-subject">{{res.subject}}</div>
+        <input type="checkbox" ng-model="res.isFavorite" />Favorite
     </div>
   </div>
 </div>

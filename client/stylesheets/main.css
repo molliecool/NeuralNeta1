@@ -1,8 +1,43 @@
 
 /* CSS declarations go here */
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+h1 h2 h3 p {
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.5em;
+  margin: 0;
+  margin-bottom: 10px;
+  display: inline-block;
+  margin-right: 1em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
 body {
   font-family: sans-serif;
-  background-color: white;
+  background-color: #eee;
   top: 0;
   bottom: 0;
   left: 0;
@@ -10,6 +45,9 @@ body {
   padding: 0;
   margin: 0;
   font-size: 16px;
+}
+.clearfix {
+  clear:both;
 }
 
 .container {
@@ -23,13 +61,6 @@ body {
   display: block;
 }
 
-h1 {
-  font-size: 1.5em;
-  margin: 0;
-  margin-bottom: 10px;
-  display: inline-block;
-  margin-right: 1em;
-}
 
 form {
   margin-top: 10px;
@@ -98,20 +129,7 @@ header .hide-completed {
   margin-left: 5px;
 }
 
-@media (max-width: 600px) {
-  li {
-    padding: 12px 15px;
-  }
 
-  .search {
-    width: 150px;
-    clear: both;
-  }
-
-  .new-resource input {
-    padding-bottom: 5px;
-  }
-}
 
 /* navigation */
 .header-container {

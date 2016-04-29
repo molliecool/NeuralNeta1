@@ -22,9 +22,55 @@
   -webkit-box-sizing: border-box;
     border: #eee solid 1px;
     margin: 5px;
+
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
 }
 
 .brick img {
   width: 100%;
   padding: 10px;
+}
+
+.res-header {
+  margin: 20px 0;
+}
+
+.brick .res-name {
+  float: left;
+}
+
+.brick .res-type {
+  font-size: 16px;
+  font-weight: bold;
+  float: right;
+}
+
+.brick .res-summary {
+
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+  .masonry { /* Masonry container */
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media (max-width: 500px) {
+  .masonry { /* Masonry container */
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
 }

@@ -5,6 +5,10 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 }*/
 
+export const Resources = new Mongo.Collection('Resources');
+
+
+
 /*      isBook: Boolean,
       isGame: Boolean,
       isWebsite: Boolean,
@@ -14,7 +18,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
       isHistory: Boolean,
       isHealth: Boolean*/
 
-export const Resources = new Mongo.Collection('Resources');
+
 
 /*
 Resources.schema = new SimpleSchema({
