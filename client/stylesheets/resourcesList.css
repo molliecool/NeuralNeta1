@@ -14,8 +14,8 @@
 .brick { /* Masonry bricks or child elements */
   display: inline-block;
   background: #fff;
-  padding: 1em;
-  margin: 0 0 1.5em;
+  padding: 10px;
+  margin: 0 0 30px;
   width: 100%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -34,7 +34,9 @@
 }
 
 .res-header {
-  margin: 20px 0;
+  margin: 20px 0 5px;
+  display: block;
+  overflow: hidden;
 }
 
 .brick .res-name {
@@ -47,10 +49,21 @@
   float: right;
 }
 
+.brick .res-text {
+  margin: 10px;
+}
+
 .brick .res-summary {
 
 }
 
+.brick .res-favorite {
+  float: right;
+  overflow: hidden;
+}
+.brick .res-favorite img{
+  width: 40px;
+}
 
 
 
