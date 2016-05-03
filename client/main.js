@@ -9,6 +9,8 @@ import uploadImage from '../imports/components/uploadImage/uploadImage';
 import navigation from '../imports/components/navigation/navigation';
 import signUp from '../imports/components/signUp/signUp';
 import authorization from '../imports/components/authorization/authorization';
+import login from '../imports/components/login/login';
+import register from '../imports/components/register/register';
 
 import '../imports/startup/accounts-config.js';
 
@@ -22,4 +24,6 @@ angular.module('neuralnet', [
   uploadImage.name,
   signUp.name,
   authorization.name,
+  login.name,
+  register.name,
 ])

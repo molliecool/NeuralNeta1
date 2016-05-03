@@ -1,6 +1,10 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
+
 import { Accounts } from 'meteor/accounts-base';
+import { login } from '../login/login';
+import { register } from '../register/register';
 
 import template from './authorization.html'
 
@@ -24,7 +28,8 @@ class AuthorizationCtrl {
 }
 
 export default angular.module('authorization', [
-  angularMeteor
+  angularMeteor,
+//  login.name,
 ])
   .component('authorization', {
     templateUrl: 'imports/components/authorization/authorization.html',
