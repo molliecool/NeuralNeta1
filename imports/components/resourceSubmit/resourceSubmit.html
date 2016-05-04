@@ -3,29 +3,40 @@
 </header>
 
   <form name="submitResourceForm" ng-controller="ResourceSubmitCtrl as rsCtrl" ng-submit="rsCtrl.addResource(rsCtrl.submittedResource)">
-    <div class="form-field">
-      <h5>Resource name:</h5>
-      <textarea ng-model="rsCtrl.submittedResource.text" placeholder="enter name"></textarea> <br/>
+
+      <div layout="row" class="flex">
+        <div layout="column" class="flex" style="padding-right: 50px;">
+          <md-input-container class="flex">
+            <label>Resource Name</label>
+            <input type="text" ng-model="rsCtrl.submittedResource.text" placeholder="enter name">
+          </md-input-container>
+          <md-input-container class="flex">
+            <label>Summary</label>
+            <input type="text" ng-model="rsCtrl.submittedResource.text" placeholder="input summary">
+          </md-input-container>
+      </div>
+      <upload-image files="resourceSubmit.resource.images"></upload-image>
     </div>
-    <div class="form-field">
-      <h5>Brief description:</h5>
-    <textarea ng-model="rsCtrl.submittedResource.description" placeholder="enter description"></textarea>
+
+    <div layout="row" class="flex">
+      <div layout="column" class="flex">
+        <md-radio-group>
+          <label>What type of resource is it?</label>
+          <md-radio-button ng-repeat="t in rsCtrl.typeOptions" ng-model="rsCtrl.submittedResource.type" ng-value="t" aria-label="{{t}}">
+            {{t}}
+          </md-radio-button>
+        </md-radio-group>
+      </div>
+      <div layout="column" class="flex">
+        <label>What subjects does it cover?</label>
+        <br/>
+        <md-checkbox ng-repeat="t in rsCtrl.subjectOptions" ng-value="t" aria-label="{{t}}">
+          {{t}}
+        </md-checkbox>
+      </div>
     </div>
-    <div class="form-field">
-      <h5>What type of resource is it?</h5>
-      <input ng-model="rsCtrl.submittedResource.isBook" type="checkbox"/>Book
-      <input ng-model="rsCtrl.submittedResource.isGame" type="checkbox"/>Game
-      <input ng-model="rsCtrl.submittedResource.isWebsite" type="checkbox"/>Website
-      <input ng-model="rsCtrl.submittedResource.isClassActivity" type="checkbox"/>Class Activity
-    </div>
-    <div class="form-field">
-      <h5>What subjects does it cover?</h5>
-      <input ng-model="rsCtrl.submittedResource.isMath" type="checkbox"/>Math
-      <input ng-model="rsCtrl.submittedResource.isHistory" type="checkbox"/>History
-      <input ng-model="rsCtrl.submittedResource.isScience" type="checkbox"/>Science
-      <input ng-model="rsCtrl.submittedResource.isHealth" type="checkbox"/>Health
-    </div>
-    <div></div>
-    <upload-image files="resourceSubmit.resource.images"></upload-image>
-    <input type="submit" value="Submit" />
+    <md-button class="md-accent">
+      <input type="submit" value="Submit" />
+    </md-button>
+
   </form>

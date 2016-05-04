@@ -17,7 +17,7 @@ if(Resources.find().count() === 0) {
       { "_id": "0001", "sName": "Math" },
     ],
   "ages": "elementary",
-  "image": "operationneptune.gif",
+  "image": "temp-resources/operationneptune.gif",
   "whereToFind": "",
 },
   {
@@ -32,7 +32,7 @@ if(Resources.find().count() === 0) {
       { "_id": "0004", "sName": "Health" },
     ],
   "ages": "test",
-  "image": "happyorange.png",
+  "image": "temp-resources/happyorange.png",
   "whereToFind": "everywhere",
 },
   {
@@ -44,7 +44,7 @@ if(Resources.find().count() === 0) {
       { "_id": "0002", "sName": "History" },
     ],
   "ages": "elementary",
-  "image": "oregontrail.jpg",
+  "image": "temp-resources/oregontrail.jpg",
   "whereToFind": "where?",
   }
 ];

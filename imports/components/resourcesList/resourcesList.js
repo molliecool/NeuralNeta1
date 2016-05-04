@@ -24,8 +24,8 @@ class ResourcesListCtrl {
   }
 }
 
-export default angular.module('resourcesList', [
-  angularMeteor
+export default angular.module("resourcesList", [
+  angularMeteor,
 ])
   .component('resourcesList', {
     templateUrl: 'imports/components/resourcesList/resourcesList.html',
@@ -37,4 +37,12 @@ export default angular.module('resourcesList', [
       this.isFavorite = !this.isFavorite;
     }
 
-}])*/
+}])*/  .config(config);
+
+function config($stateProvider) {
+  'ngInject';
+  $stateProvider.state('resourcesList', {
+    url: '/resourcesList',
+    template: '<resources-list></resources-list>'
+  });
+}

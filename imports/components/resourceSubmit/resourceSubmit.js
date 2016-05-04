@@ -23,25 +23,19 @@ export default angular.module('resourceSubmit', [
   .controller('ResourceSubmitCtrl', ['$scope', function($scope) {
         //console.log("submit works");
     this.submittedResource = {};
+    this.typeOptions = ["Book", "Digital Game", "Website", "Class Activity"];
+    this.subjectOptions = ["Math", "History", "Science", "Health"];
 
     this.addResource = function(submittedResource) {
       console.log("begin insert");
       // Insert a task into the collection
+      console.log(submittedResource.type)
+
       Resources.insert({
         name: submittedResource.text,
         description: submittedResource.description,
-        type: [
-                submittedResource.isBook,
-                submittedResource.isGame,
-                submittedResource.isWebsite,
-                submittedResource.isClassActivity
-              ],
-        subject: [
-                submittedResource.isMath,
-                submittedResource.isHistory,
-                submittedResource.isScience,
-                submittedResource.isHealth
-              ],
+        type: submittedResource.type,
+        subject: submittedResource.subject,
         createdAt: new Date
       });
 
@@ -52,3 +46,12 @@ export default angular.module('resourceSubmit', [
       this.submittedResource.subject = '';
     }
   }])
+  .config(config);
+
+  function config($stateProvider) {
+    'ngInject';
+    $stateProvider.state('resourceSubmit', {
+      url: '/resourceSubmit',
+      template: '<resource-submit></resource-submit>'
+    });
+  }

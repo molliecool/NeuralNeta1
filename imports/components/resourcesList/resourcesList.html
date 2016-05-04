@@ -2,9 +2,9 @@
 
 </header>
 
-<div class="resource-container">
-  <div class="masonry"  >
-    <div ng-repeat="res in $ctrl.resources" class="brick">
+<md-content flex id="content">
+  <md-list class="masonry">
+    <md-list-item ng-repeat="res in $ctrl.resources" class="brick">
         <img ng-src="{{res.image}}"/>
         <h2 class="res-name">{{res.name}}</h2>
         <div class="res-header">
@@ -25,10 +25,12 @@
           <hr/>
         <div class="res-favorite" >
           <a href ng-click="res.toggleFavorite()">
-          <img src="{{res.isFavorite ? 'icon_favorite-4.png' : 'icon_favorite-2.png'}}" />
+          <i class="material-icons">favorite</i>
+          <!--img src="{{res.isFavorite ? 'icon_favorite-4.png' : 'icon_favorite-2.png'}}" /-->
           <!--input type="checkbox" ng-model="res.isFavorite" /-->
         </a>
-        </div>
+
     </div><!-- end res controller -->
-  </div>
-</div>
+    </md-list-item>
+  </md-list>
+</md-content>

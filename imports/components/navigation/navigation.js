@@ -6,7 +6,7 @@ import template from './navigation.html';
 import resourcesList from '../resourcesList/resourcesList';
 import resourceDetail from '../resourceDetail/resourceDetail';
 import resourceSubmit from '../resourceSubmit/resourceSubmit';
-import signUp from '../signUp/signUp';
+/*import signUp from '../signUp/signUp';*/
 
 
 
@@ -30,7 +30,7 @@ export default angular.module("navigation", [
 })
   .controller("navigationCtrl", ["$scope", function($scope) {
 
-    this.tab = 2;
+    this.tab = 1;
 
     this.selectTab = function(setTab) {
       this.tab = setTab;
@@ -44,19 +44,11 @@ export default angular.module("navigation", [
     this.currentUser = function() {
       return Meteor.user();
     }
-  }]);
+  }])
 
-/* .config(function($stateProvider, $urlRouterProvider){
+ .config(config);
+
+function config($stateProvider, $urlRouterProvider){
   //for an unmatched url redirect to list
-  $urlRouterProvider.otherwise("/list");
-
-  $stateProvider
-    .state("list", {
-      url: "/list",
-      templateUrl: 'imports/components/resourcesList/resourcesList.html'
-    })
-    .state('submit', {
-      url: "/submit",
-      templateUrl: 'imports/components/resourceSubmit/resourceSubmit.html'
-    })
-})*/
+  $urlRouterProvider.otherwise("/resourcesList");
+}

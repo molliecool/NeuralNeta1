@@ -35,3 +35,12 @@ export default angular.module('authorization', [
     templateUrl: 'imports/components/authorization/authorization.html',
     controller: ['$scope', AuthorizationCtrl]
   })
+  .config(config);
+
+function config($stateProvider) {
+  'ngInject';
+  $stateProvider.state('authorization', {
+    url: '/authorization',
+    template: '<authorization></authorization>'
+  });
+}

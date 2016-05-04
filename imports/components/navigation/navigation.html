@@ -1,22 +1,20 @@
 
 <div  ng-controller="navigationCtrl as navCtrl">
-  <div class="header-container">
-    <div class="logo"></div>
+  <md-toolbar layout="row">
+    <div class="md-toolbar-tools">
+    <div class="logo"><i class="material-icons">favoriteborder</i></div>
+    <span flex class="flex"></span>
     <div class="navbar">
-      <div ng-class="{active:navCtrl.isSelected(2)}">
-        <a href ng-click="navCtrl.selectTab(2)"><img src="icon_search.png"/></a>
-      </div>
-      <div ng-class="{active:navCtrl.isSelected(1)}">
-        <a href ng-click="navCtrl.selectTab(1)"><img src="icon_plus-2.png"/></a>
-      </div>
-      <div ng-class="{active:navCtrl.isSelected(3)}">
-        <a href ng-click="navCtrl.selectTab(3)"><img src="icon_user.png"/>{{navCtrl.currentUser().username}}</a>
-      </div>
+      <md-button ng-class="{active:navCtrl.isSelected(2)}">
+        <a href ui-sref="resourcesList" ng-click="navCtrl.selectTab(2)"><i class="material-icons">search</i></a>
+      </md-button>
+      <md-button ng-class="{active:navCtrl.isSelected(1)}">
+        <a href ui-sref="resourceSubmit" ng-click="navCtrl.selectTab(1)"><i class="material-icons">add</i></a>
+      </md-button>
+      <md-button ng-class="{active:navCtrl.isSelected(3)}">
+        <a href ui-sref="authorization" ng-click="navCtrl.selectTab(3)"><i class="material-icons">face</i>{{navCtrl.currentUser().username}}</a>
+      </md-button>
     </div>
   </div>
-  <div class="container">
-    <authorization ng-show="navCtrl.isSelected(3)"></authorization>
-    <resource-submit ng-show="navCtrl.currentUser() && navCtrl.isSelected(1)"></resource-submit>
-    <resources-list ng-show="navCtrl.currentUser() && navCtrl.isSelected(2)"></resources-list>
-  </div>
+  </md-toolbar>
 </div>
