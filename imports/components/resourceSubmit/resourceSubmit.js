@@ -31,19 +31,35 @@ export default angular.module('resourceSubmit', [
       // Insert a task into the collection
       console.log(submittedResource.type)
 
+      /*
+      onChange call a push function
+      need to push the subjects onto an array
+      if a box is checked push it on the array
+      else if a box is unchecked find and splice it from the array
+      */
+
+
+
       Resources.insert({
         name: submittedResource.text,
+
         description: submittedResource.description,
         type: submittedResource.type,
         subject: submittedResource.subject,
         createdAt: new Date
       });
 
+    this.clearForm = function() {
+      /* for each field in this.submittedResource,
+        set the child === ''
+        */
+    }
       // Clear form - replace this with a method
       this.submittedResource.text = '';
       this.submittedResource.description = '';
       this.submittedResource.type = '';  //make this better
       this.submittedResource.subject = '';
+
     }
   }])
   .config(config);

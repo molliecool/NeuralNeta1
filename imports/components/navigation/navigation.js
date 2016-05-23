@@ -2,7 +2,10 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
+import { Accounts } from 'meteor/accounts-base';
+
 import template from './navigation.html';
+
 import resourcesList from '../resourcesList/resourcesList';
 import resourceDetail from '../resourceDetail/resourceDetail';
 import resourceSubmit from '../resourceSubmit/resourceSubmit';
@@ -28,7 +31,7 @@ export default angular.module("navigation", [
   .component("navigation", {
   templateUrl: 'imports/components/navigation/navigation.html',
 })
-  .controller("navigationCtrl", ["$scope", function($scope) {
+  .controller("NavigationCtrl", ["$scope", function($scope) {
 
     this.tab = 1;
 
@@ -48,7 +51,10 @@ export default angular.module("navigation", [
 
  .config(config);
 
-function config($stateProvider, $urlRouterProvider){
+function config($stateProvider, $urlRouterProvider, $locationProvider){
+
+  $locationProvider.html5Mode(true);
+
   //for an unmatched url redirect to list
   $urlRouterProvider.otherwise("/resourcesList");
 }

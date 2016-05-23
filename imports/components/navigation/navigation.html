@@ -1,5 +1,5 @@
 
-<div  ng-controller="navigationCtrl as navCtrl">
+<div  ng-controller="NavigationCtrl as navCtrl">
   <md-toolbar layout="row">
     <div class="md-toolbar-tools">
     <div class="logo"><i class="material-icons">favoriteborder</i></div>
@@ -12,7 +12,7 @@
         <a href ui-sref="resourceSubmit" ng-click="navCtrl.selectTab(1)"><i class="material-icons">add</i></a>
       </md-button>
       <md-button ng-class="{active:navCtrl.isSelected(3)}">
-        <a href ui-sref="authorization" ng-click="navCtrl.selectTab(3)"><i class="material-icons">face</i>{{navCtrl.currentUser().username}}</a>
+        <a href ui-sref="authorization" ng-click="navCtrl.selectTab(3)"><i class="material-icons">face</i>{{navCtrl.currentUser().email}}</a>
       </md-button>
     </div>
   </div>

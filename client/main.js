@@ -12,6 +12,7 @@ import navigation from '../imports/components/navigation/navigation';
 import authorization from '../imports/components/authorization/authorization';
 import login from '../imports/components/login/login';
 import register from '../imports/components/register/register';
+import password from '../imports/components/password/password';
 
 import '../imports/startup/accounts-config.js';
 
@@ -28,6 +29,7 @@ angular.module('neuralnet', [
   authorization.name,
   login.name,
   register.name,
+//  password.name,
 ])
   .config(config);
 

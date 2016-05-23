@@ -1,4 +1,4 @@
-<md-content layout="row" layout-align="center start" layout-fill layout-margin>
+<md-content ng-controller="RegisterCtrl as register" layout="row" layout-align="center start" layout-fill layout-margin>
   <md-whiteframe layout="column" flex flex-md="50" flex-lg="50" flex-gt-lg="33" class="md-whiteframe-z2" layout-fill>
 
     <md-toolbar class="md-primary md-tall" layout="column" layout-align="end" layout-fill>
@@ -19,13 +19,13 @@
           <label>
             Email
           </label>
-          <input type="text" ng-model="register.credentials.email" placeholder="email" aria-label="email" required/>
+          <input type="text" ng-model="register.credentials.email" aria-label="email" required/>
         </md-input-container>
         <md-input-container >
           <label>
             Password
           </label>
-          <input type="password" ng-model="register.credentials.password" placeholder="password" aria-label="password" required/>
+          <input type="password" ng-model="register.credentials.password" aria-label="password" required/>
         </md-input-container>
         <div layout="row" layout-align="end center">
           <md-button class="md-raised md-primary" ng-click="register.register()" aria-label="login" ng-disabled="register.registerForm.$invalid()">Register</md-button>
@@ -49,18 +49,14 @@
           <i class="material-icons">whatshot</i>
           <span>Facebook</span>
         </md-button>
-        <md-button class="md-raised">
-          <i class="material-icons">whatshot</i>
-          <span>Twitter</span>
-        </md-button>
       </div>
       <md-toolbar ng-show="register.error" class="md-warn" layout="row" layout-fill layout-padding layout-margin>
-        <p class="md-body-1">{{ register.error }}</p>
+        <p class="md-body-1">{{ register.error.reason }}</p>
       </md-toolbar>
 
       <md-divider></md-divider>
       <div layout="row" layout-align="center">
-        <a class="md-button" href="/login">Already a user?</a>
+        <a class="md-button" href ui-sref="/login">Already a user?</a>
       </div>
 
     </div>
