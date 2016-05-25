@@ -37,7 +37,6 @@ export default angular.module("navigation", [
 
     this.selectTab = function(setTab) {
       this.tab = setTab;
-      console.log(this.currentUser);
     }
 
     this.isSelected = function(checkTab) {

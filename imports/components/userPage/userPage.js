@@ -1,11 +1,14 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import uiRouter from 'angular-ui-router';
+
+import template from './userPage.html'
 
 class UserPageCtrl {
   constructor($scope) {
     $scope.viewModel(this);
 
-    console.log("does this ever get called");
+
 
     this.helpers({
       /*currentUser() {
@@ -15,22 +18,26 @@ class UserPageCtrl {
   }
 }
 
-}
-
-angular.module('userPage', [
+export default angular.module('userPage', [
   angularMeteor,
 ])
   .component('userPage', {
   templateUrl: 'imports/components/userPage/userPage.html',
 })
   .controller('UserPageCtrl', ['$scope', function($scope) {
+    console.log("does this ever get called");
 
     this.currentUser = function() {
-      return. Meteor.user();
+      return Meteor.user();
     }
-    /*
-    userSavedResources
-    userInfo
-    userXP
-    */
+
   }])
+  .config(config);
+
+function config($stateProvider) {
+  'ngInject';
+  $stateProvider.state('userPage', {
+    url: '/userPage',
+    template: '<user-page></user-page>'
+  });
+}

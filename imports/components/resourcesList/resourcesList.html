@@ -13,7 +13,7 @@
           <p class="res-type">{{res.type}}</p>
         </div>
         <div class="res-subject">
-          <span ng-repeat="sub in res.subject">{{sub.sName + ", "}}</span>
+          <span ng-repeat="sub in res.subject track by $index">{{sub.sName + ", "}}</span>
         </div>
         <hr/>
 

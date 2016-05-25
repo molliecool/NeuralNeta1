@@ -13,6 +13,7 @@ import authorization from '../imports/components/authorization/authorization';
 import login from '../imports/components/login/login';
 import register from '../imports/components/register/register';
 import password from '../imports/components/password/password';
+import userPage from '../imports/components/userPage/userPage';
 
 import '../imports/startup/accounts-config.js';
 
@@ -25,11 +26,11 @@ angular.module('neuralnet', [
   resourceDetail.name,
   resourceSubmit.name,
   uploadImage.name,
-  /*signUp.name,*/
   authorization.name,
   login.name,
   register.name,
 //  password.name,
+  userPage.name,
 ])
   .config(config);
 

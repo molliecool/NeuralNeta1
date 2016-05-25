@@ -21,8 +21,7 @@ export default angular.module('register', [
   .component('register', {
     templateUrl: `imports/components/register/register.html`,
   })
-  .controller('RegisterCtrl', ['$scope', function($scope, $state) {
-    this.$state = $state;
+  .controller('RegisterCtrl', ['$scope', '$state', function($scope, $state) {
 
     this.credentials = {
       email: '',
@@ -41,7 +40,7 @@ export default angular.module('register', [
           console.log(error.reason)
         }
         else {
-          this.$state.go('resourcesList');
+          $state.go('resourcesList');
         }
       });
     }

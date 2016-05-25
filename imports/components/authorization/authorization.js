@@ -7,6 +7,8 @@ import { login } from '../login/login';
 import { register } from '../register/register';
 import { password } from '../password/password';
 
+import { userPage } from '../userPage/userPage';
+
 import template from './authorization.html'
 
 class AuthorizationCtrl {
@@ -19,24 +21,24 @@ class AuthorizationCtrl {
 
 export default angular.module('authorization', [
   angularMeteor,
-//  login.name,
 ])
   .component('authorization', {
     templateUrl: 'imports/components/authorization/authorization.html',
   })
-  .controller('AuthorizationCtrl', ['$scope', function($scope) {
+  .controller('AuthorizationCtrl', ['$scope', '$state', function($scope, $state) {
       this.isLoggedIn = function() {
         return !!Meteor.userId();
       }
 
       this.currentUser = function() {
+        console.log(Meteor.user());
         return Meteor.user();
       }
 
       this.logout = function() {
-        console.log("logout called")
+
         Accounts.logout();
-        this.$state.go('/authorization');
+        $state.go('authorization');
       }
     }])
   .config(config);

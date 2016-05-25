@@ -22,9 +22,7 @@ export default angular.module('login', [
     templateUrl: `imports/components/login/login.html`,
 
   })
-  .controller('LoginCtrl', ['$scope', function($scope, $state) {
-    console.log($state + " from login");
-    this.$state = $state;
+  .controller('LoginCtrl', ['$scope', '$state', function($scope, $state) {
 
     this.credentials = {
       email: '',
@@ -35,15 +33,13 @@ export default angular.module('login', [
 
 
     this.login = function() {
-      console.log("loginWithPassword called");
       Meteor.loginWithPassword(this.credentials.email,
                                 this.credentials.password, function(error) {
-        console.log("login initiated")
         if(error) {
           console.log(error.reason);
         }
         else {
-          this.$state.go('resourcesList');
+          $state.go('resourcesList');
         }
       });
     }

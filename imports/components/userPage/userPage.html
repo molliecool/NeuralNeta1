@@ -1,1 +1,10 @@
 <div> user page here </div>
+
+<div ng-controller="UserPageCtrl as uPageCtrl">
+
+  <div>Your Points: {{ uPageCtrl.currentUser().userXP }} </div>
+  <div ng-repeat="res in uPageCtrl.currentUser().userFavoritedResources">
+    <div>{{res.name}}</div>
+  </div>
+
+</div>

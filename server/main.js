@@ -4,17 +4,46 @@
 import { Accounts } from 'meteor/accounts-base';
 import { Resources } from '../imports/api/resources.js';
 import '../imports/api/images/images.js';
-///import '../imports/startup/tempData.json'
-
-
 
 //customize user creation - build schema?
 
 Accounts.onCreateUser(function(options,user) {
-  
+  var uXP = 0;
+  var uFavoritedResources = [];
+  user.userXP = 0;
 
+  console.log(user.userXP);
 
+  Meteor.users.update(user, {
+
+    $set: {
+      userXP: uXP,
+      userFavoritedResources: uFavoritedResources,
+    }
+  });
+
+  return user;
 })
+
+
+Meteor.publish('Meteor.users.userXP', function ({ userIds }) {
+  // Validate the arguments to be what we expect
+  new SimpleSchema({
+    userIds: { type: [String] }
+  }).validate({ userIds });
+
+  // Select only the users that match the array of IDs passed in
+  const selector = {
+    _id: { $in: userIds }
+  };
+
+  // Only return one field, `initials`
+  const options = {
+    fields: { userXP: 1 }
+  };
+
+  return Meteor.users.find(selector, options);
+});
 
 
 
