@@ -2,21 +2,23 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
+import { Accounts } from 'meteor/accounts-base';
+
 import template from './userPage.html'
+
 
 class UserPageCtrl {
   constructor($scope) {
     $scope.viewModel(this);
-
-
-
     this.helpers({
-      /*currentUser() {
-        return Meteor.user();
-      }*/
     })
   }
 }
+
+Deps.autorun(function() {
+  Meteor.subscribe('userXP');
+})
+
 
 export default angular.module('userPage', [
   angularMeteor,
@@ -25,10 +27,20 @@ export default angular.module('userPage', [
   templateUrl: 'imports/components/userPage/userPage.html',
 })
   .controller('UserPageCtrl', ['$scope', function($scope) {
-    console.log("does this ever get called");
+
 
     this.currentUser = function() {
       return Meteor.user();
+    }
+
+  
+    this.userXP = function() {
+      var temp = Meteor.user().userXP;
+
+      console.log(temp);
+      console.log(Meteor.user());
+
+      return temp;
     }
 
   }])

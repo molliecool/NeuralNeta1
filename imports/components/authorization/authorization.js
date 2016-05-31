@@ -31,7 +31,6 @@ export default angular.module('authorization', [
       }
 
       this.currentUser = function() {
-        console.log(Meteor.user());
         return Meteor.user();
       }
 

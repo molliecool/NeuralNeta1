@@ -2,7 +2,7 @@
 
 <div ng-controller="UserPageCtrl as uPageCtrl">
 
-  <div>Your Points: {{ uPageCtrl.currentUser().userXP }} </div>
+  <div>Your Points: {{ uPageCtrl.userXP() }} </div>
   <div ng-repeat="res in uPageCtrl.currentUser().userFavoritedResources">
     <div>{{res.name}}</div>
   </div>

@@ -6,7 +6,7 @@
   <md-list class="masonry">
     <md-list-item ng-repeat="res in $ctrl.resources" class="brick">
         <img ng-src="{{res.image}}"/>
-        <h2 class="res-name">{{res.name}}</h2>
+        <h2 class="res-name">{{res.Title}}</h2>
         <div class="res-header">
 
 
@@ -19,7 +19,7 @@
 
         <div class="clearfix"></div>
         <div class = "res-text">
-          <p class="res-summary">{{res.shortDescription}}</p>
+          <p class="res-summary">{{res.Summary}}</p>
 
         </div>
           <hr/>

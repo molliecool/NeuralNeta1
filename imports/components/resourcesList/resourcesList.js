@@ -1,6 +1,8 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+
 import { Resources } from '../../api/resources.js';
+import { Accounts } from 'meteor/accounts-base';
 
 import template from './resourcesList.html';
 
@@ -17,12 +19,17 @@ class ResourcesListCtrl {
       },
 
       toggleFavorite() {
-        console.log("clicked favorite");
+        
         //this.isFavorite = !this.isFavorite;
       },
     });
   }
 }
+
+Deps.autorun(function() {
+  Meteor.subscribe('resources');
+})
+
 
 export default angular.module("resourcesList", [
   angularMeteor,

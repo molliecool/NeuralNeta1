@@ -3,8 +3,8 @@
   <md-button flex ui-sref="login" ng-hide="authCtrl.isLoggedIn()">Login</md-button>
   <md-button flex ui-sref="register" ng-hide="authCtrl.isLoggedIn()">Sign up</md-button>
   <md-button flex ng-click="authCtrl.logout()" ng-show="authCtrl.isLoggedIn()">Logout</md-button>
-  <div ng-show="authCtrl.isLoggedIn()">{{ authCtrl.currentUser().emails[0].address }}</div>
-  <div ng-show="authCtrl.isLoggedIn()">
+  <div ng-if="authCtrl.isLoggedIn()">{{ authCtrl.currentUser().emails[0].address }}</div>
+  <div ng-if="authCtrl.isLoggedIn()">
     <user-page></user-page>
   </div>
 </div>

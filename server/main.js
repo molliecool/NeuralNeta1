@@ -26,528 +26,344 @@ Accounts.onCreateUser(function(options,user) {
 })
 
 
-Meteor.publish('Meteor.users.userXP', function ({ userIds }) {
-  // Validate the arguments to be what we expect
-  new SimpleSchema({
-    userIds: { type: [String] }
-  }).validate({ userIds });
+Meteor.publish('userXP', function () {
+  if(!this.userId) return null;
 
-  // Select only the users that match the array of IDs passed in
-  const selector = {
-    _id: { $in: userIds }
-  };
-
-  // Only return one field, `initials`
-  const options = {
-    fields: { userXP: 1 }
-  };
-
-  return Meteor.users.find(selector, options);
+  return Meteor.users.find(this.userId, {fields: {'userXP': 1,}});
 });
 
-
-
-
-/*
+Meteor.publish('resources', function () {
+  //if(!this.userId) return null;
+  return Resources.find({});
+});
 
 
 if(Resources.find().count() === 0) {
   console.log("mongo db empty");
   var data = [
-    {
-  "name": "Operation Neptune",
-  "shortDescription": "Operation Neptune is an educational computer game produced in 1991 by The Learning Company. The goal of the game is to guide a small submarine through a variety of undersea caverns, collecting pieces of a ruined space capsule. (wikipedia)",
-  "fullDescription": "The back story of the game is as follows: A team of astronauts and scientists have begun a secret research project on a distant planet. The research team's results were sent back to Earth on the Galaxy space capsule, which malfunctioned, crashed into the ocean, and broke into many pieces. The capsule included several data canisters, each of which contains small snippets of the scientists' story, which is revealed to the player as the game progresses and data canisters are found. The capsule also contained some toxic chemicals, which have begun to leak out and threaten the health of the world's sea life. A recovery mission, codenamed Operation Neptune, is sent to recover the pieces of the capsule. The game is divided into five zones:[4] Dragon Reef, Fossil Trench, Limestone Ridge, Sea Forest, and Hammerhead. Each zone contains three levels, called sectors (although the hammerhead zone also has a final sector, where there are no maths problems, but one hit from a sea creature will send the player back to the start). At the end of each sector, the submarine approaches an undersea supply station. There are two completely unique sets of levels, Voyager and Expert, each with a different story that is recovered along the way. The player pilots the submarine, named the Neptune. Throughout the game, elementary school-level mathematics problems are posed, in the form of scientific situations that might concern a submarine pilot in real life. (For example, the sub's ballast may need adjusting, and this becomes an arithmetic problem.) In each sector the player will face three randomly placed math problems, as well as one problem to open that sector's data canister, and another to open the combination lock on the supply station.The box cover illustration rendered by Marc Ericksen envisions the Neptune submarine recovery vehicle hovering above the basin of Fossil Trench recovering glowing toxic data capsules. (wikipedia)",
-  "type": "game",
-  "subject": [
-      { "_id": "0001", "sName": "Math" },
-    ],
-  "ages": "elementary",
-  "image": "temp-resources/operationneptune.gif",
-  "whereToFind": "",
-},
   {
-  "name": "Test",
-  "shortDescription": "Test",
-  "fullDescription": "Test",
-  "platform": [
-      { "_id": "0001", "sName": "PC" },
-      { "_id": "0002", "sName": "iOS" },
-      { "_id": "0003", "sName": "Android" },
-      { "_id": "0004", "sName": "Wii U" },
-      { "_id": "0004", "sName": "Xbox" },
-      { "_id": "0004", "sName": "Playstation" },
-      { "_id": "0004", "sName": "Nintendo DS" },
-    ],
-  "type": "test",
-  "subject": [
-      { "_id": "0001", "sName": "Math" },
-      { "_id": "0002", "sName": "History" },
-      { "_id": "0003", "sName": "Science" },
-      { "_id": "0004", "sName": "Health" },
-    ],
-  "ages": "test",
-  "image": "temp-resources/happyorange.png",
-  "whereToFind": "everywhere",
-},
+     "Type":"game"
+    ,"Title":"Concussion Game"
+    ,"Location":"https://www.superbetter.com/"
+    ,"Platform":"iOS, Android"
+    ,"Recommended Ages":"All ages"
+    ,"Summary":""
+    ,"Description":"SuperBetter increases resilience - the ability to stay strong, motivated and optimistic even in the face of difficult obstacles. Playing SuperBetter makes you more capable of getting through any tough situation—and more likely to achieve the goals that matter most to you. Proven results in just 10 minutes a day."
+    ,"Subjects":""
+  },
   {
-  "name": "Oregon Trail",
-  "shortDescription": "The Oregon Trail is a computer game originally developed in 1971. The player assumes the role of a wagon leader guiding his or her party of settlers from Independence, Missouri, to Oregon's Willamette Valley. (wikipedia)",
-  "fullDescription": "Hunting An important aspect of the game was the ability to hunt. Using guns and bullets bought over the course of play, players select the hunt option,#8, and hunt wild animals to add to their food reserves. In the original version, there were no graphics and players were timed on how fast they could type BANG, WHAM, or POW, with misspelled words resulting in a failed hunt. In the first full-graphics version, players controlled a little man who could aim a rifle in one of eight directions and fire single shots at animals. In later versions, players hunted with a cross-hair controlled by the mouse. Bison were the slowest moving targets and yielded the most food, while rabbits and squirrels were fast and offered very small amounts of food. Deer (eastern section) and elk (western section) were in the middle in terms of speed, size, and food yield; bears were between bison and deer in all three properties. While the amount of wild game shot during a hunting excursion is limited by only the player's supply of bullets, the maximum amount of meat that can be carried back to the wagon is 100 pounds in early versions of the game. In later versions, as long as there were at least two living members of the wagon party, 200 pounds could be carried back to the wagon. In the later version, players could hunt in different environments. For example, hunting during winter would result in graphics showing grass covered in snow. In later versions, the over-hunting of animals would result in scarcity and reduce the amount of animals that appeared later in the game. Death  Throughout the course of the game, members of the player's party could fall ill and not rest, causing further harm to the victim. The party could die from various causes, such as measles, snakebite, dysentery, typhoid, cholera, and exhaustion. People could also die from drowning or accidental gunshot wounds. The player's oxen were also subject to illness and death. In the Oregon Trail 2/OT2 for PC and later releases, when a member of the player's party dies, the player has the option of conducting a brief funeral: If the player elects to do so (as the game's instructions and in-game advisers strongly recommend in all but the very harshest environments), the player may write a tombstone epitaph for the party member before continuing down the trail; if the player declines to hold a funeral, the party suffers a severe blow to morale. Scoring At the conclusion of the journey, a player's score is determined in two stages. In the first stage, the program awards a raw or unscaled number of points for each remaining family member (weighted by party health), each remaining possession (weighted by type), and remaining cash on hand (one point per dollar). In the second stage, the program multiplies this raw score by a degree of difficulty scalar corresponding to the party's initial level of resources (determined in-game by the profession of the party's leader); for example, in the Apple IIe game, a banker starting with $1600.00 receives no bonus, the final score of a carpenter starting with $800.00 is doubled, and the final score of a farmer starting with $400.00 is tripled. (wikipedia)",
-  "type": "game",
-  "subject": [
-      { "_id": "0002", "sName": "History" },
-    ],
-  "ages": "elementary",
-  "image": "temp-resources/oregontrail.jpg",
-  "whereToFind": "where?",
-},
+     "Type":"videos"
+    ,"Title":"The Great Courses"
+    ,"Location":"http://www.thegreatcourses.com/"
+    ,"Platform":"website videos - paid"
+    ,"Recommended Ages":""
+    ,"Summary":""
+    ,"Description":""
+    ,"Subjects":""
+  },
   {
-  "name": "Zoo Tychoon",
-  "shortDescription": "Test",
-  "fullDescription": "Test",
-  "platform": [
-      { "_id": "0001", "sName": "PC" },
-      { "_id": "0004", "sName": "Xbox" },
-    ],
-  "type": "Digital Game",
-  "subject": [
-      { "_id": "0001", "sName": "Math" },
-      { "_id": "0002", "sName": "History" },
-      { "_id": "0003", "sName": "Science" },
-      { "_id": "0004", "sName": "Health" },
-    ],
-  "ages": "All Ages",
-  "image": "temp-resources/happyorange.png",
-  "whereToFind": "everywhere",
-},
-    {
-    "name": "Concussion Game",
-    "shortDescription": "A game that helps concussion sufferers improve their coordination.",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-      ],
-    "type": "Digital Game",
-    "subject": [
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "All Ages",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "https://www.superbetter.com/",
+     "Type":"game"
+    ,"Title":"Gambit Labs"
+    ,"Location":"http://gambit.mit.edu/index.php"
+    ,"Platform":""
+    ,"Recommended Ages":""
+    ,"Summary":"There are tons here, need to be broken out individually"
+    ,"Description":""
+    ,"Subjects":""
   },
-    {
-    "name": "Civilization",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "Digital Game",
-    "subject": [
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0005", "sName": "Critical Thinking" },
-      ],
-    "ages": "12 and Up",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Minecraft"
+    ,"Location":"http://education.minecraft.net/"
+    ,"Platform":"PC"
+    ,"Recommended Ages":""
+    ,"Summary":""
+    ,"Description":"Minecraft encourages millions of players to create, explore, and discover. We want to bring that passion into the classroom. Join us as we create a Minecraft built for learning"
+    ,"Subjects":""
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"ScribbleNauts"
+    ,"Location":""
+    ,"Platform":"3DS, Wii U, PC"
+    ,"Recommended Ages":""
+    ,"Summary":""
+    ,"Description":"5th Cell takes a step forward towards creating a balance between education and gameplay with Scribblenauts. The puzzle game makes an attempt to expand your vocabulary by encouraging you to use different words to solve things, but it also has a cutesy, gamer-y element of using those words in a video game manner. We haven’t seen something like that since the typing games of old like Mavis Beacon, who blend game activities with letter-typing reflex."
+    ,"Subjects":"English, Art"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Oregon Trail"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"Elementary, grades 3 - 6"
+    ,"Summary":"A PC game where students travel and experience the difficulties of travelling the Oregon Trail"
+    ,"Description":"The Oregon Trail is a computer game originally developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger in 1971 and produced by the Minnesota Educational Computing Consortium (MECC) in 1974. The original game was designed to teach school children about the realities of 19th century pioneer life on the Oregon Trail. The player assumes the role of a wagon leader guiding his or her party of settlers from Independence, Missouri, to Oregon's Willamette Valley on the Oregon Trail via a covered wagon in 1848. The game is the first entry in the Oregon Trail series of games, and has since been released in many editions by various developers and publishers who have acquired rights to it, as well as inspiring a number of spinoffs (such as The Yukon Trail and The Amazon Trail) and the parody The Organ Trail."
+    ,"Subjects":"History, Geography"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Zoo Tycoon"
+    ,"Location":""
+    ,"Platform":"PC, XBox360, XBox One"
+    ,"Recommended Ages":"Everyone"
+    ,"Summary":"A series of games where you manage a zoo"
+    ,"Description":"Zoo Tycoon is a series of business simulation video games. The games focus around building and running successful zoo scenarios. The series was initially developed by Blue Fang Games and published by Microsoft Studios who later in 2001-2008 went on to create two stand-alone video games and seven expansion packs for PC and Macintosh platforms. With their contract with Microsoft ending in 2009, Blue Fang announced their official forums would close to incoming posts in June of 2008.[1] In 2013, Microsoft Studios released a new Zoo Tycoon game, developed by Frontier Developments exclusively for Xbox One and Xbox 360 in 2013. https://en.wikipedia.org/wiki/Zoo_Tycoon_(series)"
+    ,"Subjects":"Math, Economics"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"https://en.wikipedia.org/wiki/Professor_Layton"
+    ,"Location":""
+    ,"Platform":""
+    ,"Recommended Ages":""
+    ,"Summary":""
+    ,"Description":""
+    ,"Subjects":""
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Civilization Series"
+    ,"Location":"http://www.civilization.com/en/home/"
+    ,"Platform":"All"
+    ,"Recommended Ages":"Everyone"
+    ,"Summary":"A series of turn based strategy games."
+    ,"Description":"Civilization is the game that lets you match wits with history’s greatest leaders. You start at the dawn of recorded history – 4,000 B.C., and the founding of the first cities – then nurture your society toward the Space Age. In the beginning, you’ll labor to simply survive while building your settlements, discovering new technologies and fending off barbarians. As your empire prospers, you’ll face competing civilizations guided by history’s most legendary figures: Alexander the Great, Napoleon, Genghis Khan, Julius Caesar and more. You’ll test your capacity for expansion and domination and your ability to outwit and outmaneuver those cunning and brilliant leaders."
+    ,"Subjects":"Reading, Critical Thinking"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Braid"
+    ,"Location":"http://store.steampowered.com/app/26800/"
+    ,"Platform":"PC, XBox360"
+    ,"Recommended Ages":"Everyone"
+    ,"Summary":"A man named Tom must solve various puzzles involving time manipulation to save his princess."
+    ,"Description":"Braid is a puzzle-platformer, drawn in a painterly style, where you can manipulate the flow of time in strange and unusual ways. From a house in the city, journey to a series of worlds and solve puzzles to rescue an abducted princess. http://store.steampowered.com/app/26800/"
+    ,"Subjects":"Critical Thinking"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"The Witness"
+    ,"Location":"http://store.steampowered.com/app/210970/"
+    ,"Platform":"PC"
+    ,"Recommended Ages":"Everyone"
+    ,"Summary":"You wake up on an island with no idea who you are, how you got there, and a ton of puzzles to solve."
+    ,"Description":"The Witness is a single-player game in an open world with dozens of locations to explore and over 500 puzzles. This game respects you as an intelligent player and it treats your time as precious. There's no filler; each of those puzzles brings its own new idea into the mix. So, this is a game full of ideas. http://store.steampowered.com/app/210970/"
+    ,"Subjects":"Critical Thinking"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Brain Age"
+    ,"Location":""
+    ,"Platform":"DS, 3DS"
+    ,"Recommended Ages":"Everyone"
+    ,"Summary":"A series of minigames to challenge your brain."
+    ,"Description":"Activities include quickly solving simple math problems & counting people going in and out of a house simultaneously\nDraw pictures on the Touch Screen, or read classic literature out loud\nPlay Sudoku, the popular number puzzle game"
+    ,"Subjects":"Math, English, Brain Training"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Garage Band"
+    ,"Location":"http://www.apple.com/mac/garageband/"
+    ,"Platform":"OS X"
+    ,"Recommended Ages":"Everyone"
+    ,"Summary":"A tool for creating and editing music. It includes music lessons."
+    ,"Description":"GarageBand is a whole music creation studio right inside your Mac — with a complete sound library that includes software instruments, presets for guitar and voice, and virtual session drummers. An intuitive interface makes it easy to learn, play, record, create, and share your hits worldwide. It’s never been easier to make music like a pro."
+    ,"Subjects":"Music"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Rocksmith"
+    ,"Location":"http://rocksmith.ubi.com/rocksmith/en-us/home/"
+    ,"Platform":"PC, Xbox 360, PS3"
+    ,"Recommended Ages":"Teen"
+    ,"Summary":"A game that teaches you how to play guitar."
+    ,"Description":"Plug any electric guitar or bass into your PC, Mac, Xbox One, Xbox 360, PlayStation® 4 system or PlayStation® 3 system, and join over 3 million people who have learned to play guitar with award-winning Rocksmith method. Learn to play guitar in 60 days. Get started, now!"
+    ,"Subjects":"Music"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Depression Quest"
+    ,"Location":"http://www.depressionquest.com/"
+    ,"Platform":"PC, OS X, Linux"
+    ,"Recommended Ages":"Teen"
+    ,"Summary":"A game that simulates living with Depression."
+    ,"Description":"Depression Quest is an interactive fiction game where you play as someone living with depression. You are given a series of everyday life events and have to attempt to manage your illness, relationships, job, and possible treatment. This game aims to show other sufferers of depression that they are not alone in their feelings, and to illustrate to people who may not understand the illness the depths of what it can do to people. \n"
+    ,"Subjects":"Mental Health"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Typing of The Dead"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Elementary Grades 3+"
+    ,"Summary":"A series of games where you defeat zombies by typing words and sentences."
+    ,"Description":"The Typing of the Dead is a modification of Sega's 1998 light gun arcade game The House of the Dead 2 in which the gun is replaced by a computer keyboard. The player takes the role of a secret agent in a zombie-infested Venice and must quickly type letters, words and phrases in order to kill fast-advancing enemies.\nDespite falling under the criteria of \"edutainment\", the game was lauded by mainstream game critics for its humor, difficulty and originality. The PC version of The Typing of the Dead sold 120,000 units in 2003 https://en.wikipedia.org/wiki/The_Typing_of_the_Dead"
+    ,"Subjects":"English, Typing"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Reader Rabbit series"
+    ,"Location":""
+    ,"Platform":"PC, Wii"
+    ,"Recommended Ages":"*Elementary 1-3"
+    ,"Summary":"A series of games that teaches math and reading skills through minigames"
+    ,"Description":"The first game in the series taught language arts, featuring a variety of simple games designed to teach schoolchildren basic reading and spelling skills. Originally, the title character's name was changed to reflect a change in subject, as with Math Rabbit, but it has apparently since been decided to retain the character's original name regardless of the subject area covered by a particular game."
+    ,"Subjects":"Math, Reading"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Math Blaster series"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Elementary 1-6"
+    ,"Summary":"A series of games where you help an alien save the planet by solving math problems."
+    ,"Description":"The Blaster Learning System is an educational video game series originally created by Davidson, but is now owned by Knowledge Adventure. Titles in the series have been produced for various computer systems, video game consoles, and as stand-alone handheld units. Originally, the series simply taught mathematics, but eventually expanded to other subjects, such as language arts (reading) and science. Due to the popularity of the original Math Blaster series, Davidson introduced Reading Blaster in 1994, which also went on to become successful. A Science Blaster was introduced 1996, but did not reach the same popularity as its predecessors. https://en.wikipedia.org/wiki/Blaster_Learning_System"
+    ,"Subjects":"Math"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Operation Neptune"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Elementary Grades 4+"
+    ,"Summary":"A game where you explore the ocean and make progress by solving challenging math problems."
+    ,"Description":"A team of astronauts and scientists have begun a secret research project on a distant planet. The research team's results were sent back to Earth on the \"Galaxy space capsule\", which malfunctioned, crashed into the ocean, and broke into many pieces. The capsule included several data canisters, each of which contains small snippets of the scientists' story, which is revealed to the player as the game progresses and data canisters are found. The capsule also contained some toxic chemicals, which have begun to leak out and threaten the health of the world's sea life. A recovery mission, codenamed Operation Neptune, is sent to recover the pieces of the capsule. https://en.wikipedia.org/wiki/Operation_Neptune_(video_game)"
+    ,"Subjects":"Math"
   },
-    {
-    "name": "Test",
-    "shortDescription": "Test",
-    "fullDescription": "Test",
-    "platform": [
-        { "_id": "0001", "sName": "PC" },
-        { "_id": "0002", "sName": "iOS" },
-        { "_id": "0003", "sName": "Android" },
-        { "_id": "0004", "sName": "Wii U" },
-        { "_id": "0004", "sName": "Xbox" },
-        { "_id": "0004", "sName": "Playstation" },
-        { "_id": "0004", "sName": "Nintendo DS" },
-      ],
-    "type": "test",
-    "subject": [
-        { "_id": "0001", "sName": "Math" },
-        { "_id": "0002", "sName": "History" },
-        { "_id": "0003", "sName": "Science" },
-        { "_id": "0004", "sName": "Health" },
-      ],
-    "ages": "test",
-    "image": "temp-resources/happyorange.png",
-    "whereToFind": "everywhere",
+  {
+     "Type":"game"
+    ,"Title":"Mario's Early Years"
+    ,"Location":""
+    ,"Platform":"PC, SNES"
+    ,"Recommended Ages":"*Preschool-Grade 1"
+    ,"Summary":"Characters from the Super Mario series teach children basic math and reading."
+    ,"Description":""
+    ,"Subjects":"Math, Reading"
   },
-];
+  {
+     "Type":"game"
+    ,"Title":"Myst"
+    ,"Location":""
+    ,"Platform":"All"
+    ,"Recommended Ages":"Everyone"
+    ,"Summary":"A series of games where the story unfolds via solving puzzles"
+    ,"Description":"Myst is a graphic adventure puzzle video game designed and directed by the brothers Robyn and Rand Miller. It was developed by Cyan, Inc., published by Brøderbund, and initially released on the Macintosh platform on September 24, 1993. https://en.wikipedia.org/wiki/Myst"
+    ,"Subjects":"Critical Thinking"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Carmen Sandiego"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Elementary Grades 3+"
+    ,"Summary":"A series of games where you solve extraordinary thefts using geography and history skills."
+    ,"Description":""
+    ,"Subjects":"History, Geography"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Clue Finders"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"Elementary Grades 3-6"
+    ,"Summary":"A series of games where a group of kids solve various mysteries using problem solving skills."
+    ,"Description":"The ClueFinders is a series of Edutainment Games from The Learning Company in which the eponymous Kid Heroes have Scooby-Doo type exploits."
+    ,"Subjects":"Math, Reading, Critical Thinking"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Sesame Street ABC/123"
+    ,"Location":""
+    ,"Platform":"PC, NES"
+    ,"Recommended Ages":"*Preschool-Grade 1"
+    ,"Summary":"The characters from Sesame street teach young children basic reading, math, and problem solving through a series of minigames."
+    ,"Description":"Sesame Street: ABC/123 is an Edutainment game, developed by Rare Ltd. and published by Hi-Tech, which was released in 1991. http://www.amazon.com/Sesame-Street-ABC-Nintendo-Entertainment-System/dp/B003ACHV70"
+    ,"Subjects":"Math, Reading, Critical Thinking"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Donald's Alphabet Chase"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Preschool-Grade 1"
+    ,"Summary":"A game where you help Donald Duck find the letters of the alphabet scattered throughout his home."
+    ,"Description":"The letters of the alphabet got out of Donald Duck's toybox and are scattered throughout his home. You must use your reading and problem solving skills to get them back."
+    ,"Subjects":"English"
+  },
+  {
+     "Type":"game"
+    ,"Title":"3D Dinosaur Adventure"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Elementary"
+    ,"Summary":"A series of minigames where you encounter and learn about dinosaurs"
+    ,"Description":""
+    ,"Subjects":"History, Science"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Plague Inc."
+    ,"Location":"http://www.ndemiccreations.com/en/22-plague-inc"
+    ,"Platform":"PC, iOS, Android"
+    ,"Recommended Ages":"*Grades 6+"
+    ,"Summary":"A Risk style strategy game where you attempt to wipe out humanity with a deadly disease."
+    ,"Description":"Can you infect the world? Plague Inc. is a unique mix of high strategy and terrifyingly realistic simulation with over 700 million games played!\nYour pathogen has just infected 'Patient Zero'. Now you must bring about the end of human history by evolving a deadly, global Plague whilst adapting against everything humanity can do to defend itself.\n\nBrilliantly executed with innovative gameplay and built from the ground up for the iPhone, iPad, Android & Windows Phone, Plague Inc. evolves the strategy genre and pushes mobile gaming (and you) to new levels. It’s You vs. the world - only the strongest can survive!"
+    ,"Subjects":"Critical Thinking, Science, Geography"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Mixed-Up Mother Goose"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Preschool-Grades 1-3"
+    ,"Summary":"A game where you go around as a small child fixing nursery rhymes."
+    ,"Description":"The storyline of the game is very simple, as is common in games for children. One night, while preparing for bed, a child (which is the player's avatar) is sent into the dreamlike world of Mother Goose, who desperately needs his or her help. All the nursery rhymes in the land have gotten mixed up, with none of the inhabitants possessing the items necessary for their rhyme to exist. And so, the child will find themselves helping Humpty Dumpty find a ladder to scramble onto a wall, bringing the little lamb back to Mary and seeking out a pail for Jack and Jill, among others. https://en.wikipedia.org/wiki/Mixed-Up_Mother_Goose"
+    ,"Subjects":"English"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Sim City"
+    ,"Location":"http://www.ea.com/sim-city"
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Grades 4+"
+    ,"Summary":"A series of simulation games where you build and manage a city."
+    ,"Description":"In SimCity, the player is given the task of founding and developing a city, while maintaining the happiness of the citizens and keeping a stable budget. https://en.wikipedia.org/wiki/SimCity"
+    ,"Subjects":"Economics, Politics"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Super Seekers Series"
+    ,"Location":""
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Elementary"
+    ,"Summary":"A series of puzzle adventure games that challenge your reading and math skills."
+    ,"Description":"A series of side scrolling, adventure puzzle games by the Learning Company. The Master of Mischief makes, well, mischief in each game and the Super Seeker must foil his scheme via solving math and reading puzzles."
+    ,"Subjects":"Math, English"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Word Rescue"
+    ,"Location":"http://store.steampowered.com/app/358340/"
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Elementary Grades 1-3"
+    ,"Summary":"A game where you find letters to spell out words with the help of a book worm."
+    ,"Description":"This is an engrossing educational game with vivid EGA/VGA graphics and support for Adlib and Sound Blaster. Using the Duke Nukem graphical system, Word Rescue has state-of-the-art dual-screen scrolling graphics similar to what's seen on the Super Nintendo and Sega Genesis home gaming systems. Even \"grown-ups\" will like Word Rescue! \n\nPlay as either a girl or a boy. Visit amazing locations on your word-finding adventure, as you hunt for missing words. Dark caves, rocky cliffs, deserts, happy towns, haunted houses, funny factories and creepy dungeons are just some of the places you'll explore."
+    ,"Subjects":"English"
+  },
+  {
+     "Type":"game"
+    ,"Title":"Dungeon Keeper"
+    ,"Location":"https://www.gog.com/game/dungeon_keeper"
+    ,"Platform":"PC"
+    ,"Recommended Ages":"*Grades 6+"
+    ,"Summary":"A series of games where you build dungeons to corrupt cities"
+    ,"Description":"Dungeon Keeper is a strategy video game developed by Bullfrog Productions and released by Electronic Arts in July 1997 for DOS. In Dungeon Keeper, the player builds and manage a dungeon while protecting it from invading 'hero' characters intent on stealing the player's accumulated treasures and killing various monsters. https://en.wikipedia.org/wiki/Dungeon_Keeper"
+    ,"Subjects":"Critical Thinking"
+  }];
 
  for(var i=0; i<data.length; i++) {
     Resources.insert(data[i]);
   }
 
 }
-*/
