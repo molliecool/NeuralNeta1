@@ -2,35 +2,37 @@
 
 </header>
 
-<md-content flex id="content">
-  <md-list class="masonry">
-    <md-list-item ng-repeat="res in $ctrl.resources" class="brick">
-        <img ng-src="{{res.image}}"/>
-        <h2 class="res-name">{{res.Title}}</h2>
-        <div class="res-header">
+<div ng-controller="ResourcesListCtrl as ctrl">
+  <md-content flex id="content">
+    <md-list class="masonry">
+      <md-list-item ng-repeat="res in ctrl.resources" class="brick">
+          <img ng-src="{{res.image}}"/>
+          <h2 class="res-name">filler title{{ res.Title }}</h2>
+          <div class="res-header">
 
 
-          <p class="res-type">{{res.type}}</p>
-        </div>
-        <div class="res-subject">
-          <span ng-repeat="sub in res.subject track by $index">{{sub.sName + ", "}}</span>
-        </div>
-        <hr/>
-
-        <div class="clearfix"></div>
-        <div class = "res-text">
-          <p class="res-summary">{{res.Summary}}</p>
-
-        </div>
+            <p class="res-type">{{res.type}}</p>
+          </div>
+          <div class="res-subject">
+            <span ng-repeat="sub in res.subject track by $index">{{sub.sName + ", "}}</span>
+          </div>
           <hr/>
-        <div class="res-favorite" >
-          <a href ng-click="res.toggleFavorite()">
-          <i class="material-icons">favorite</i>
-          <!--img src="{{res.isFavorite ? 'icon_favorite-4.png' : 'icon_favorite-2.png'}}" /-->
-          <!--input type="checkbox" ng-model="res.isFavorite" /-->
-        </a>
 
-    </div><!-- end res controller -->
-    </md-list-item>
-  </md-list>
-</md-content>
+          <div class="clearfix"></div>
+          <div class = "res-text">
+            <p class="res-summary">{{res.Summary}}</p>
+
+          </div>
+            <hr/>
+          <div class="res-favorite" >
+            <a href ng-click="res.toggleFavorite()">
+            <i class="material-icons">favorite</i>
+            <!--img src="{{res.isFavorite ? 'icon_favorite-4.png' : 'icon_favorite-2.png'}}" /-->
+            <!--input type="checkbox" ng-model="res.isFavorite" /-->
+          </a>
+
+      </div><!-- end res controller -->
+      </md-list-item>
+    </md-list>
+  </md-content>
+</div>

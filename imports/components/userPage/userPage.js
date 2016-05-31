@@ -33,14 +33,12 @@ export default angular.module('userPage', [
       return Meteor.user();
     }
 
-  
+
     this.userXP = function() {
-      var temp = Meteor.user().userXP;
-
-      console.log(temp);
-      console.log(Meteor.user());
-
-      return temp;
+      if(Meteor.user()) {
+        var temp = Meteor.user().userXP;
+        return temp;
+      }
     }
 
   }])

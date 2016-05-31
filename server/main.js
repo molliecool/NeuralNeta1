@@ -8,18 +8,19 @@ import '../imports/api/images/images.js';
 //customize user creation - build schema?
 
 Accounts.onCreateUser(function(options,user) {
-  var uXP = 0;
-  var uFavoritedResources = [];
+/*  var uXP = 0;
+  var uFavoritedResources = ['0021','3211'];*/
   user.userXP = 0;
+  user.favoritedResources = ['0021','3211'];
 
-  console.log(user.userXP);
+//  console.log(user.userXP);
 
   Meteor.users.update(user, {
 
-    $set: {
+  /*  $set: {
       userXP: uXP,
       userFavoritedResources: uFavoritedResources,
-    }
+    }*/
   });
 
   return user;

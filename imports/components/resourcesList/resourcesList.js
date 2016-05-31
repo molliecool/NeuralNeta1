@@ -14,14 +14,14 @@ class ResourcesListCtrl {
     //this.isFavorite = false;
 
     this.helpers({
-      resources() {
+      /*resources() {
         return Resources.find({});
-      },
+      },*/
 
-      toggleFavorite() {
-        
+      /*toggleFavorite() {
+
         //this.isFavorite = !this.isFavorite;
-      },
+      },*/
     });
   }
 }
@@ -36,15 +36,39 @@ export default angular.module("resourcesList", [
 ])
   .component('resourcesList', {
     templateUrl: 'imports/components/resourcesList/resourcesList.html',
-    controller: ['$scope', ResourcesListCtrl]
+  //  controller: ['$scope', ResourcesListCtrl]
   })
-/*  .controller('ResourcesListCtrl', ['$scope', function($scope) {
+  .controller('ResourcesListCtrl', ['$scope', function($scope) {
+/*
+    this.helpers({
+      resources() {
+        return Resources.find({});
+      }
+    });
+*/
+    //this.resources = Resources.find({});
+
+
+    this.getResource = function() {
+      console.log("resources called");
+      var temp = Resources.find({});
+    }
+
     this.toggleFavorite = function() {
       console.log("clicked favorite");
       this.isFavorite = !this.isFavorite;
+
+      if(this.isFavorite) {
+        //add to favorites array
+        //addFavorite(user,resourceID)
+      }
+      else {
+        //remove from favorites array
+        //removeFavorite(user, resourceID)
+      }
     }
 
-}])*/  .config(config);
+}])  .config(config);
 
 function config($stateProvider) {
   'ngInject';
