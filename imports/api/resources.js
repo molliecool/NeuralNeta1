@@ -1,6 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
+import { Accounts } from 'meteor/accounts-base';
+
 /*class ResourcesCollection extends Mongo.Collection {
 
 }*/
@@ -8,6 +10,14 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 export const Resources = new Mongo.Collection('Resources');
 
 
+Meteor.methods({
+  'addResource': function(test) {
+    console.log(test);
+    var currentUserId = Meteor.userId();
+    //Resources.update({_id: })
+    console.log(currentUserId);
+  }
+});
 
 /*      isBook: Boolean,
       isGame: Boolean,

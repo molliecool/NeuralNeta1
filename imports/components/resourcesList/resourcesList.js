@@ -4,6 +4,7 @@ import angularMeteor from 'angular-meteor';
 import { Resources } from '../../api/resources.js';
 import { Accounts } from 'meteor/accounts-base';
 
+
 import template from './resourcesList.html';
 
 class ResourcesListCtrl {
@@ -11,47 +12,60 @@ class ResourcesListCtrl {
     //console.log("list works");
     $scope.viewModel(this);
 
-    //this.isFavorite = false;
+
+    this.isFavorite = false;
 
     this.helpers({
-      /*resources() {
+      resources() {
         return Resources.find({});
-      },*/
-
-      /*toggleFavorite() {
-
-        //this.isFavorite = !this.isFavorite;
-      },*/
+      },
+      isFavorite() {
+        //return true if favorite found in list
+      }
     });
+
+    this.toggleFavorite = function(test) {
+      console.log(this.isFavorite);
+      this.isFavorite = !this.isFavorite;
+
+      Meteor.call('addResource', test);
+
+    //  Meteor.user().favoritedResources.push(test);  //i'm guessing i dont have permissiont to write
+      console.log(Meteor.user().favoritedResources);
+    }
   }
 }
 
 Deps.autorun(function() {
   Meteor.subscribe('resources');
+  Meteor.subscribe('favoritedResources')
 })
+
 
 
 export default angular.module("resourcesList", [
   angularMeteor,
+
 ])
   .component('resourcesList', {
     templateUrl: 'imports/components/resourcesList/resourcesList.html',
-  //  controller: ['$scope', ResourcesListCtrl]
+    controller: ['$scope', ResourcesListCtrl]
   })
-  .controller('ResourcesListCtrl', ['$scope', function($scope) {
-/*
+/*  .controller('ResourcesListCtrl', ['$scope', function($scope) {
+
     this.helpers({
       resources() {
         return Resources.find({});
       }
     });
-*/
+
     //this.resources = Resources.find({});
 
 
     this.getResource = function() {
       console.log("resources called");
       var temp = Resources.find({});
+      return temp;
     }
 
     this.toggleFavorite = function() {
@@ -68,7 +82,7 @@ export default angular.module("resourcesList", [
       }
     }
 
-}])  .config(config);
+}]) */ .config(config);
 
 function config($stateProvider) {
   'ngInject';

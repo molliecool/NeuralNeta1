@@ -33,6 +33,12 @@ Meteor.publish('userXP', function () {
   return Meteor.users.find(this.userId, {fields: {'userXP': 1,}});
 });
 
+Meteor.publish('favoritedResources', function () {
+  if(!this.userId) return null;
+
+  return Meteor.users.find(this.userId, {fields: {'favoritedResources': 1,}});
+});
+
 Meteor.publish('resources', function () {
   //if(!this.userId) return null;
   return Resources.find({});
