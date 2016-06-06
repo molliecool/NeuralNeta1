@@ -24,11 +24,11 @@ class ResourcesListCtrl {
       }
     });
 
-    this.toggleFavorite = function(test) {
+    this.toggleFavorite = function(resourceID) {
       console.log(this.isFavorite);
       this.isFavorite = !this.isFavorite;
 
-      Meteor.call('addResource', test);
+      Meteor.call('addResource', resourceID);
 
     //  Meteor.user().favoritedResources.push(test);  //i'm guessing i dont have permissiont to write
       console.log(Meteor.user().favoritedResources);

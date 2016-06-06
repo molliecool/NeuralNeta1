@@ -6,7 +6,7 @@
   <md-content flex id="content">
     <md-list class="masonry">
       <md-list-item ng-repeat="res in $ctrl.resources" class="brick">
-          <img ng-src="{{res.image}}"/>
+          <img ng-src="{{res.Image}}"/>
           <h2 class="res-name">{{ res.Title }}</h2>
           <div class="res-header">
 
@@ -25,9 +25,15 @@
           </div>
             <hr/>
           <div class="res-favorite" >
-            <a href ng-click="$ctrl.toggleFavorite(res.Title)">
+            <a href ng-click="$ctrl.toggleFavorite(res._id)">
             <i class="material-icons">favorite</i>
-            <!--img src="{{res.isFavorite ? 'icon_favorite-4.png' : 'icon_favorite-2.png'}}" /-->
+            <!--
+              check if favorite
+              if favorite, call remove favorite
+              display proper icon
+              if not favorite, call add favorite
+
+            img src="{{res.isFavorite ? 'icon_favorite-4.png' : 'icon_favorite-2.png'}}" /-->
             <!--input type="checkbox" ng-model="res.isFavorite" /-->
           </a>
 

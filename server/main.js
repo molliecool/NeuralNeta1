@@ -57,6 +57,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":""
     ,"Description":"SuperBetter increases resilience - the ability to stay strong, motivated and optimistic even in the face of difficult obstacles. Playing SuperBetter makes you more capable of getting through any tough situation—and more likely to achieve the goals that matter most to you. Proven results in just 10 minutes a day."
     ,"Subjects":""
+    ,"Image":""
   },
   {
      "Type":"videos"
@@ -67,6 +68,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":""
     ,"Description":""
     ,"Subjects":""
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -77,6 +79,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"There are tons here, need to be broken out individually"
     ,"Description":""
     ,"Subjects":""
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -84,9 +87,10 @@ if(Resources.find().count() === 0) {
     ,"Location":"http://education.minecraft.net/"
     ,"Platform":"PC"
     ,"Recommended Ages":""
-    ,"Summary":""
-    ,"Description":"Minecraft encourages millions of players to create, explore, and discover. We want to bring that passion into the classroom. Join us as we create a Minecraft built for learning"
+    ,"Summary":"Minecraft encourages millions of players to create, explore, and discover. We want to bring that passion into the classroom. Join us as we create a Minecraft built for learning"
+    ,"Description":""
     ,"Subjects":""
+    ,"Image":"temp-resources/minecraft_5.jpg"
   },
   {
      "Type":"game"
@@ -97,6 +101,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":""
     ,"Description":"5th Cell takes a step forward towards creating a balance between education and gameplay with Scribblenauts. The puzzle game makes an attempt to expand your vocabulary by encouraging you to use different words to solve things, but it also has a cutesy, gamer-y element of using those words in a video game manner. We haven’t seen something like that since the typing games of old like Mavis Beacon, who blend game activities with letter-typing reflex."
     ,"Subjects":"English, Art"
+    ,"Image":"temp-resources/scribblenauts-unlimited-wii-u-screenshot-2.jpg"
   },
   {
      "Type":"game"
@@ -107,6 +112,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A PC game where students travel and experience the difficulties of travelling the Oregon Trail"
     ,"Description":"The Oregon Trail is a computer game originally developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger in 1971 and produced by the Minnesota Educational Computing Consortium (MECC) in 1974. The original game was designed to teach school children about the realities of 19th century pioneer life on the Oregon Trail. The player assumes the role of a wagon leader guiding his or her party of settlers from Independence, Missouri, to Oregon's Willamette Valley on the Oregon Trail via a covered wagon in 1848. The game is the first entry in the Oregon Trail series of games, and has since been released in many editions by various developers and publishers who have acquired rights to it, as well as inspiring a number of spinoffs (such as The Yukon Trail and The Amazon Trail) and the parody The Organ Trail."
     ,"Subjects":"History, Geography"
+    ,"Image":"temp-resources/oregontrail2.jpg"
   },
   {
      "Type":"game"
@@ -117,6 +123,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games where you manage a zoo"
     ,"Description":"Zoo Tycoon is a series of business simulation video games. The games focus around building and running successful zoo scenarios. The series was initially developed by Blue Fang Games and published by Microsoft Studios who later in 2001-2008 went on to create two stand-alone video games and seven expansion packs for PC and Macintosh platforms. With their contract with Microsoft ending in 2009, Blue Fang announced their official forums would close to incoming posts in June of 2008.[1] In 2013, Microsoft Studios released a new Zoo Tycoon game, developed by Frontier Developments exclusively for Xbox One and Xbox 360 in 2013. https://en.wikipedia.org/wiki/Zoo_Tycoon_(series)"
     ,"Subjects":"Math, Economics"
+    ,"Image":"temp-resources/zoo-tycoon-5.jpg"
   },
   {
      "Type":"game"
@@ -127,6 +134,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":""
     ,"Description":""
     ,"Subjects":""
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -137,6 +145,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of turn based strategy games."
     ,"Description":"Civilization is the game that lets you match wits with history’s greatest leaders. You start at the dawn of recorded history – 4,000 B.C., and the founding of the first cities – then nurture your society toward the Space Age. In the beginning, you’ll labor to simply survive while building your settlements, discovering new technologies and fending off barbarians. As your empire prospers, you’ll face competing civilizations guided by history’s most legendary figures: Alexander the Great, Napoleon, Genghis Khan, Julius Caesar and more. You’ll test your capacity for expansion and domination and your ability to outwit and outmaneuver those cunning and brilliant leaders."
     ,"Subjects":"Reading, Critical Thinking"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -147,6 +156,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A man named Tom must solve various puzzles involving time manipulation to save his princess."
     ,"Description":"Braid is a puzzle-platformer, drawn in a painterly style, where you can manipulate the flow of time in strange and unusual ways. From a house in the city, journey to a series of worlds and solve puzzles to rescue an abducted princess. http://store.steampowered.com/app/26800/"
     ,"Subjects":"Critical Thinking"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -157,6 +167,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"You wake up on an island with no idea who you are, how you got there, and a ton of puzzles to solve."
     ,"Description":"The Witness is a single-player game in an open world with dozens of locations to explore and over 500 puzzles. This game respects you as an intelligent player and it treats your time as precious. There's no filler; each of those puzzles brings its own new idea into the mix. So, this is a game full of ideas. http://store.steampowered.com/app/210970/"
     ,"Subjects":"Critical Thinking"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -167,6 +178,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of minigames to challenge your brain."
     ,"Description":"Activities include quickly solving simple math problems & counting people going in and out of a house simultaneously\nDraw pictures on the Touch Screen, or read classic literature out loud\nPlay Sudoku, the popular number puzzle game"
     ,"Subjects":"Math, English, Brain Training"
+    ,"Image":""
   },
   {
      "Type":"game"

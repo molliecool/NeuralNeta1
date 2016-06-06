@@ -11,11 +11,14 @@ export const Resources = new Mongo.Collection('Resources');
 
 
 Meteor.methods({
-  'addResource': function(test) {
-    console.log(test);
+  //add resource id to users list of favorited Resources
+  'addResource': function(resourceID) {
     var currentUserId = Meteor.userId();
-    //Resources.update({_id: })
-    console.log(currentUserId);
+    Meteor.users.update({_id: currentUserId},{$push: { favoritedResources: resourceID }});
+  }
+
+  'isFavorite': function(resourceID) {
+
   }
 });
 
