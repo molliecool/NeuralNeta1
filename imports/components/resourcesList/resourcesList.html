@@ -26,14 +26,8 @@
             <hr/>
           <div class="res-favorite" >
             <a href ng-click="$ctrl.toggleFavorite(res._id)">
-            <i class="material-icons">favorite</i>
-            <!--
-              check if favorite
-              if favorite, call remove favorite
-              display proper icon
-              if not favorite, call add favorite
-
-            img src="{{res.isFavorite ? 'icon_favorite-4.png' : 'icon_favorite-2.png'}}" /-->
+            <!--i class="material-icons">favorite</i-->
+            <img ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
             <!--input type="checkbox" ng-model="res.isFavorite" /-->
           </a>
 

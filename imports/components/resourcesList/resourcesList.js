@@ -13,24 +13,44 @@ class ResourcesListCtrl {
     $scope.viewModel(this);
 
 
-    this.isFavorite = false;
+    //this.isFavorite = false;
 
     this.helpers({
       resources() {
         return Resources.find({});
       },
-      isFavorite() {
-        //return true if favorite found in list
-      }
     });
+    this.isFavorite = function(resourceID) {
+      var flag = false;
+      for(res in Meteor.user().favoritedResources) {
+        //console.log(Meteor.user().favoritedResources[res]);
+        if(resourceID === Meteor.user().favoritedResources[res]) {
+          console.log("flag");
+          flag = true;
+          break;
+        }
+      }
+      
+      if(flag) {
+        console.log("is favorite");
+        return true;
+      }
+      else {
+        console.log("not favorite");
+        return false;
+      }
+    }
 
     this.toggleFavorite = function(resourceID) {
-      console.log(this.isFavorite);
-      this.isFavorite = !this.isFavorite;
 
-      Meteor.call('addResource', resourceID);
-
-    //  Meteor.user().favoritedResources.push(test);  //i'm guessing i dont have permissiont to write
+      if(this.isFavorite(resourceID)) {
+        console.log("removing favorite");
+        Meteor.call('removeFavorite', resourceID);
+      }
+      else {
+        console.log("adding favorite");
+        Meteor.call('addFavorite', resourceID);
+      }
       console.log(Meteor.user().favoritedResources);
     }
   }

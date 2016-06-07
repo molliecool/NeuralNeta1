@@ -127,8 +127,8 @@ if(Resources.find().count() === 0) {
   },
   {
      "Type":"game"
-    ,"Title":"https://en.wikipedia.org/wiki/Professor_Layton"
-    ,"Location":""
+    ,"Title":"Professor_Layton"
+    ,"Location":"https://en.wikipedia.org/wiki/Professor_Layton"
     ,"Platform":""
     ,"Recommended Ages":""
     ,"Summary":""
@@ -145,7 +145,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of turn based strategy games."
     ,"Description":"Civilization is the game that lets you match wits with history’s greatest leaders. You start at the dawn of recorded history – 4,000 B.C., and the founding of the first cities – then nurture your society toward the Space Age. In the beginning, you’ll labor to simply survive while building your settlements, discovering new technologies and fending off barbarians. As your empire prospers, you’ll face competing civilizations guided by history’s most legendary figures: Alexander the Great, Napoleon, Genghis Khan, Julius Caesar and more. You’ll test your capacity for expansion and domination and your ability to outwit and outmaneuver those cunning and brilliant leaders."
     ,"Subjects":"Reading, Critical Thinking"
-    ,"Image":""
+    ,"Image":"temp-resources/civilization-v.jpg"
   },
   {
      "Type":"game"
@@ -156,7 +156,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A man named Tom must solve various puzzles involving time manipulation to save his princess."
     ,"Description":"Braid is a puzzle-platformer, drawn in a painterly style, where you can manipulate the flow of time in strange and unusual ways. From a house in the city, journey to a series of worlds and solve puzzles to rescue an abducted princess. http://store.steampowered.com/app/26800/"
     ,"Subjects":"Critical Thinking"
-    ,"Image":""
+    ,"Image":"temp-resources/Braid-screen01.jpg"
   },
   {
      "Type":"game"
@@ -167,7 +167,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"You wake up on an island with no idea who you are, how you got there, and a ton of puzzles to solve."
     ,"Description":"The Witness is a single-player game in an open world with dozens of locations to explore and over 500 puzzles. This game respects you as an intelligent player and it treats your time as precious. There's no filler; each of those puzzles brings its own new idea into the mix. So, this is a game full of ideas. http://store.steampowered.com/app/210970/"
     ,"Subjects":"Critical Thinking"
-    ,"Image":""
+    ,"Image":"temp-resources/witness.jpg"
   },
   {
      "Type":"game"
@@ -178,7 +178,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of minigames to challenge your brain."
     ,"Description":"Activities include quickly solving simple math problems & counting people going in and out of a house simultaneously\nDraw pictures on the Touch Screen, or read classic literature out loud\nPlay Sudoku, the popular number puzzle game"
     ,"Subjects":"Math, English, Brain Training"
-    ,"Image":""
+    ,"Image":"temp-resources/brainrev1.jpg"
   },
   {
      "Type":"game"
@@ -189,6 +189,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A tool for creating and editing music. It includes music lessons."
     ,"Description":"GarageBand is a whole music creation studio right inside your Mac — with a complete sound library that includes software instruments, presets for guitar and voice, and virtual session drummers. An intuitive interface makes it easy to learn, play, record, create, and share your hits worldwide. It’s never been easier to make music like a pro."
     ,"Subjects":"Music"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -199,6 +200,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A game that teaches you how to play guitar."
     ,"Description":"Plug any electric guitar or bass into your PC, Mac, Xbox One, Xbox 360, PlayStation® 4 system or PlayStation® 3 system, and join over 3 million people who have learned to play guitar with award-winning Rocksmith method. Learn to play guitar in 60 days. Get started, now!"
     ,"Subjects":"Music"
+    ,"Image":"temp-resources/Rocksmith-7.jpg"
   },
   {
      "Type":"game"
@@ -209,6 +211,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A game that simulates living with Depression."
     ,"Description":"Depression Quest is an interactive fiction game where you play as someone living with depression. You are given a series of everyday life events and have to attempt to manage your illness, relationships, job, and possible treatment. This game aims to show other sufferers of depression that they are not alone in their feelings, and to illustrate to people who may not understand the illness the depths of what it can do to people. \n"
     ,"Subjects":"Mental Health"
+    ,"Image":"temp-resources/depressionquest.jpg"
   },
   {
      "Type":"game"
@@ -219,6 +222,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games where you defeat zombies by typing words and sentences."
     ,"Description":"The Typing of the Dead is a modification of Sega's 1998 light gun arcade game The House of the Dead 2 in which the gun is replaced by a computer keyboard. The player takes the role of a secret agent in a zombie-infested Venice and must quickly type letters, words and phrases in order to kill fast-advancing enemies.\nDespite falling under the criteria of \"edutainment\", the game was lauded by mainstream game critics for its humor, difficulty and originality. The PC version of The Typing of the Dead sold 120,000 units in 2003 https://en.wikipedia.org/wiki/The_Typing_of_the_Dead"
     ,"Subjects":"English, Typing"
+    ,"Image":"temp-resources/zombietyping.jpg"
   },
   {
      "Type":"game"
@@ -229,6 +233,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games that teaches math and reading skills through minigames"
     ,"Description":"The first game in the series taught language arts, featuring a variety of simple games designed to teach schoolchildren basic reading and spelling skills. Originally, the title character's name was changed to reflect a change in subject, as with Math Rabbit, but it has apparently since been decided to retain the character's original name regardless of the subject area covered by a particular game."
     ,"Subjects":"Math, Reading"
+    ,"Image":"temp-resources/noclue.jpg"
   },
   {
      "Type":"game"
@@ -239,6 +244,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games where you help an alien save the planet by solving math problems."
     ,"Description":"The Blaster Learning System is an educational video game series originally created by Davidson, but is now owned by Knowledge Adventure. Titles in the series have been produced for various computer systems, video game consoles, and as stand-alone handheld units. Originally, the series simply taught mathematics, but eventually expanded to other subjects, such as language arts (reading) and science. Due to the popularity of the original Math Blaster series, Davidson introduced Reading Blaster in 1994, which also went on to become successful. A Science Blaster was introduced 1996, but did not reach the same popularity as its predecessors. https://en.wikipedia.org/wiki/Blaster_Learning_System"
     ,"Subjects":"Math"
+    ,"Image":"temp-resources/math-blaster-episode1-04.png"
   },
   {
      "Type":"game"
@@ -249,6 +255,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A game where you explore the ocean and make progress by solving challenging math problems."
     ,"Description":"A team of astronauts and scientists have begun a secret research project on a distant planet. The research team's results were sent back to Earth on the \"Galaxy space capsule\", which malfunctioned, crashed into the ocean, and broke into many pieces. The capsule included several data canisters, each of which contains small snippets of the scientists' story, which is revealed to the player as the game progresses and data canisters are found. The capsule also contained some toxic chemicals, which have begun to leak out and threaten the health of the world's sea life. A recovery mission, codenamed Operation Neptune, is sent to recover the pieces of the capsule. https://en.wikipedia.org/wiki/Operation_Neptune_(video_game)"
     ,"Subjects":"Math"
+    ,"Image":"temp-resources/operationneptune2.jpg"
   },
   {
      "Type":"game"
@@ -259,6 +266,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"Characters from the Super Mario series teach children basic math and reading."
     ,"Description":""
     ,"Subjects":"Math, Reading"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -269,6 +277,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games where the story unfolds via solving puzzles"
     ,"Description":"Myst is a graphic adventure puzzle video game designed and directed by the brothers Robyn and Rand Miller. It was developed by Cyan, Inc., published by Brøderbund, and initially released on the Macintosh platform on September 24, 1993. https://en.wikipedia.org/wiki/Myst"
     ,"Subjects":"Critical Thinking"
+    ,"Image":"temp-resources/myst-34.jpg"
   },
   {
      "Type":"game"
@@ -279,6 +288,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games where you solve extraordinary thefts using geography and history skills."
     ,"Description":""
     ,"Subjects":"History, Geography"
+    ,"Image":"temp-resources/carmensandiego.jpg"
   },
   {
      "Type":"game"
@@ -289,6 +299,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games where a group of kids solve various mysteries using problem solving skills."
     ,"Description":"The ClueFinders is a series of Edutainment Games from The Learning Company in which the eponymous Kid Heroes have Scooby-Doo type exploits."
     ,"Subjects":"Math, Reading, Critical Thinking"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -299,6 +310,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"The characters from Sesame street teach young children basic reading, math, and problem solving through a series of minigames."
     ,"Description":"Sesame Street: ABC/123 is an Edutainment game, developed by Rare Ltd. and published by Hi-Tech, which was released in 1991. http://www.amazon.com/Sesame-Street-ABC-Nintendo-Entertainment-System/dp/B003ACHV70"
     ,"Subjects":"Math, Reading, Critical Thinking"
+    ,"Image":"temp-resources/sesame_street_abc_nes_gameplay_screenshot_5.png"
   },
   {
      "Type":"game"
@@ -309,6 +321,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A game where you help Donald Duck find the letters of the alphabet scattered throughout his home."
     ,"Description":"The letters of the alphabet got out of Donald Duck's toybox and are scattered throughout his home. You must use your reading and problem solving skills to get them back."
     ,"Subjects":"English"
+    ,"Image":"temp-resources/74770-DonaldsAlphabetChase.jpg"
   },
   {
      "Type":"game"
@@ -319,6 +332,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of minigames where you encounter and learn about dinosaurs"
     ,"Description":""
     ,"Subjects":"History, Science"
+    ,"Image":"temp-resources/dinosaur3d.jpg"
   },
   {
      "Type":"game"
@@ -329,6 +343,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A Risk style strategy game where you attempt to wipe out humanity with a deadly disease."
     ,"Description":"Can you infect the world? Plague Inc. is a unique mix of high strategy and terrifyingly realistic simulation with over 700 million games played!\nYour pathogen has just infected 'Patient Zero'. Now you must bring about the end of human history by evolving a deadly, global Plague whilst adapting against everything humanity can do to defend itself.\n\nBrilliantly executed with innovative gameplay and built from the ground up for the iPhone, iPad, Android & Windows Phone, Plague Inc. evolves the strategy genre and pushes mobile gaming (and you) to new levels. It’s You vs. the world - only the strongest can survive!"
     ,"Subjects":"Critical Thinking, Science, Geography"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -339,6 +354,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A game where you go around as a small child fixing nursery rhymes."
     ,"Description":"The storyline of the game is very simple, as is common in games for children. One night, while preparing for bed, a child (which is the player's avatar) is sent into the dreamlike world of Mother Goose, who desperately needs his or her help. All the nursery rhymes in the land have gotten mixed up, with none of the inhabitants possessing the items necessary for their rhyme to exist. And so, the child will find themselves helping Humpty Dumpty find a ladder to scramble onto a wall, bringing the little lamb back to Mary and seeking out a pail for Jack and Jill, among others. https://en.wikipedia.org/wiki/Mixed-Up_Mother_Goose"
     ,"Subjects":"English"
+    ,"Image":"temp-resources/mothergoose.jpg"
   },
   {
      "Type":"game"
@@ -349,6 +365,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of simulation games where you build and manage a city."
     ,"Description":"In SimCity, the player is given the task of founding and developing a city, while maintaining the happiness of the citizens and keeping a stable budget. https://en.wikipedia.org/wiki/SimCity"
     ,"Subjects":"Economics, Politics"
+    ,"Image":"temp-resources/SimCity2000_screen2WebEmbed.jpg"
   },
   {
      "Type":"game"
@@ -359,6 +376,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of puzzle adventure games that challenge your reading and math skills."
     ,"Description":"A series of side scrolling, adventure puzzle games by the Learning Company. The Master of Mischief makes, well, mischief in each game and the Super Seeker must foil his scheme via solving math and reading puzzles."
     ,"Subjects":"Math, English"
+    ,"Image":""
   },
   {
      "Type":"game"
@@ -369,6 +387,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A game where you find letters to spell out words with the help of a book worm."
     ,"Description":"This is an engrossing educational game with vivid EGA/VGA graphics and support for Adlib and Sound Blaster. Using the Duke Nukem graphical system, Word Rescue has state-of-the-art dual-screen scrolling graphics similar to what's seen on the Super Nintendo and Sega Genesis home gaming systems. Even \"grown-ups\" will like Word Rescue! \n\nPlay as either a girl or a boy. Visit amazing locations on your word-finding adventure, as you hunt for missing words. Dark caves, rocky cliffs, deserts, happy towns, haunted houses, funny factories and creepy dungeons are just some of the places you'll explore."
     ,"Subjects":"English"
+    ,"Image":"temp-resources/wordrescue6.gif"
   },
   {
      "Type":"game"
@@ -379,6 +398,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of games where you build dungeons to corrupt cities"
     ,"Description":"Dungeon Keeper is a strategy video game developed by Bullfrog Productions and released by Electronic Arts in July 1997 for DOS. In Dungeon Keeper, the player builds and manage a dungeon while protecting it from invading 'hero' characters intent on stealing the player's accumulated treasures and killing various monsters. https://en.wikipedia.org/wiki/Dungeon_Keeper"
     ,"Subjects":"Critical Thinking"
+    ,"Image":"temp-resources/dungeonkeeper.jpg"
   }];
 
  for(var i=0; i<data.length; i++) {

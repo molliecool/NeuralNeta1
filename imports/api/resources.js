@@ -12,13 +12,26 @@ export const Resources = new Mongo.Collection('Resources');
 
 Meteor.methods({
   //add resource id to users list of favorited Resources
-  'addResource': function(resourceID) {
+  'addFavorite': function(resourceID) {
     var currentUserId = Meteor.userId();
     Meteor.users.update({_id: currentUserId},{$push: { favoritedResources: resourceID }});
-  }
-
+  },
+/*
   'isFavorite': function(resourceID) {
-
+    //check if a resource is in the favorite list
+    var currentUserId = Meteor.userId();
+    if(Meteor.users.find({ favoritedResources: resourceID })) {
+      console.log("is favorite");
+    }
+    else {
+      console.log("is not favorite");
+    }
+  },
+*/
+  'removeFavorite': function(resourceID) {
+    //removes ID from favorited list - mollie put checks in here
+    var currentUserId = Meteor.userId();
+    Meteor.users.update({_id: currentUserId},{$pull: { favoritedResources: resourceID }})
   }
 });
 
