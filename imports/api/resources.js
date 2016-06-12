@@ -17,17 +17,12 @@ Meteor.methods({
     Meteor.users.update({_id: currentUserId},{$push: { favoritedResources: resourceID }});
   },
 /*
-  'isFavorite': function(resourceID) {
+  'getFavorites': function() {
     //check if a resource is in the favorite list
     var currentUserId = Meteor.userId();
-    if(Meteor.users.find({ favoritedResources: resourceID })) {
-      console.log("is favorite");
-    }
-    else {
-      console.log("is not favorite");
-    }
-  },
-*/
+    return Meteor.users.find({ favoritedResources: resourceID });
+  },*/
+
   'removeFavorite': function(resourceID) {
     //removes ID from favorited list - mollie put checks in here
     var currentUserId = Meteor.userId();

@@ -167,7 +167,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"You wake up on an island with no idea who you are, how you got there, and a ton of puzzles to solve."
     ,"Description":"The Witness is a single-player game in an open world with dozens of locations to explore and over 500 puzzles. This game respects you as an intelligent player and it treats your time as precious. There's no filler; each of those puzzles brings its own new idea into the mix. So, this is a game full of ideas. http://store.steampowered.com/app/210970/"
     ,"Subjects":"Critical Thinking"
-    ,"Image":"temp-resources/witness.jpg"
+    ,"Image":"temp-resources/witness.png"
   },
   {
      "Type":"game"
@@ -178,7 +178,7 @@ if(Resources.find().count() === 0) {
     ,"Summary":"A series of minigames to challenge your brain."
     ,"Description":"Activities include quickly solving simple math problems & counting people going in and out of a house simultaneously\nDraw pictures on the Touch Screen, or read classic literature out loud\nPlay Sudoku, the popular number puzzle game"
     ,"Subjects":"Math, English, Brain Training"
-    ,"Image":"temp-resources/brainrev1.jpg"
+    ,"Image":"temp-resources/brainrev1.JPG"
   },
   {
      "Type":"game"

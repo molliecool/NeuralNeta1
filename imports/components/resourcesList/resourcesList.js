@@ -20,6 +20,7 @@ class ResourcesListCtrl {
         return Resources.find({});
       },
     });
+
     this.isFavorite = function(resourceID) {
       var flag = false;
       for(res in Meteor.user().favoritedResources) {
@@ -30,13 +31,13 @@ class ResourcesListCtrl {
           break;
         }
       }
-      
+
       if(flag) {
-        console.log("is favorite");
+        //console.log("is favorite");
         return true;
       }
       else {
-        console.log("not favorite");
+        //console.log("not favorite");
         return false;
       }
     }
@@ -58,7 +59,7 @@ class ResourcesListCtrl {
 
 Deps.autorun(function() {
   Meteor.subscribe('resources');
-  Meteor.subscribe('favoritedResources')
+  Meteor.subscribe('favoritedResources');
 })
 
 
@@ -71,38 +72,7 @@ export default angular.module("resourcesList", [
     templateUrl: 'imports/components/resourcesList/resourcesList.html',
     controller: ['$scope', ResourcesListCtrl]
   })
-/*  .controller('ResourcesListCtrl', ['$scope', function($scope) {
-
-    this.helpers({
-      resources() {
-        return Resources.find({});
-      }
-    });
-
-    //this.resources = Resources.find({});
-
-
-    this.getResource = function() {
-      console.log("resources called");
-      var temp = Resources.find({});
-      return temp;
-    }
-
-    this.toggleFavorite = function() {
-      console.log("clicked favorite");
-      this.isFavorite = !this.isFavorite;
-
-      if(this.isFavorite) {
-        //add to favorites array
-        //addFavorite(user,resourceID)
-      }
-      else {
-        //remove from favorites array
-        //removeFavorite(user, resourceID)
-      }
-    }
-
-}]) */ .config(config);
+ .config(config);
 
 function config($stateProvider) {
   'ngInject';
