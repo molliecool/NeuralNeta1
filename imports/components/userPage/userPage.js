@@ -15,8 +15,18 @@ class UserPageCtrl {
     this.favorites = [];
 
     this.helpers({
+      getFavorites() {
+        if(Meteor.user()){
+          currentUser = Meteor.user();
+          for( res in currentUser.favoritedResources) {
+            console.log(currentUser.favoritedResources[res]);
+            temp = Meteor.call('getResource', currentUser.favoritedResources[res]);
+            console.log(temp);
+            this.favorites.push(temp);
+          }
+        }
+      }
     });
-
     /*
       this.currentUser = function() {
         return Meteor.user();
@@ -28,24 +38,14 @@ class UserPageCtrl {
           return temp;
         }
       }
-
-      this.getFavorites = function() {
-        if(Meteor.user()){
-          return Meteor.user().favoritedResources;
-          /*
-          need to as mongo to send back the resource object that matches the id in favoritedResources
-          and build an array from that
-          */
-        }
-      }
-  }
-
+    }
 }
 
 Deps.autorun(function() {
   Meteor.subscribe('userXP');
   Meteor.subscribe('resources');
   Meteor.subscribe('favoritedResources');
+  Meteor.subscribe('getResource');
 })
 
 

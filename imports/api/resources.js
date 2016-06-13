@@ -27,26 +27,10 @@ Meteor.methods({
     //removes ID from favorited list - mollie put checks in here
     var currentUserId = Meteor.userId();
     Meteor.users.update({_id: currentUserId},{$pull: { favoritedResources: resourceID }})
-  }
+  },
+
+  'getResource': function(resourceID) {
+    console.log(Resources.find({_id: resourceID}).fetch());
+    return Resources.find({_id: resourceID}).fetch();
+  },
 });
-
-/*      isBook: Boolean,
-      isGame: Boolean,
-      isWebsite: Boolean,
-      isClassActivity: Boolean
-      isMath: Boolean,
-      isScience: Boolean,
-      isHistory: Boolean,
-      isHealth: Boolean*/
-
-
-
-/*
-Resources.schema = new SimpleSchema({
-  _id:  {type: Number},
-  name: {type: String},
-  description: {type: String},
-  type: {type:[Boolean]},
-  subject: {type: [Boolean]}
-});
-*/

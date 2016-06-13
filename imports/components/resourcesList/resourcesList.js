@@ -26,7 +26,6 @@ class ResourcesListCtrl {
       for(res in Meteor.user().favoritedResources) {
         //console.log(Meteor.user().favoritedResources[res]);
         if(resourceID === Meteor.user().favoritedResources[res]) {
-          console.log("flag");
           flag = true;
           break;
         }
