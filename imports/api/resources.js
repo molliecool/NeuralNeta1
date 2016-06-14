@@ -30,7 +30,7 @@ Meteor.methods({
   },
 
   'getResource': function(resourceID) {
-    console.log(Resources.find({_id: resourceID}).fetch());
+    // console.log(Resources.find({_id: resourceID}).fetch());
     return Resources.find({_id: resourceID}).fetch();
   },
 });

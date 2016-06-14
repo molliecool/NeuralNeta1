@@ -11,7 +11,6 @@ Accounts.onCreateUser(function(options,user) {
 /*  var uXP = 0;
   var uFavoritedResources = ['0021','3211'];*/
   user.userXP = 0;
-  user.favoritedResources = ['0021','3211'];
 
 //  console.log(user.userXP);
 
@@ -39,15 +38,17 @@ Meteor.publish('favoritedResources', function () {
   return Meteor.users.find(this.userId, {fields: {'favoritedResources': 1,}});
 });
 
-Meteor.publish('getResource', function () {
-  //if(!this.userId) return null;
-  console.log(rId);
+Meteor.publish('getResource', function (resourceID) {
+  if(!this.userId) return null;
+
+  console.log("resourceID " + resourceID);
   console.log(Resources.find({_id: resourceID}));
+
   return Resources.find({_id: resourceID});
 });
 
 Meteor.publish('resources', function () {
-  //if(!this.userId) return null;
+  if(!this.userId) return null;
   return Resources.find({});
 });
 

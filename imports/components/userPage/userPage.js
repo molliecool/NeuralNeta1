@@ -13,17 +13,25 @@ class UserPageCtrl {
     $scope.viewModel(this);
 
     this.favorites = [];
+    _favorites = [];
 
     this.helpers({
       getFavorites() {
         if(Meteor.user()){
           currentUser = Meteor.user();
-          for( res in currentUser.favoritedResources) {
-            console.log(currentUser.favoritedResources[res]);
-            temp = Meteor.call('getResource', currentUser.favoritedResources[res]);
-            console.log(temp);
-            this.favorites.push(temp);
+          for( i in currentUser.favoritedResources) {
+            Meteor.call("getResource", currentUser.favoritedResources[i], function(error, result){
+            if(error){
+              console.log(error.reason);
+              return;
+            }
+            _favorites.push(result[0]);
+            this.favorites = _favorites;
+            console.log('this.favorites', this.favorites);
+          });
+
           }
+
         }
       }
     });
@@ -45,7 +53,9 @@ Deps.autorun(function() {
   Meteor.subscribe('userXP');
   Meteor.subscribe('resources');
   Meteor.subscribe('favoritedResources');
-  Meteor.subscribe('getResource', 'rId');
+  Meteor.subscribe('getResource', function() {
+    console.log("ugh");
+  });
 })
 
 
