@@ -45,7 +45,7 @@ Deps.autorun(function() {
   Meteor.subscribe('userXP');
   Meteor.subscribe('resources');
   Meteor.subscribe('favoritedResources');
-  Meteor.subscribe('getResource');
+  Meteor.subscribe('getResource', 'rId');
 })
 
 

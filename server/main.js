@@ -39,6 +39,13 @@ Meteor.publish('favoritedResources', function () {
   return Meteor.users.find(this.userId, {fields: {'favoritedResources': 1,}});
 });
 
+Meteor.publish('getResource', function () {
+  //if(!this.userId) return null;
+  console.log(rId);
+  console.log(Resources.find({_id: resourceID}));
+  return Resources.find({_id: resourceID});
+});
+
 Meteor.publish('resources', function () {
   //if(!this.userId) return null;
   return Resources.find({});
