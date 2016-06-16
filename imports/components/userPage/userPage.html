@@ -4,7 +4,8 @@
 
 <md-content flex id="content">
   <md-list class="masonry">
-    <md-list-item ng-repeat="res in uPageCtrl.favorites track by $index" class="brick">
+    <md-list-item ng-repeat="res in uPageCtrl.favorites() track by $index" class="brick">
+        <div>length: {{uPageCtrl.length()}}</div>
         <img ng-src="{{res.Image}}"/>
         <h2 class="res-name">{{ res.Title }}</h2>
         <div class="res-header">

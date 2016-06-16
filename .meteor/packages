@@ -27,3 +27,5 @@ accounts-base
 accounts-ui
 dotansimha:accounts-ui-angular
 planettraining:material-design-icons
+jagi:reactive-array
+session
