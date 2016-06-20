@@ -5,21 +5,13 @@ import { Accounts } from 'meteor/accounts-base';
 import { Resources } from '../imports/api/resources.js';
 import '../imports/api/images/images.js';
 
-//customize user creation - build schema?
+
 
 Accounts.onCreateUser(function(options,user) {
-/*  var uXP = 0;
-  var uFavoritedResources = ['0021','3211'];*/
+
   user.userXP = 0;
-
-//  console.log(user.userXP);
-
   Meteor.users.update(user, {
 
-  /*  $set: {
-      userXP: uXP,
-      userFavoritedResources: uFavoritedResources,
-    }*/
   });
 
   return user;
@@ -38,13 +30,20 @@ Meteor.publish('favoritedResources', function () {
   return Meteor.users.find(this.userId, {fields: {'favoritedResources': 1,}});
 });
 
-Meteor.publish('getResource', function (resourceID) {
-  if(!this.userId) return null;
+Meteor.publish('favoriteObjects', function () {
+/*  if(!this.userId) return null;
+  var favorites = [];
+  var fResources = Meteor.users.find(this.userId, {fields: {'favoritedResources': 1,}}),
 
-  console.log("resourceID " + resourceID);
-  console.log(Resources.find({_id: resourceID}));
+  for(var i=0; i<fResources.length; i++) {
+    var obj = Resources.find({_id: fResources[i]});
+    console.log("resourceID " + fResources[i]);
+    console.log(obj);
+    favorites.push(obj);
+  }
 
-  return Resources.find({_id: resourceID});
+  console.log(favorites);
+  return favorites;*/
 });
 
 Meteor.publish('resources', function () {

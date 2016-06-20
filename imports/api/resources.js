@@ -33,4 +33,19 @@ Meteor.methods({
     // console.log(Resources.find({_id: resourceID}).fetch());
     return Resources.find({_id: resourceID}).fetch();
   },
+
+  'getFavorites': function(resourceIDs) {
+    if(!this.userId) return null;
+    var favorites = [];
+
+    for(i in resourceIDs) {
+      var obj = Resources.find({_id: resourceIDs[i]}).fetch();
+      //console.log("resourceID " + resourceIDs[i]);
+      //console.log(obj[0]);
+      favorites.push(obj[0]);
+    }
+
+    console.log(favorites);
+    return favorites;
+  },
 });

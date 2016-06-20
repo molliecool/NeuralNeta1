@@ -4,35 +4,34 @@
 
 <div >
   <md-content flex id="content">
-    <md-list class="masonry">
-      <md-list-item ng-repeat="res in $ctrl.resources" class="brick">
-          <img ng-src="{{res.Image}}"/>
-          <h2 class="res-name">{{ res.Title }}</h2>
-          <div class="res-header">
+    <div class="masonry">
+      <md-card ng-repeat="res in $ctrl.resources" class="brick">
+        <md-card-avatar>
+        </md-card-avatar>
+        <md-card-header-text>
+          <span class="md-title">{{res.type}}</span>
+          <span class="md-subhead">{{sub.Subjects}}</span>
+        </md-card-header-text>
 
+        <img ng-src="{{res.Image}}"/>
+        <md-card-title>
+          <span class="md-headline">{{ res.Title }}</span>
+        </md-card-title>
 
-            <p class="res-type">{{res.type}}</p>
-          </div>
-          <div class="res-subject">
-            <span ng-repeat="sub in res.subject track by $index">{{sub.sName + ", "}}</span>
-          </div>
-          <hr/>
+        <md-card-content>
+          <p>{{res.Summary}}</p>
+        </md-card-content>
 
-          <div class="clearfix"></div>
-          <div class = "res-text">
-            <p class="res-summary">{{res.Summary}}</p>
-
-          </div>
-            <hr/>
-          <div class="res-favorite" >
+        <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
+          <!--button class="md-icon-button md-button md-ink-ripple" type="button" ng-transclude aria-label="Favorite">
+            <md-icon ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}" class="ng-scope" aria-hidden="true"></md-icon-->
             <a href ng-click="$ctrl.toggleFavorite(res._id)">
-            <!--i class="material-icons">favorite</i-->
-            <img ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
-            <!--input type="checkbox" ng-model="res.isFavorite" /-->
-          </a>
+              <img style="width: 45px;" ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
+            </a>
+          <!--/button-->
+        </md-card-actions>
 
-      </div><!-- end res controller -->
-      </md-list-item>
-    </md-list>
+      </md-card> <!-- end res controller -->
+    </div>
   </md-content>
 </div>
