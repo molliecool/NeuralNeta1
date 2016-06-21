@@ -45,7 +45,7 @@ Meteor.methods({
       favorites.push(obj[0]);
     }
 
-    console.log(favorites);
+    //console.log(favorites);
     return favorites;
   },
 });

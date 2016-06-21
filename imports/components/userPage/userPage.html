@@ -9,7 +9,8 @@
           <span class="md-subhead">{{sub.Subjects}}</span>
         </md-card-header-text>
 
-        <md-card-actions ng-click="uPageCtrl.openDetail(res._id)">
+        <md-card-actions ng-click="uPageCtrl.openDetail(res.Title)">
+          <!--a ui-sref="detail-page({resourceID: id})">Go</a-->
           <img ng-src="{{res.Image}}"/>
           <md-card-title>
             <span class="md-headline">{{ res.Title }}</span>

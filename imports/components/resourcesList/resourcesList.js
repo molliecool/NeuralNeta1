@@ -8,7 +8,7 @@ import { Accounts } from 'meteor/accounts-base';
 import template from './resourcesList.html';
 
 class ResourcesListCtrl {
-  constructor($scope) {
+  constructor($scope, $state) {
     //console.log("list works");
     $scope.viewModel(this);
 
@@ -53,6 +53,11 @@ class ResourcesListCtrl {
       }
       console.log(Meteor.user().favoritedResources);
     }
+
+    this.openDetail = function(rTitle) {
+      console.log("go to detail page");
+      $state.go('resourceDetail/:rTitle', {resourceTitle: rTitle});
+    }
   }
 }
 
@@ -69,7 +74,7 @@ export default angular.module("resourcesList", [
 ])
   .component('resourcesList', {
     templateUrl: 'imports/components/resourcesList/resourcesList.html',
-    controller: ['$scope', ResourcesListCtrl]
+    controller: ['$scope', '$state', ResourcesListCtrl]
   })
  .config(config);
 

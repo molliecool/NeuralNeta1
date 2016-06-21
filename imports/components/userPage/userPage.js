@@ -10,14 +10,13 @@ import template from './userPage.html';
 
 
 class UserPageCtrl {
-  constructor($scope, $reactive) {
+  constructor($scope, $state, $reactive) {
     $scope.viewModel(this);
     $reactive(this).attach($scope);
 
 
     this.favorites = []; //new ReactiveArray();
     this.initialized = false;
-  //  _favorites = [];
 
     this.helpers({
       popFavorites() {
@@ -28,11 +27,10 @@ class UserPageCtrl {
                  console.log(error.reason);
                  return;
                }
-             //_favorites.push(result[0]);
-             //this.favorites = _favorites;
              Session.set('faves', result);
              console.log("result "+ result);
            });
+
            this.favorites = Session.get('faves');
           console.log(this.favorites);
           return this.favorites;
@@ -42,31 +40,6 @@ class UserPageCtrl {
 
 
     });
-
-
-/*
-    this.popfavorites = function() {
-
-      if(Meteor.user()){
-        currentUser = Meteor.user();
-        Meteor.call('getFavorites', currentUser.favoritedResources, function(error, result){
-             if(error){
-               console.log(error.reason);
-               return;
-             }
-           //_favorites.push(result[0]);
-           //this.favorites = _favorites;
-           Session.set('faves', result);
-           console.log("result "+ result);
-         });
-         this.favorites = Session.get('faves');
-        console.log(this.favorites);
-        return this.favorites;
-
-      }
-
-     }
-*/
 
     this.isFavorite = function(resourceID) {
       var flag = false;
@@ -100,21 +73,24 @@ class UserPageCtrl {
       }
       console.log(Meteor.user().favoritedResources);
     }
+
      this.getFaves = function(){
-       //console.log(this.favorites);
-      // console.log(this.favorites.length)
        if(Meteor.user()) {
-        if(!this.favorites && this.favorites.length == 0){
+        if(!this.favorites){
+          if( this.favorites.length == 0){
            return this.popFavorites();
          }
-         else {
-          return this.favorites;
-         }
+
+       }
+       else {
+        return this.favorites;
        }
      }
+     }
 
-     this.openDetail = function(resourceID) {
-       console.log("clicked");
+     this.openDetail = function(rID) {
+       console.log("go to detail page");
+       $state.go('resourceDetail', {resourceID: rID});
      }
 
      this.userXP = function() {
@@ -136,10 +112,11 @@ Deps.autorun(function() {
 
 export default angular.module('userPage', [
   angularMeteor,
+  uiRouter,
 ])
   .component('userPage', {
   templateUrl: 'imports/components/userPage/userPage.html',
-  controller: ['$scope','$reactive', UserPageCtrl],
+  controller: ['$scope', '$state','$reactive', UserPageCtrl],
   controllerAs: 'uPageCtrl',
 })
   //.controller('UserPageCtrl', ['$scope', function($scope) {  }])
@@ -152,30 +129,3 @@ function config($stateProvider) {
     template: '<user-page></user-page>'
   });
 }
-
-
-
-/*_favorites = [];
-if(!this.initialized) {
-  this.initialized = true;
-  for( i in currentUser.favoritedResources) {
-    var _res = Resources.find({_id: currentUser.favoritedResources[i]}).fetch();
-    console.log('_res', _res);
-    _favorites.push(_res[0]);
-    this.favorites = _favorites;
-    console.log(this.favorites);
-    Session.set('faves', this.favorites);*/
-    // Meteor.call("getResource", currentUser.favoritedResources[i], function(error, result){
-    //     if(error){
-    //       console.log(error.reason);
-    //       return;
-    //     }
-    //   _favorites.push(result[0]);
-    //   this.favorites = _favorites;
-    //   Session.set('faves', this.favorites);
-    //
-    //
-    //
-    // }); // end call
-//  }
-//  }
