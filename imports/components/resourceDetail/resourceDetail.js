@@ -9,8 +9,14 @@ class ResourceDetailCtrl {
   constructor($scope, $stateParams) {
     $scope.viewModel(this);
 
+    if(!$stateParams.resourceTitle) {
+      console.log('resource not found');
+    }
+
     this.resTitle = $stateParams.resourceTitle;
     console.log(this.resTitle);
+    console.log($stateParams.resourceTitle);
+
     this.res = (Resources.find({Title: this.resTitle}).fetch())[0];
     console.log((Resources.find({Title: this.resTitle}).fetch())[0]);
 

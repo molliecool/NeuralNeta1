@@ -1,32 +1,61 @@
 
-<div >
-  <md-content flex id="content">
+<div layout-align="center center" >
+  <md-content flex id="content" style="max-width: 960px">
       <md-card>
-        <md-card-title>
+        <md-card-title flex layout="row">
           <span class="md-headline">{{ rDetailCtrl.res.Title }}</span>
+
         </md-card-title>
-        <md-card-avatar>
-        </md-card-avatar>
-        <md-card-header-text>
-          <span class="md-title">{{rDetailCtrl.res.type}}</span>
-          <span class="md-subhead">{{rDetailCtrl.res.Subjects}}</span>
-        </md-card-header-text>
+        <div layout-margin class="md-subhead">{{rDetailCtrl.res.Summary}}</div>
 
-        <img ng-src="{{rDetailCtrl.res.Image}}"/>
+        <div layout="row" layout-margin>
 
-        <md-card-content>
-          <p>{{rDetailCtrl.res.Summary}}</p>
-          <p>{{rDetailCtrl.res.Description}}</p>
-        </md-card-content>
+            <div flex layout="column" layout-padding>
+            <md-card-header-text>
+              <span class="md-title">{{rDetailCtrl.res.type}}</span>
+              <span class="md-subhead">{{rDetailCtrl.res.Subjects}}</span>
+            </md-card-header-text>
+            <div>Medium</div>
+            <div>Ages</div>
+            <div>Where to get it</div>
 
-        <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
-          <!--button class="md-icon-button md-button md-ink-ripple" type="button" ng-transclude aria-label="Favorite">
-            <md-icon ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}" class="ng-scope" aria-hidden="true"></md-icon-->
-            <a href ng-click="$rDetailCtrl.toggleFavorite(res._id)">
-              <img style="width: 45px;" ng-src="{{rDetailCtrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
-            </a>
-          <!--/button-->
-        </md-card-actions>
+            <md-card-avatar>
+            </md-card-avatar>
+
+          </div>
+          <div flex layout-padding layout="column">
+            <div flex layout="row">
+              <div>Prep Time</div>
+              <div ng-repeat="n in [1,2,3,4,5]">
+                <img ng-src="icons/icon_favorite-4.png" style="height: 25px; width: 25px;"/>
+              </div>
+            </div>
+            <div>Engagement</div>
+            <div>Demonstration of Comprehension</div>
+            <div>Applicability</div>
+            <div>Meaningfulness</div>
+          </div>
+        </div>
+
+        <div flex layout="row" layout-margin>
+          <div ng-repeat="n in [1,2,3,4,5]">
+            <img ng-src="{{rDetailCtrl.res.Image}}"/>
+          </div>
+        </div>
+
+
+          <md-card-content>
+            <p>{{rDetailCtrl.res.Description}}</p>
+          </md-card-content>
+
+          <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
+            <!--button class="md-icon-button md-button md-ink-ripple" type="button" ng-transclude aria-label="Favorite">
+              <md-icon ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}" class="ng-scope" aria-hidden="true"></md-icon-->
+              <a href ng-click="$rDetailCtrl.toggleFavorite(res._id)">
+                <img style="width: 45px;" ng-src="{{rDetailCtrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
+              </a>
+            <!--/button-->
+          </md-card-actions>
       </md-card>
   </md-content>
 </div>
