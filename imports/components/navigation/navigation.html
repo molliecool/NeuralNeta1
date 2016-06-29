@@ -1,20 +1,20 @@
 
-<div  ng-controller="NavigationCtrl as navCtrl">
-  <md-toolbar layout="row">
-    <div class="md-toolbar-tools">
-      <div class="logo">Neural Net</div>
+<div  ng-controller="NavigationCtrl as navCtrl" ng-cloak>
+  <md-content class="md-padding">
+    <md-nav-bar class="md-toolbar-tools">
+      <md-nav-item class="logo">Neural Net</md-nav-item>
       <span flex class="flex"></span>
       <div class="navbar">
-        <md-button ng-class="{active:navCtrl.isSelected(2)}">
-          <a href ui-sref="resourcesList" ng-click="navCtrl.selectTab(2)"><i class="material-icons">search</i></a>
-        </md-button>
-        <md-button ng-class="{active:navCtrl.isSelected(1)}">
-          <a href ui-sref="resourceSubmit" ng-click="navCtrl.selectTab(1)"><i class="material-icons">add</i></a>
-        </md-button>
-        <md-button ng-class="{active:navCtrl.isSelected(3)}">
-          <a href ui-sref="authorization" ng-click="navCtrl.selectTab(3)"><i class="material-icons">face</i>{{ navCtrl.currentUser().emails[0].address }}</a>
-        </md-button>
+        <md-nav-item href ui-sref="resourcesList">
+          <i class="material-icons">search</i>
+        </md-nav-item>
+        <md-nav-item href ui-sref="resourceSubmit">
+          <i class="material-icons">add</i>
+        </md-nav-item>
+        <md-nav-item href ui-sref="authorization">
+          <i class="material-icons">person</i>
+        </md-nav-item>
       </div>
-    </div>
-  </md-toolbar>
+    </md-nav-bar>
+  </md-content>
 </div>

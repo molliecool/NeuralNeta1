@@ -4,8 +4,8 @@
 
 <div >
   <md-content flex id="content">
-    <div class="masonry">
-      <md-card ng-repeat="res in $ctrl.resources" class="brick">
+    <div class="masonry" >
+      <md-card ng-repeat="res in rListCtrl.resources" class="brick">
         <md-card-avatar>
         </md-card-avatar>
         <md-card-header-text>
@@ -13,7 +13,7 @@
           <span class="md-subhead">{{sub.Subjects}}</span>
         </md-card-header-text>
 
-        <md-card-actions ng-click="$ctrl.openDetail(res.Title)">
+        <md-card-actions ng-click="rListCtrl.showAdvanced($event,res._id)">
           <!--a ui-sref="detail-page({resourceID: id})">Go</a-->
         <img ng-src="{{res.Image}}"/>
         <md-card-title>

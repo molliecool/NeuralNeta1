@@ -124,8 +124,8 @@ export default angular.module('userPage', [
 
 function config($stateProvider) {
   'ngInject';
-  $stateProvider.state('userPage', {
+  /*$stateProvider.state('userPage', {
     url: '/userPage',
     template: '<user-page></user-page>'
-  });
+  });*/
 }

@@ -6,11 +6,44 @@ import { Accounts } from 'meteor/accounts-base';
 
 
 import template from './resourcesList.html';
+import templateUrl from '../../templates/bigCard.html';
 
 class ResourcesListCtrl {
-  constructor($scope, $state) {
-    //console.log("list works");
+  constructor($scope, $state, $mdMedia, $mdDialog, $interpolate) {
     $scope.viewModel(this);
+
+    //open the modal window
+
+    this.status = ' ';
+    this.customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+
+    this.showAdvanced = function(ev, resourceID) {
+      console.log("called show advanced");
+      this.myText = "this is a test";
+
+      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+      $mdDialog.show({
+        controller: DialogController(resourceID),
+        controllerAs: 'dCtrl',
+        templateUrl,
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true,
+        fullscreen: useFullScreen,
+        bindToController: true,
+      })
+      .then(function(answer) {
+        $scope.status = 'You said the information was "' + answer + '".';
+      }, function() {
+        $scope.status = 'You cancelled the dialog.';
+      });
+      $scope.$watch(function() {
+        return $mdMedia('xs') || $mdMedia('sm');
+      }, function(wantsFullScreen) {
+        $scope.customFullscreen = (wantsFullScreen === true);
+      });
+    };
+
 
 
     //this.isFavorite = false;
@@ -61,6 +94,23 @@ class ResourcesListCtrl {
   }
 }
 
+function DialogController(resourceID, $scope, $mdDialog) {
+  this.res = (Resources.find({_id: resourceID}).fetch())[0];
+  console.log(this.res);
+
+  this.hide = function() {
+    $mdDialog.hide();
+  };
+  this.cancel = function() {
+    $mdDialog.cancel();
+  };
+  this.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}
+
+
+
 Deps.autorun(function() {
   Meteor.subscribe('resources');
   Meteor.subscribe('favoritedResources');
@@ -70,18 +120,18 @@ Deps.autorun(function() {
 
 export default angular.module("resourcesList", [
   angularMeteor,
-
 ])
   .component('resourcesList', {
     templateUrl: 'imports/components/resourcesList/resourcesList.html',
-    controller: ['$scope', '$state', ResourcesListCtrl]
+    controller: ('ResourcesListCtrl', ['$scope', '$state', '$mdMedia', '$mdDialog', ResourcesListCtrl])
+    ,controllerAs: 'rListCtrl'
   })
  .config(config);
 
 function config($stateProvider) {
   'ngInject';
-  $stateProvider.state('resourcesList', {
+/*  $stateProvider.state('resourcesList', {
     url: '/resourcesList',
     template: '<resources-list></resources-list>'
-  });
+  });*/
 }

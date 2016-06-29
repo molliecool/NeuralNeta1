@@ -9,31 +9,32 @@
         <div layout-margin class="md-subhead">{{rDetailCtrl.res.Summary}}</div>
 
         <div layout="row" layout-margin>
-
-            <div flex layout="column" layout-padding>
-            <md-card-header-text>
-              <span class="md-title">{{rDetailCtrl.res.type}}</span>
-              <span class="md-subhead">{{rDetailCtrl.res.Subjects}}</span>
-            </md-card-header-text>
-            <div>Medium</div>
-            <div>Ages</div>
+          <div flex layout="column" layout-margin>
+            <div class="md-title">Type: {{rDetailCtrl.res.Type}}</div>
+            <div class="md-subhead">Subjects: {{rDetailCtrl.res.Subjects}}</div>
+            <div>Recommended Ages: {{rDetailCtrl.res.Recommended_Ages}}</div>
             <div>Where to get it</div>
 
             <md-card-avatar>
             </md-card-avatar>
 
           </div>
+
           <div flex layout-padding layout="column">
-            <div flex layout="row">
-              <div>Prep Time</div>
-              <div ng-repeat="n in [1,2,3,4,5]">
-                <img ng-src="icons/icon_favorite-4.png" style="height: 25px; width: 25px;"/>
+            <div layout="row">
+              <div flex layout="column">
+                <div>Prep Time</div>
+                <div>Engagement</div>
+                <div>Demonstration of Comprehension</div>
+                <div>Applicability</div>
+                <div>Meaningfulness</div>
+              </div>
+              <div flex layout="column">
+                <div ng-repeat="n in [1,2,3,4,5]">
+                  <img ng-src="icons/icon_favorite-4.png" style="height: 25px; width: 25px;"/>
+                </div>
               </div>
             </div>
-            <div>Engagement</div>
-            <div>Demonstration of Comprehension</div>
-            <div>Applicability</div>
-            <div>Meaningfulness</div>
           </div>
         </div>
 

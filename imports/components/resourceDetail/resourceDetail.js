@@ -6,7 +6,7 @@ import { Resources } from '../../api/resources.js'
 import template from './resourceDetail.html';
 
 class ResourceDetailCtrl {
-  constructor($scope, $stateParams) {
+  constructor($scope, $stateParams, $mdDialog, $mdMedia) {
     $scope.viewModel(this);
 
     if(!$stateParams.resourceTitle) {
@@ -45,11 +45,11 @@ export default angular.module('resourceDetail', [
 
 function config($stateProvider) {
   'ngInject';
-  $stateProvider.state('resourceDetail/:rTitle', {
+/*  $stateProvider.state('resourceDetail/:rTitle', {
     url: '/resourceDetail',
     template: '<resource-detail></resource-detail>',
     params: {
       resourceTitle: null
     }
-  });
+  });*/
 }

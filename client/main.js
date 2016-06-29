@@ -35,7 +35,8 @@ angular.module('neuralnet', [
   .config(config);
 
 
-function config($mdIconProvider, $mdThemingProvider) {
+function config($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingProvider) {
+
 
   $mdThemingProvider.theme('default')
     .primaryPalette('orange',{

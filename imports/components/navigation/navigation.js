@@ -52,8 +52,33 @@ export default angular.module("navigation", [
 
 function config($stateProvider, $urlRouterProvider, $locationProvider){
 
-  $locationProvider.html5Mode(true);
+    $urlRouterProvider.otherwise("/resourcesList");
+
+    $stateProvider
+      .state('resourcesList', {
+        url: '/resourcesList'
+        ,template: '<resources-list></resources-list>'
+      })
+      .state('userPage', {
+        url: '/userPage'
+        ,template: '<user-page></user-page>'
+      })
+      .state('resourceDetail/:rTitle', {
+        url: '/resourceDetail'
+        ,template: '<resource-detail></resource-detail>'
+        ,params: {
+          resourceTitle: null
+        }
+      })
+      .state('smallCard', {
+        url: '/smallCard'
+        ,templateURL: './templates/smallCard.html'
+        ,controller: function($scope, resourceID) {
+          this.res = (Resources.find({_id: resourceID}).fetch())[0];
+        }
+      })
+  //$locationProvider.html5Mode(true);
 
   //for an unmatched url redirect to list
-  $urlRouterProvider.otherwise("/resourcesList");
+
 }
