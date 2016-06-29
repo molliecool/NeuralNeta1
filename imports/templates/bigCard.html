@@ -3,15 +3,15 @@
     <div>
     <md-card>
       <md-card-title flex layout="row">
-        <script>console.log("test");</script>
-        <span class="md-headline">{{dCtrl.res.Title}}</span>
+        <script>console.log();</script>
+        <span class="md-headline">{{this.res.Title}}</span>
 
       </md-card-title>
-      <div layout-margin class="md-subhead">{{res.Summary}}</div>
+      <div layout-margin class="md-subhead">{{$ctrl.res.Summary}}</div>
 
       <div layout="row" layout-margin>
         <div flex layout="column" layout-margin>
-          <div class="md-title">Type: {{res.Type}}</div>
+          <div class="md-title">Type: {{dCtrl.res.Type}}</div>
           <div class="md-subhead">Subjects: {{res.Subjects}}</div>
           <div>Recommended Ages: {{res.Recommended_Ages}}</div>
           <div>Where to get it</div>

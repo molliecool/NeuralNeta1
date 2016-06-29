@@ -23,14 +23,14 @@ class ResourcesListCtrl {
 
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
       $mdDialog.show({
-        controller: DialogController(resourceID),
+        controller: DialogController(resourceID, $scope),
         controllerAs: 'dCtrl',
         templateUrl,
         parent: angular.element(document.body),
         targetEvent: ev,
         clickOutsideToClose:true,
         fullscreen: useFullScreen,
-        bindToController: true,
+        locals: { res: this.res }
       })
       .then(function(answer) {
         $scope.status = 'You said the information was "' + answer + '".';
@@ -96,7 +96,8 @@ class ResourcesListCtrl {
 
 function DialogController(resourceID, $scope, $mdDialog) {
   this.res = (Resources.find({_id: resourceID}).fetch())[0];
-  console.log(this.res);
+  $scope.res = (Resources.find({_id: resourceID}).fetch())[0];
+  console.log($scope.res);
 
   this.hide = function() {
     $mdDialog.hide();
