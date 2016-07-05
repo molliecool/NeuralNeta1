@@ -8,8 +8,38 @@ import { Accounts } from 'meteor/accounts-base';
 import template from './resourcesList.html';
 import templateUrl from '../../templates/bigCard.html';
 
+
+
+function DialogController(resourceID, $scope, $mdDialog, $timeout) {
+  $timeout(function() {
+    console.log("test timeout");
+    this.res = getRes(resourceID);
+  }, 3000);
+  //this.res = getRes(resourceID);
+  res = (Resources.find({_id: resourceID}).fetch())[0];
+  $scope.res = (Resources.find({_id: resourceID}).fetch())[0];
+  console.log(res);
+
+  this.hide = function() {
+    $mdDialog.hide();
+  };
+  this.cancel = function() {
+    $mdDialog.cancel();
+  };
+  this.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}
+
+function getRes(resourceID) {
+  return (Resources.find({_id: resourceID}).fetch())[0];
+}
+
+
+
+
 class ResourcesListCtrl {
-  constructor($scope, $state, $mdMedia, $mdDialog, $interpolate) {
+  constructor($scope, $state, $mdMedia, $mdDialog, $timeout) {
     $scope.viewModel(this);
 
     //open the modal window
@@ -19,12 +49,11 @@ class ResourcesListCtrl {
 
     this.showAdvanced = function(ev, resourceID) {
       console.log("called show advanced");
-      this.myText = "this is a test";
+      this.res = (Resources.find({_id: resourceID}).fetch())[0];
 
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
       $mdDialog.show({
-        controller: DialogController(resourceID, $scope),
-        controllerAs: 'dCtrl',
+        controller: DialogController(resourceID, $scope, $mdDialog, $timeout),
         templateUrl,
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -33,11 +62,13 @@ class ResourcesListCtrl {
         locals: { res: this.res }
       })
       .then(function(answer) {
-        $scope.status = 'You said the information was "' + answer + '".';
+        console.log('then');
       }, function() {
-        $scope.status = 'You cancelled the dialog.';
+        console.log('then again');
+
       });
       $scope.$watch(function() {
+        this.res = getRes(resourceID);
         return $mdMedia('xs') || $mdMedia('sm');
       }, function(wantsFullScreen) {
         $scope.customFullscreen = (wantsFullScreen === true);
@@ -94,23 +125,6 @@ class ResourcesListCtrl {
   }
 }
 
-function DialogController(resourceID, $scope, $mdDialog) {
-  this.res = (Resources.find({_id: resourceID}).fetch())[0];
-  $scope.res = (Resources.find({_id: resourceID}).fetch())[0];
-  console.log($scope.res);
-
-  this.hide = function() {
-    $mdDialog.hide();
-  };
-  this.cancel = function() {
-    $mdDialog.cancel();
-  };
-  this.answer = function(answer) {
-    $mdDialog.hide(answer);
-  };
-}
-
-
 
 Deps.autorun(function() {
   Meteor.subscribe('resources');
@@ -124,7 +138,7 @@ export default angular.module("resourcesList", [
 ])
   .component('resourcesList', {
     templateUrl: 'imports/components/resourcesList/resourcesList.html',
-    controller: ('ResourcesListCtrl', ['$scope', '$state', '$mdMedia', '$mdDialog', ResourcesListCtrl])
+    controller: ('ResourcesListCtrl', ['$scope', '$state', '$mdMedia', '$mdDialog', '$timeout', ResourcesListCtrl])
     ,controllerAs: 'rListCtrl'
   })
  .config(config);

@@ -1,20 +1,26 @@
 
 <div  ng-controller="NavigationCtrl as navCtrl" ng-cloak>
   <md-content class="md-padding">
-    <md-nav-bar class="md-toolbar-tools">
-      <md-nav-item class="logo">Neural Net</md-nav-item>
-      <span flex class="flex"></span>
-      <div class="navbar">
-        <md-nav-item href ui-sref="resourcesList">
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <a aria-label="Neural Net Ninja" ng-disabled="false" ui-sref="resourcesList">
+          <h2>
+            <span>Neural Net Ninja</span>
+          </h2>
+        </a>
+
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Search">
           <i class="material-icons">search</i>
-        </md-nav-item>
-        <md-nav-item href ui-sref="resourceSubmit">
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Add" ui-sref="resourceSubmit">
           <i class="material-icons">add</i>
-        </md-nav-item>
-        <md-nav-item href ui-sref="authorization">
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Profile" ui-sref="authorization">
           <i class="material-icons">person</i>
-        </md-nav-item>
+        </md-button>
       </div>
-    </md-nav-bar>
+    </md-toolbar>
+
   </md-content>
 </div>
