@@ -4,14 +4,14 @@
     <md-card>
       <md-card-title flex layout="row">
         <script>console.log();</script>
-        <span class="md-headline">{{this.res.Title}}</span>
+        <span class="md-headline">{{res.Title}}</span>
 
       </md-card-title>
-      <div layout-margin class="md-subhead">{{$ctrl.res.Summary}}</div>
+      <div layout-margin class="md-subhead">{{res.Summary}}</div>
 
       <div layout="row" layout-margin>
         <div flex layout="column" layout-margin>
-          <div class="md-title">Type: {{dCtrl.res.Type}}</div>
+          <div class="md-title">Type: {{res.Type}}</div>
           <div class="md-subhead">Subjects: {{res.Subjects}}</div>
           <div>Recommended Ages: {{res.Recommended_Ages}}</div>
           <div>Where to get it</div>
@@ -47,7 +47,7 @@
 
 
         <md-card-content>
-          <p>{{rDetailCtrl.res.Description}}</p>
+          <p>{{res.Description}}</p>
         </md-card-content>
 
         <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">

@@ -10,14 +10,14 @@ import templateUrl from '../../templates/bigCard.html';
 
 
 
-function DialogController(resourceID, $scope, $mdDialog, $timeout) {
-  $timeout(function() {
-    console.log("test timeout");
-    this.res = getRes(resourceID);
-  }, 3000);
+function DialogController($scope, $mdDialog, res) {
+  // $timeout(function() {
+  //   console.log("test timeout");
+  //   this.res = getRes(resourceID);
+  // }, 3000);
   //this.res = getRes(resourceID);
-  res = (Resources.find({_id: resourceID}).fetch())[0];
-  $scope.res = (Resources.find({_id: resourceID}).fetch())[0];
+  // res = (Resources.find({_id: resourceID}).fetch())[0];
+  $scope.res = res;
   console.log(res);
 
   this.hide = function() {
@@ -53,7 +53,7 @@ class ResourcesListCtrl {
 
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
       $mdDialog.show({
-        controller: DialogController(resourceID, $scope, $mdDialog, $timeout),
+        controller: DialogController,
         templateUrl,
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -68,7 +68,7 @@ class ResourcesListCtrl {
 
       });
       $scope.$watch(function() {
-        this.res = getRes(resourceID);
+        //this.res = getRes(resourceID);
         return $mdMedia('xs') || $mdMedia('sm');
       }, function(wantsFullScreen) {
         $scope.customFullscreen = (wantsFullScreen === true);
