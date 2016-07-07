@@ -3,6 +3,7 @@
 
 import { Accounts } from 'meteor/accounts-base';
 import { Resources } from '../imports/api/resources.js';
+import { Comments } from '../imports/api/comments.js';
 import '../imports/api/images/images.js';
 
 
@@ -50,6 +51,29 @@ Meteor.publish('resources', function () {
   if(!this.userId) return null;
   return Resources.find({});
 });
+
+if(Comments.find().count() === 0) {
+  console.log("comments db empty");
+  var data1 = [
+    {
+      "ResourceID": ""
+      ,"Resource_Title": ""
+      ,"Author": "test"
+      ,"Title": "test"
+      ,"Body": "test"
+      ,"Created_On": ""
+      ,"Comment_Rating": "test"
+      ,"Prep_Time": "test"
+      ,"Engagement": "test"
+      ,"End_Comprehension": "test"
+      ,"Applicability": "test"
+    }
+  ];
+
+  for(var i=0; i<data1.length; i++) {
+    Comments.insert(data1[i]);
+  }
+}
 
 
 if(Resources.find().count() === 0) {

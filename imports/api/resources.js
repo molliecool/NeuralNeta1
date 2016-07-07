@@ -2,6 +2,7 @@ import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { Accounts } from 'meteor/accounts-base';
+import { Comments } from './comments.js';
 
 /*class ResourcesCollection extends Mongo.Collection {
 

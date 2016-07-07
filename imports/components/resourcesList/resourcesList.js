@@ -10,33 +10,6 @@ import templateUrl from '../../templates/bigCard.html';
 
 
 
-function DialogController($scope, $mdDialog, res) {
-  // $timeout(function() {
-  //   console.log("test timeout");
-  //   this.res = getRes(resourceID);
-  // }, 3000);
-  //this.res = getRes(resourceID);
-  // res = (Resources.find({_id: resourceID}).fetch())[0];
-  $scope.res = res;
-  console.log(res);
-
-  this.hide = function() {
-    $mdDialog.hide();
-  };
-  this.cancel = function() {
-    $mdDialog.cancel();
-  };
-  this.answer = function(answer) {
-    $mdDialog.hide(answer);
-  };
-}
-
-function getRes(resourceID) {
-  return (Resources.find({_id: resourceID}).fetch())[0];
-}
-
-
-
 
 class ResourcesListCtrl {
   constructor($scope, $state, $mdMedia, $mdDialog, $timeout) {
@@ -76,8 +49,6 @@ class ResourcesListCtrl {
     };
 
 
-
-    //this.isFavorite = false;
 
     this.helpers({
       resources() {
@@ -124,6 +95,28 @@ class ResourcesListCtrl {
     }
   }
 }
+
+
+function DialogController($scope, $mdDialog, res) {
+
+  $scope.res = res;
+  console.log(res);
+
+  this.hide = function() {
+    $mdDialog.hide();
+  };
+  this.cancel = function() {
+    $mdDialog.cancel();
+  };
+  this.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+}
+
+function getRes(resourceID) {
+  return (Resources.find({_id: resourceID}).fetch())[0];
+}
+
 
 
 Deps.autorun(function() {
