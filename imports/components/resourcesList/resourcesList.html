@@ -13,7 +13,7 @@
           <span class="md-subhead">{{sub.Subjects}}</span>
         </md-card-header-text>
 
-        <md-card-actions ng-click="rListCtrl.showAdvanced($event,res._id)">
+        <md-card-actions ng-click="rListCtrl.showAdvanced($event, res._id)">
           <!--a ui-sref="detail-page({resourceID: id})">Go</a-->
         <img ng-src="{{res.Image}}"/>
         <md-card-title>
@@ -28,12 +28,12 @@
         <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
           <!--button class="md-icon-button md-button md-ink-ripple" type="button" ng-transclude aria-label="Favorite">
             <md-icon ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}" class="ng-scope" aria-hidden="true"></md-icon-->
-            <a href ng-click="$ctrl.toggleFavorite(res._id)">
-              <img style="width: 45px;" ng-src="{{$ctrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
+            <a href ng-click="rListCtrl.toggleFavorite(res._id)">
+              <img style="width: 45px;" ng-src="{{rListCtrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
             </a>
           <!--/button-->
         </md-card-actions>
-
+        <comments></comments>
       </md-card> <!-- end res controller -->
     </div>
   </md-content>

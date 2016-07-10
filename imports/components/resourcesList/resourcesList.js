@@ -4,7 +4,6 @@ import angularMeteor from 'angular-meteor';
 import { Resources } from '../../api/resources.js';
 import { Accounts } from 'meteor/accounts-base';
 
-
 import template from './resourcesList.html';
 import templateUrl from '../../templates/bigCard.html';
 
@@ -12,7 +11,7 @@ import templateUrl from '../../templates/bigCard.html';
 
 
 class ResourcesListCtrl {
-  constructor($scope, $state, $mdMedia, $mdDialog, $timeout) {
+  constructor($scope, $state, $mdMedia, $mdDialog) {
     $scope.viewModel(this);
 
     //open the modal window
@@ -41,7 +40,6 @@ class ResourcesListCtrl {
 
       });
       $scope.$watch(function() {
-        //this.res = getRes(resourceID);
         return $mdMedia('xs') || $mdMedia('sm');
       }, function(wantsFullScreen) {
         $scope.customFullscreen = (wantsFullScreen === true);
@@ -113,25 +111,18 @@ function DialogController($scope, $mdDialog, res) {
   };
 }
 
-function getRes(resourceID) {
-  return (Resources.find({_id: resourceID}).fetch())[0];
-}
-
-
-
 Deps.autorun(function() {
   Meteor.subscribe('resources');
   Meteor.subscribe('favoritedResources');
 })
 
 
-
 export default angular.module("resourcesList", [
   angularMeteor,
 ])
   .component('resourcesList', {
-    templateUrl: 'imports/components/resourcesList/resourcesList.html',
-    controller: ('ResourcesListCtrl', ['$scope', '$state', '$mdMedia', '$mdDialog', '$timeout', ResourcesListCtrl])
+    templateUrl: 'imports/components/resourcesList/resourcesList.html'
+    ,controller: ('ResourcesListCtrl', ['$scope', '$state', '$mdMedia', '$mdDialog', ResourcesListCtrl])
     ,controllerAs: 'rListCtrl'
   })
  .config(config);

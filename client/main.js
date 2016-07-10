@@ -14,6 +14,7 @@ import login from '../imports/components/login/login';
 import register from '../imports/components/register/register';
 import password from '../imports/components/password/password';
 import userPage from '../imports/components/userPage/userPage';
+import comments from '../imports/components/comments/comments';
 
 import '../imports/startup/accounts-config.js';
 
@@ -31,6 +32,7 @@ angular.module('neuralnet', [
   register.name,
 //  password.name,
   userPage.name,
+  comments.name,
 ])
   .config(config);
 
