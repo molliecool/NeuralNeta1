@@ -17,13 +17,14 @@ class CommentsCtrl {
 export default angular.module("comments", [])
 //  .controller('commentsCtrl', ['$scope', CommentsCtrl])
   .component('comments', {
-    templateUrl: '/imports/components/comments/comments.html'
+    templateUrl: 'imports/components/comments/comments.html'
     ,controller: ('CommentsCtrl', ['$scope', CommentsCtrl])
     ,controllerAs: 'commentsCtrl'
   })
   .factory('getComments', function(resourceID) {
-    var commentsList = (Comments.find({}/*ResourceID: resourceID*/).fetch())[0];
+    var commentsList = (Comments.find({ResourceID: resourceID}/**/).fetch())[0];
 
+    console.log("got comments");
     console.log(commentsList);
 
     return commentsList;

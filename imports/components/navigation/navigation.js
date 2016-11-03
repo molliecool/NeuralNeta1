@@ -52,7 +52,7 @@ export default angular.module("navigation", [
 
 function config($stateProvider, $urlRouterProvider, $locationProvider){
 
-    $urlRouterProvider.otherwise("/resourcesList");
+    $urlRouterProvider.otherwise("/userPage");
 
     $stateProvider
       .state('resourcesList', {

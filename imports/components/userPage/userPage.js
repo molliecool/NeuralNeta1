@@ -76,12 +76,12 @@ class UserPageCtrl {
 
      this.getFaves = function(){
        if(Meteor.user()) {
-        if(!this.favorites){
+      //  if(!this.favorites){
           if( this.favorites.length == 0){
            return this.popFavorites();
          }
 
-       }
+      // }
        else {
         return this.favorites;
        }

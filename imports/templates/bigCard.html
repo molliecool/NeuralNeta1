@@ -10,40 +10,37 @@
       <div layout-margin class="md-subhead">{{res.Summary}}</div>
 
       <div layout="row" layout-margin>
-        <div flex layout="column" layout-margin>
-          <div class="md-title">Type: {{res.Type}}</div>
-          <div class="md-subhead">Subjects: {{res.Subjects}}</div>
-          <div>Recommended Ages: {{res.Recommended_Ages}}</div>
+
+        <div flex layout="column" layout-padding>
+          <div class="md-title">{{res.Type}}</div>
+          <div class="md-subhead">{{res.Subjects}}</div>
+          <div>{{res.Recommended_Ages}}</div>
           <div>Where to get it</div>
-
-          <md-card-avatar>
-          </md-card-avatar>
-
         </div>
 
         <div flex layout-padding layout="column">
           <div layout="row">
             <div flex layout="column">
-              <div>Prep Time</div>
-              <div>Engagement</div>
-              <div>Demonstration of Comprehension</div>
-              <div>Applicability</div>
-              <div>Meaningfulness</div>
-            </div>
-            <div flex layout="column">
-              <div ng-repeat="n in [1,2,3,4,5]">
-                <img ng-src="icons/icon_favorite-4.png" style="height: 25px; width: 25px;"/>
-              </div>
+              <p><i class="material-icons">sentiment_very_satisfied</i>Prep Time</p>
+              <p><i class="material-icons">sentiment_very_satisfied</i>Differentiated Instruction</p>
+              <p><i class="material-icons">sentiment_very_satisfied</i>Price</p>
+              <p><i class="material-icons">sentiment_very_satisfied</i>Common Core</p>
             </div>
           </div>
         </div>
-      </div>
 
-      <div flex layout="row" layout-margin>
-        <div ng-repeat="n in [1,2,3,4,5]">
-          <img ng-src="{{res.Image}}"/>
+        <div flex="45" layout="column" layout-padding>
+          <img ng-src="{{res.Image}}" />
+          <div flex layout="row" layout-padding>
+            <div ng-repeat="n in [1,2,3,4,5]">
+              <img ng-src="{{res.Image}}"/>
+            </div>
+          </div>
         </div>
-      </div>
+
+      </div> <!-- end first row -->
+
+
 
 
         <md-card-content>

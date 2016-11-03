@@ -25,9 +25,8 @@
               <div flex layout="column">
                 <div>Prep Time</div>
                 <div>Engagement</div>
-                <div>Demonstration of Comprehension</div>
-                <div>Applicability</div>
-                <div>Meaningfulness</div>
+                <div>Comprehension</div>
+                <div>Common Core Tags</div>
               </div>
               <div flex layout="column">
                 <div ng-repeat="n in [1,2,3,4,5]">
@@ -38,9 +37,9 @@
           </div>
         </div>
 
-        <div flex layout="row" layout-margin>
+        <div flex layout="row" class="end" layout-margin>
           <div ng-repeat="n in [1,2,3,4,5]">
-            <img ng-src="{{rDetailCtrl.res.Image}}"/>
+            <img ng-src="{{rDetailCtrl.res.Image}}" style="height:5px; width:5px;"/>
           </div>
         </div>
 

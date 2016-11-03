@@ -5,6 +5,6 @@
   <md-button flex ng-click="authCtrl.logout()" ng-show="authCtrl.isLoggedIn()">Logout</md-button>
   <div ng-if="authCtrl.isLoggedIn()">{{ authCtrl.currentUser().emails[0].address }}</div>
   <div ng-if="authCtrl.isLoggedIn()">
-    <user-page></user-page>
+
   </div>
 </div>

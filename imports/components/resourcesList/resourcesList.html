@@ -6,24 +6,37 @@
   <md-content flex id="content">
     <div class="masonry" >
       <md-card ng-repeat="res in rListCtrl.resources" class="brick">
-        <md-card-avatar>
-        </md-card-avatar>
-        <md-card-header-text>
-          <span class="md-title">{{res.type}}</span>
-          <span class="md-subhead">{{sub.Subjects}}</span>
-        </md-card-header-text>
+        <!--md-card-avatar>
+        </md-card-avatar-->
+
 
         <md-card-actions ng-click="rListCtrl.showAdvanced($event, res._id)">
           <!--a ui-sref="detail-page({resourceID: id})">Go</a-->
-        <img ng-src="{{res.Image}}"/>
-        <md-card-title>
-          <span class="md-headline">{{ res.Title }}</span>
-        </md-card-title>
+          <img ng-src="{{res.Image}}"/>
+          <md-card-title>
+            <span class="md-headline">{{ res.Title }}</span>
+          </md-card-title>
 
-        <md-card-content>
-          <p>{{res.Summary}}</p>
-        </md-card-content>
-      </md-card-actions>
+          <md-card-content>
+            <div layout="row">
+              <div layout="column" flex>
+                <p>{{res.Recommended_Ages}}</p>
+                <p>{{res.Type}}</p>
+                <p>{{res.Subjects}}</p>
+                <p>$$</p>
+              </div>
+              <div layout="column" layout-align="start stretch" flex>
+                <p><i class="material-icons">sentiment_very_satisfied</i>DI</p>
+                <p><i class="material-icons">sentiment_satisfied</i>Prep Time</p>
+                <p><i class="material-icons">sentiment_very_dissatisfied</i>Common Core</p>
+              </div>
+            </div>
+            <div layout="row">
+              <p>{{res.Summary}}</p>
+            </div>
+          </md-card-content>
+
+        </md-card-actions>
 
         <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
           <!--button class="md-icon-button md-button md-ink-ripple" type="button" ng-transclude aria-label="Favorite">
@@ -33,7 +46,7 @@
             </a>
           <!--/button-->
         </md-card-actions>
-        <comments></comments>
+        <!--comments ng-src="{{rListCtrl.comments(res._id)}}"></comments-->
       </md-card> <!-- end res controller -->
     </div>
   </md-content>

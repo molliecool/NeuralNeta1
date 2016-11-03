@@ -91,6 +91,23 @@ class ResourcesListCtrl {
       console.log("go to detail page");
       $state.go('resourceDetail/:rTitle', {resourceTitle: rTitle});
     }
+
+    this.getComments = function() {
+        if(Meteor.user()) {
+         if(!this.comments){
+           console.log("test test");
+           if( this.comments.length == 0){
+            return this.popComments();
+          }
+
+        }
+        else {
+         return this.comments;
+        }
+      }
+      }
+
+
   }
 }
 

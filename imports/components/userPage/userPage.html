@@ -1,12 +1,22 @@
 
   <md-content class="md-padding" layout-xs="column" layout="row">
+    <div name="search bar row" layout="row">
+    </div>
+    <div name="next row" layout="row" >
+      <div name="activity and news column" layout="column">
+      </div>
+      <div name = "game and call to actions column">
+      </div>
+      <!-- other needs: groups, watchers, experts -->
+    </div>
+
     <div class="masonry">
       <md-card ng-repeat="res in uPageCtrl.getFaves() track by $index" class="brick">
-        <md-card-avatar>
-        </md-card-avatar>
+        <!--md-card-avatar>
+        </md-card-avatar-->
         <md-card-header-text>
           <span class="md-title">{{res.type}}</span>
-          <span class="md-subhead">{{sub.Subjects}}</span>
+          <span class="md-subhead">{{res.Subjects}}</span>
         </md-card-header-text>
 
         <md-card-actions ng-click="uPageCtrl.openDetail(res.Title)">
