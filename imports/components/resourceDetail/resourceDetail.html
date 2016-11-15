@@ -9,6 +9,13 @@
         <div layout-margin class="md-subhead">{{rDetailCtrl.res.Summary}}</div>
 
         <div layout="row" layout-margin>
+          
+          <div flex layout="row" class="end" layout-margin>
+            <div ng-repeat="n in [1,2,3,4,5]">
+              <img ng-src="{{rDetailCtrl.res.Image}}" style="height:5px; width:5px;"/>
+            </div>
+          </div>
+
           <div flex layout="column" layout-margin>
             <div class="md-title">Type: {{rDetailCtrl.res.Type}}</div>
             <div class="md-subhead">Subjects: {{rDetailCtrl.res.Subjects}}</div>
@@ -24,8 +31,7 @@
             <div layout="row">
               <div flex layout="column">
                 <div>Prep Time</div>
-                <div>Engagement</div>
-                <div>Comprehension</div>
+                <div>Diff. Instruction</div>
                 <div>Common Core Tags</div>
               </div>
               <div flex layout="column">
@@ -37,11 +43,7 @@
           </div>
         </div>
 
-        <div flex layout="row" class="end" layout-margin>
-          <div ng-repeat="n in [1,2,3,4,5]">
-            <img ng-src="{{rDetailCtrl.res.Image}}" style="height:5px; width:5px;"/>
-          </div>
-        </div>
+
 
 
           <md-card-content>
