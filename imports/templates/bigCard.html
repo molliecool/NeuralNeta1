@@ -2,47 +2,51 @@
   <md-dialog-content>
     <div>
     <md-card>
-      <md-card-title flex layout="row">
-        <script>console.log();</script>
-        <span class="md-headline">{{res.Title}}</span>
 
-      </md-card-title>
-      <div layout-margin>{{res.Summary}}</div>
-
-      <div layout="row" layout-margin>
-
-        <div flex layout="column" layout-padding>
-          <div class="md-title">{{res.Type}}</div>
-          <div class="md-subhead">{{res.Subjects}}</div>
-          <div>{{res.Recommended_Ages}}</div>
-          <div>Where to get it</div>
+      <div layout="row">
+<!-- this is the image -->
+      <div flex="45" layout="column" layout-margin layout-padding>
+        <img ng-src="{{res.Image}}" />
+        <div flex layout="row" layout-margin>
+          <div ng-repeat="n in [1,2,3,4,5]">
+            <img ng-src="{{res.Image}}"/>
+          </div>
         </div>
+        <div layout="row">
+          <div ng-repeat="i in [1,2,3,4]">{{res.Connections[i]}}</div>
+        </div>
+      </div>
 
-        <div flex layout-padding layout="column">
-          <div layout="row">
-            <div flex layout="column" >
-              <div style="vertical-align: middle; padding:0 5px 10px 0;" layout-align="start center"><i class="material-icons">sentiment_very_satisfied</i>Prep Time</div>
-              <div style="vertical-align: middle; padding-bottom:10px;" layout-align="start center"><i class="material-icons">sentiment_very_satisfied</i>Differentiated Instruction</div>
-              <div style="vertical-align: middle; padding-bottom:10px;" layout-align="start center"><i class="material-icons">sentiment_very_satisfied</i>Common Core</div>
+<!-- this is the start of the overview -->
+      <div layout="column" layout-margin layout-padding flex>
+
+        <div>
+          <script>console.log();</script>
+          <div class="md-headline">{{res.Title}}</div>
+          <div class="md-subhead">{{res.Summary}}</div>
+        </div>
+  <!-- this is the first detail column -->
+        <div layout="row" >
+          <div layout="column" style="padding-right: 2em;" flex = "50">
+            <p>{{res.Type}}</p>
+            <p>{{res.Subjects}}</p>
+            <p>{{res.Recommended_Ages}}</p>
+            <p>Where to get it</p>
+            <a style="font-size: 80%" ng-repeat="tag in res.CC_Tags track by $index">{{tag}}</a>
+          </div>
+    <!-- this is the second detail column-->
+          <div layout="column" flex>
+            <div layout="row">
+              <div flex layout="column" >
+                <p style="vertical-align: middle; padding:0 5px 10px 0;" layout-align="start center"><i class="material-icons">sentiment_very_satisfied</i>Prep Time</p>
+                <p style="vertical-align: middle; padding-bottom:10px;" layout-align="start center"><i class="material-icons">sentiment_very_satisfied</i>Differentiated Instruction</p>
+                <p style="vertical-align: middle; padding-bottom:10px;" layout-align="start center"><i class="material-icons">sentiment_very_satisfied</i>Common Core</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div flex="45" layout="column" layout-padding>
-          <img ng-src="{{res.Image}}" />
-          <div flex layout="row" layout-padding>
-            <div ng-repeat="n in [1,2,3,4,5]">
-              <img ng-src="{{res.Image}}"/>
-            </div>
-          </div>
-        </div>
-
-      </div> <!-- end first row -->
-
-
-
-
-        <md-card-content>
+        <md-card-content layout-padding >
           <p>{{res.Description}}</p>
         </md-card-content>
 
@@ -52,6 +56,13 @@
             <a href ng-click="$rDetailCtrl.toggleFavorite(res._id)">
               <img style="width: 45px;" ng-src="{{rDetailCtrl.isFavorite(res._id) ? 'icons/icon_favorite-4.png' : 'icons/icon_favorite-2.png'}}">
             </a>
+
+      </div> <!-- end first row -->
+    </div>
+
+
+
+
           <!--/button-->
         </md-card-actions>
     </md-card>
