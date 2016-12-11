@@ -12,6 +12,7 @@
     "babel-runtime": "^6.18.0",
     "gm": "^1.22.0",
     "masonry-layout": "^4.0.0",
+    "mdi": "^1.7.22",
     "meteor-node-stubs": "^0.2.4",
     "ng-file-upload": "^12.2.13"
   }
