@@ -7,6 +7,7 @@ import { Accounts } from 'meteor/accounts-base';
 import { Session } from 'meteor/session';
 
 import template from './userPage.html';
+import templateUrl from '../../templates/bigCard.html';
 
 
 class UserPageCtrl {

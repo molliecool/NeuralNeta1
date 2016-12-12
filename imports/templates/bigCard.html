@@ -74,6 +74,54 @@
 
       </div> <!-- end overview column -->
     </div><!-- end first row -->
+    <div layout-margin layout-padding> <!-- others like this row -->
+      <p>Other resouces like this</p>
+      <div layout="row" layout-padding layout-align="space-around center">
+        <i style="font-size: 48px;" class="material-icons">keyboard_arrow_left</i>
+        <div ng-repeat="n in [1,2,3,4,5]">
+          <img ng-src="{{res.Image}}"/>
+          <div>Fake Title</div>
+        </div>
+        <i style="font-size: 48px;" class="material-icons">keyboard_arrow_right</i>
+      </div>
+
+
+      <!-- comments section -->
+      <hr/>
+
+      <div layout="row">
+          <!-- left side -->
+        <div layout="column" flex="70">
+          <div layout="row">
+            <div flex="25" layout="column">
+              <div ng-repeat="n in [1,2,3]" layout-padding layout-align="space-between start">
+                <div style="border: 1px solid black; height: 10px; width: 100px;"></div>
+              </div>
+            </div>
+            <div style="display: block; margin-left:1em;" layout="column">
+              <p>Mollie H.</p>
+              <p>{{res.Description}}</p>
+            </div>
+          </div>
+          <div layout="row">
+            <div layout="column">
+              <div ng-repeat="n in [1,2,3]" layout-padding layout-align="space-between start">
+                <div style="border: 1px solid black; height: 10px; width: 100px;"></div>
+              </div>
+            </div>
+            <div style="display: block; margin-left:1em;" layout="column">
+              <p>Rich G.</p>
+              <p>{{res.Description}}</p>
+            </div>
+          </div>
+        </div>
+      <!-- right side -->
+        <div layout="column" flex="30" layout-padding>
+          <p> here is some text</p>
+        </div>
+      </div>
+
+    </div>
 
     <md-card-actions layout="row" layout-align="end center" class="layout-align-end-center layout-row">
       <!--button class="md-icon-button md-button md-ink-ripple" type="button" ng-transclude aria-label="Favorite">
