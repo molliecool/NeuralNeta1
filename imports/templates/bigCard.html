@@ -62,25 +62,28 @@
         <span style="font-size: 80%; margin-top: -1em;"><a ng-repeat="tag in res.CC_Tags track by $index">{{tag}}, </a></span>
 
         <p>{{res.Description}}</p>
-        <span style="display:inline-flex;">
-          <md-button class="md-raised">Visit Website</md-button>
+        <span flex style="display:inline-flex;" layout-align="space-between center">
+          <md-button aria-label="Visit Website" class="md-raised">Visit Website</md-button>
           <md-button class="md-raised">Post Review</md-button>
-          <i flex class="mdi mdi-bell"></i>
-          <a class="mdi mdi-home" href="/">Home</a>
-          <i flex style="font-size: 32px;" class="mdi">bell</i>
-          <i flex style="font-size: 32px;" class="material-icons">share</i>
-          <i flex style="font-size: 32px;" class="material-icons">share</i>
+          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="facebook"></md-icon></md-button>
+          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="twitter"></md-icon></md-button>
+          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="pinterest"></md-icon></md-button>
+          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="share"></md-icon></md-button>
         </span>
 
       </div> <!-- end overview column -->
     </div><!-- end first row -->
+
+
     <div layout-margin layout-padding> <!-- others like this row -->
       <p>Other resouces like this</p>
-      <div layout="row" layout-padding layout-align="space-around center">
+      <div layout="row" layout-padding layout-margin layout-align="space-around center">
         <i style="font-size: 48px;" class="material-icons">keyboard_arrow_left</i>
         <div ng-repeat="n in [1,2,3,4,5]">
-          <img ng-src="{{res.Image}}"/>
+
           <div>Fake Title</div>
+          <img ng-src="{{res.Image}}"/>
+
         </div>
         <i style="font-size: 48px;" class="material-icons">keyboard_arrow_right</i>
       </div>
@@ -92,24 +95,24 @@
       <div layout="row">
           <!-- left side -->
         <div layout="column" flex="70">
-          <div layout="row">
-            <div flex="25" layout="column">
-              <div ng-repeat="n in [1,2,3]" layout-padding layout-align="space-between start">
-                <div style="border: 1px solid black; height: 10px; width: 100px;"></div>
-              </div>
+          <div layout="row" layout-align="start start" layout-margin layout-padding>
+            <div flex="20" layout="column" contenteditable=""style="font-size:80%; padding-top:1em;">
+              <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
+              <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
+              <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Common Core</p></span>
             </div>
-            <div style="display: block; margin-left:1em;" layout="column">
+            <div style="display: block; margin-left:1em;" layout="column" flex>
               <p>Mollie H.</p>
               <p>{{res.Description}}</p>
             </div>
           </div>
-          <div layout="row">
-            <div layout="column">
-              <div ng-repeat="n in [1,2,3]" layout-padding layout-align="space-between start">
-                <div style="border: 1px solid black; height: 10px; width: 100px;"></div>
-              </div>
+          <div layout="row" layout-align="start start" layout-margin layout-padding>
+            <div flex="20" layout="column" style="font-size:80%; padding-top:1em;">
+              <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
+              <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
+              <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Common Core</p></span>
             </div>
-            <div style="display: block; margin-left:1em;" layout="column">
+            <div flex style="display: block; margin-left:1em;" layout="column">
               <p>Rich G.</p>
               <p>{{res.Description}}</p>
             </div>
@@ -117,7 +120,7 @@
         </div>
       <!-- right side -->
         <div layout="column" flex="30" layout-padding>
-          <p> here is some text</p>
+          <p>Expert Reviews</p>
         </div>
       </div>
 

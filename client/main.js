@@ -52,7 +52,8 @@ function config($stateProvider, $urlRouterProvider, $mdIconProvider, $mdThemingP
   const iconPath =  '/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/';
 
   $mdIconProvider
-    .iconSet('mdi','../public/icons/mdi.svg')
+    .defaultIconSet('icons/mdi.svg')
+    //.iconSet('mdi','icons/mdi.svg')
     .iconSet('social', iconPath + 'svg-sprite-social.svg')
     .iconSet('action',  iconPath + 'svg-sprite-action.svg')
     .iconSet('communication',  iconPath + 'svg-sprite-communication.svg')
