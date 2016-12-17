@@ -3,11 +3,11 @@
     <div>
     <md-card>
 
-      <div layout="row">
+      <div layout="row" layout-sm="column">
 <!-- this is the image column -->
-      <div flex="35" layout="column" layout-margin layout-padding>
+      <div flex-gt-sm="35" layout="column" layout-margin layout-padding>
         <img ng-src="{{res.Image}}" />
-        <div layout="row" layout-margin>
+        <div hide-sm layout="row" layout-margin>
           <div ng-repeat="n in [1,2,3]">
             <img ng-src="{{res.Image}}"/>
           </div>
@@ -81,7 +81,7 @@
         <i style="font-size: 48px;" class="material-icons">keyboard_arrow_left</i>
         <div ng-repeat="n in [1,2,3,4,5]">
 
-          <div>Fake Title</div>
+          <div>Title So Good</div>
           <img ng-src="{{res.Image}}"/>
 
         </div>
@@ -92,17 +92,17 @@
       <!-- comments section -->
       <hr/>
 
-      <div layout="row">
+      <div layout="row" layout-sm="column">
           <!-- left side -->
-        <div layout="column" flex="70">
-          <div layout="row" layout-align="start start" layout-margin layout-padding>
-            <div flex="20" layout="column" contenteditable=""style="font-size:80%; padding-top:1em;">
+        <div layout="column" flex-gt-sm="70">
+          <div layout="row" layout-sm="column" layout-align="start start" layout-margin layout-padding>
+            <div flex-gt-sm="20" layout="column" style="font-size:80%; padding-top:1em;">
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Common Core</p></span>
             </div>
             <div style="display: block; margin-left:1em;" layout="column" flex>
-              <p>Mollie H.</p>
+              <p>Expert Reviewer: Jess K.</p>
               <p>{{res.Description}}</p>
             </div>
           </div>
@@ -113,7 +113,7 @@
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Common Core</p></span>
             </div>
             <div flex style="display: block; margin-left:1em;" layout="column">
-              <p>Rich G.</p>
+              <p>Expert Reviewer: Elsida K.</p>
               <p>{{res.Description}}</p>
             </div>
           </div>
