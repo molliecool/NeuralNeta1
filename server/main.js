@@ -115,7 +115,7 @@ if(Comments.find().count() === 0) {
 }
 
 
-if(Resources.find().count() === 0) {
+//if(Resources.find().count() === 0) {
   console.log("mongo db empty");
   var data = [
   {
@@ -243,7 +243,7 @@ if(Resources.find().count() === 0) {
     ,"Description":"Braid is a puzzle-platformer, drawn in a painterly style, where you can manipulate the flow of time in strange and unusual ways. From a house in the city, journey to a series of worlds and solve puzzles to rescue an abducted princess. http://store.steampowered.com/app/26800/"
     ,"Subjects":"Critical Thinking"
     ,"Image":"temp-resources/Braid-screen01.jpg"
-    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
+    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
     ,"Connections": ["Rich G.", "Mollie H.", "Leah W.", "Kevin F.", "Elsida K.", "Renis S.", "Phil W.", "Jess K."]
   },
   {
@@ -269,7 +269,7 @@ if(Resources.find().count() === 0) {
     ,"Description":"Activities include quickly solving simple math problems & counting people going in and out of a house simultaneously\nDraw pictures on the Touch Screen, or read classic literature out loud\nPlay Sudoku, the popular number puzzle game"
     ,"Subjects":"Math, English, Brain Training"
     ,"Image":"temp-resources/brainrev1.JPG"
-    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
+    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
     ,"Connections": ["Rich G.", "Mollie H.", "Leah W.", "Kevin F.", "Elsida K.", "Renis S.", "Phil W.", "Jess K."]
   },
   {
@@ -295,7 +295,7 @@ if(Resources.find().count() === 0) {
     ,"Description":"Plug any electric guitar or bass into your PC, Mac, Xbox One, Xbox 360, PlayStation® 4 system or PlayStation® 3 system, and join over 3 million people who have learned to play guitar with award-winning Rocksmith method. Learn to play guitar in 60 days. Get started, now!"
     ,"Subjects":"Music"
     ,"Image":"temp-resources/Rocksmith-7.jpg"
-    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
+    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
     ,"Connections": ["Rich G.", "Mollie H.", "Leah W.", "Kevin F.", "Elsida K.", "Renis S.", "Phil W.", "Jess K."]
   },
   {
@@ -321,7 +321,7 @@ if(Resources.find().count() === 0) {
     ,"Description":"The Typing of the Dead is a modification of Sega's 1998 light gun arcade game The House of the Dead 2 in which the gun is replaced by a computer keyboard. The player takes the role of a secret agent in a zombie-infested Venice and must quickly type letters, words and phrases in order to kill fast-advancing enemies.\nDespite falling under the criteria of \"edutainment\", the game was lauded by mainstream game critics for its humor, difficulty and originality. The PC version of The Typing of the Dead sold 120,000 units in 2003 https://en.wikipedia.org/wiki/The_Typing_of_the_Dead"
     ,"Subjects":"English, Typing"
     ,"Image":"temp-resources/zombietyping.jpg"
-    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
+    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1"]
     ,"Connections": ["Rich G.", "Mollie H.", "Leah W.", "Kevin F.", "Elsida K.", "Renis S.", "Phil W.", "Jess K."]
   },
   {
@@ -373,7 +373,7 @@ if(Resources.find().count() === 0) {
     ,"Description":""
     ,"Subjects":"Math, Reading"
     ,"Image":"temp-resources/carmensandiego.jpg"
-    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
+    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
     ,"Connections": ["Rich G.", "Mollie H.", "Leah W.", "Kevin F.", "Elsida K.", "Renis S.", "Phil W.", "Jess K."]
   },
   {
@@ -386,7 +386,7 @@ if(Resources.find().count() === 0) {
     ,"Description":"Myst is a graphic adventure puzzle video game designed and directed by the brothers Robyn and Rand Miller. It was developed by Cyan, Inc., published by Brøderbund, and initially released on the Macintosh platform on September 24, 1993. https://en.wikipedia.org/wiki/Myst"
     ,"Subjects":"Critical Thinking"
     ,"Image":"temp-resources/myst-34.jpg"
-    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
+    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
     ,"Connections": ["Rich G.", "Mollie H.", "Leah W.", "Kevin F.", "Elsida K.", "Renis S.", "Phil W.", "Jess K."]
   },
   {
@@ -412,7 +412,7 @@ if(Resources.find().count() === 0) {
     ,"Description":"The ClueFinders is a series of Edutainment Games from The Learning Company in which the eponymous Kid Heroes have Scooby-Doo type exploits."
     ,"Subjects":"Math, Reading, Critical Thinking"
     ,"Image":"temp-resources/sesame_street_abc_nes_gameplay_screenshot_5.png"
-    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1", "CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
+    ,"CC_Tags":["CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1","CCSS.MATH.PRACTICE.MP1"]
     ,"Connections": ["Rich G.", "Mollie H.", "Leah W.", "Kevin F.", "Elsida K.", "Renis S.", "Phil W.", "Jess K."]
   },
   {
@@ -537,4 +537,4 @@ if(Resources.find().count() === 0) {
     Resources.insert(data[i]);
   }
 
-}
+//}

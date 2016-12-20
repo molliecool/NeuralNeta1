@@ -31,7 +31,7 @@ module.exports = {
     },
     env: {
       //ROOT_URL: 'app.com',
-      MONGO_URL: 'mongodb://localhost/meteor'
+      MONGO_URL: 'mongodb://localhostlocalhost:27017/meteor'
     },
     dockerImage: "abernix/meteord:base",
     deployCheckWaitTime: 60

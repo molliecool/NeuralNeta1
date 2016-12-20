@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '54.200.31.83',
+      host: '54.149.231.175',
       username: 'ubuntu',
        pem: 'C:/Users/molli_000/Documents/GitHub/NeuralNeta1/neuralnet-kp-actual.ppk'
       // password:
@@ -21,7 +21,7 @@ module.exports = {
     },
     env: {
       //ROOT_URL: 'app.com',
-      MONGO_URL: 'mongodb://localhost/meteor'
+      MONGO_URL: 'mongodb://localhost:27017/meteor'
     },
     dockerImage: "abernix/meteord:base",
     //dockerImage: 'kadirahq/meteord',
