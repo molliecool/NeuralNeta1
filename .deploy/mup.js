@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '54.149.231.175',
+      host: '35.166.183.222',
       username: 'ubuntu',
        pem: 'C:/Users/molli_000/Documents/GitHub/NeuralNeta1/neuralnet-kp-actual.ppk'
       // password:

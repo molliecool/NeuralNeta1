@@ -7,10 +7,12 @@
 <!-- this is the image column -->
       <div flex-gt-sm="35" layout="column" layout-margin layout-padding>
         <img ng-src="{{res.Image}}" />
-        <div hide-sm layout="row" layout-margin>
+        <div layout="row" layout-padding layout-align="center center">
+          <md-button aria-label="Previous Likes" class="md-icon-button"><md-icon md-svg-icon="arrow-left"></md-icon></md-button>
           <div ng-repeat="n in [1,2,3]">
             <img ng-src="{{res.Image}}"/>
           </div>
+          <md-button aria-label="More Likes" class="md-icon-button"><md-icon md-svg-icon="arrow-right"></md-icon></md-button>
         </div>
 
         <div>
@@ -41,10 +43,10 @@
         <div layout="row" layout-margin>
     <!-- this is the first detail column -->
           <div layout="column" style="padding-right: 2em;" flex = "50">
-            <p>{{res.Type}}</p>
-            <p>{{res.Subjects}}</p>
-            <p>{{res.Recommended_Ages}}</p>
-            <p>Where to get it</p>
+            <p>Media: {{res.Type}}</p>
+            <p>Subject: {{res.Subjects}}</p>
+            <p>Ages: {{res.Recommended_Ages}}</p>
+            <p>Where to get it: {{res.Location}}</p>
 
           </div>
     <!-- this is the second detail column-->
@@ -61,31 +63,30 @@
 
         <span style="font-size: 80%; margin-top: -1em;"><a ng-repeat="tag in res.CC_Tags track by $index">{{tag}}, </a></span>
 
+        <p>Description: </p>
         <p>{{res.Description}}</p>
         <span flex style="display:inline-flex;" layout-align="space-between center">
-          <md-button aria-label="Visit Website" class="md-raised">Visit Website</md-button>
-          <md-button class="md-raised">Post Review</md-button>
-          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="facebook"></md-icon></md-button>
-          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="twitter"></md-icon></md-button>
-          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="pinterest"></md-icon></md-button>
-          <md-button aria-label="Visit Website" class="md-icon-button"><md-icon md-svg-icon="share"></md-icon></md-button>
+          <md-button aria-label="Visit Website">Visit Website</md-button>
+          <md-button aria-label="Post Review">Post Review</md-button>
+          <md-button aria-label="Share to Facebook" class="md-icon-button"><md-icon md-svg-icon="facebook"></md-icon></md-button>
+          <md-button aria-label="Share to Twitter" class="md-icon-button"><md-icon md-svg-icon="twitter"></md-icon></md-button>
+          <md-button aria-label="Share to Pinterest" class="md-icon-button"><md-icon md-svg-icon="pinterest"></md-icon></md-button>
+          <md-button aria-label="Share to Share" class="md-icon-button"><md-icon md-svg-icon="share"></md-icon></md-button>
         </span>
 
       </div> <!-- end overview column -->
     </div><!-- end first row -->
 
 
-    <div layout-margin layout-padding> <!-- others like this row -->
+    <div layout-margin layout-padding style="margin-top: -1em;"> <!-- others like this row -->
       <p>Other resouces like this</p>
-      <div layout="row" layout-padding layout-margin layout-align="space-around center">
-        <i style="font-size: 48px;" class="material-icons">keyboard_arrow_left</i>
+      <div layout="row" layout-padding layout-align="center center">
+        <md-button aria-label="Previous Likes" class="md-icon-button"><md-icon md-svg-icon="arrow-left"></md-icon></md-button>
         <div ng-repeat="n in [1,2,3,4,5]">
-
           <div>Title So Good</div>
           <img ng-src="{{res.Image}}"/>
-
         </div>
-        <i style="font-size: 48px;" class="material-icons">keyboard_arrow_right</i>
+        <md-button aria-label="More Likes" class="md-icon-button"><md-icon md-svg-icon="arrow-right"></md-icon></md-button>
       </div>
 
 
@@ -95,7 +96,7 @@
       <div layout="row" layout-sm="column">
           <!-- left side -->
         <div layout="column" flex-gt-sm="70">
-          <div layout="row" layout-sm="column" layout-align="start start" layout-margin layout-padding>
+          <div layout="row" layout-sm="column" layout-align="start start">
             <div flex-gt-sm="20" layout="column" style="font-size:80%; padding-top:1em;">
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
@@ -106,7 +107,7 @@
               <p>{{res.Description}}</p>
             </div>
           </div>
-          <div layout="row" layout-align="start start" layout-margin layout-padding>
+          <div layout="row" layout-align="start start">
             <div flex="20" layout="column" style="font-size:80%; padding-top:1em;">
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
               <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
@@ -120,7 +121,22 @@
         </div>
       <!-- right side -->
         <div layout="column" flex="30" layout-padding>
-          <p>Expert Reviews</p>
+          <p>Your Connections</p>
+          <div flex="20" layout="column" style="font-size:80%; padding-top:1em;">
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Common Core</p></span>
+          </div>
+          <div flex="20" layout="column" style="font-size:80%; padding-top:1em;">
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Common Core</p></span>
+          </div>
+          <div flex="20" layout="column" style="font-size:80%; padding-top:1em;">
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Prep Time</p></span>
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Differentiation</p></span>
+            <span style="display: inline-flex;"><i style="margin: 0.04em 0.5em 0 0" class="material-icons">sentiment_very_satisfied</i><p>Common Core</p></span>
+          </div>
         </div>
       </div>
 
