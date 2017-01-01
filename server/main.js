@@ -115,7 +115,7 @@ if(Comments.find().count() === 0) {
 }
 
 
-//if(Resources.find().count() === 0) {
+if(Resources.find().count() === 0) {
   console.log("mongo db empty");
   var data = [
   {
@@ -537,4 +537,4 @@ if(Comments.find().count() === 0) {
     Resources.insert(data[i]);
   }
 
-//}
+}
