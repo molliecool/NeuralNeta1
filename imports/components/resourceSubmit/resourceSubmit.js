@@ -23,13 +23,14 @@ export default angular.module('resourceSubmit', [
   .controller('ResourceSubmitCtrl', ['$scope', function($scope) {
         //console.log("submit works");
     this.submittedResource = {};
-    this.typeOptions = ["Book", "Digital Game", "Website", "Class Activity"];
-    this.subjectOptions = ["Math", "History", "Science", "Health"];
+    this.typeOptions = ["Book", "Digital Interactive", "Website", "Class Activity"];
+    this.subjectOptions = ["Math", "History", "Science", "Health", "Grammar"];
+    this.priceOptions = ["Free", "One-time Fee", "Subscription", "Pay as You Use"]
 
     this.addResource = function(submittedResource) {
       console.log("begin insert");
       // Insert a task into the collection
-      console.log(submittedResource.type)
+      console.log(this.submittedResource.type)
 
       /*
       onChange call a push function
@@ -41,11 +42,16 @@ export default angular.module('resourceSubmit', [
 
 
       Resources.insert({
-        name: submittedResource.text,
-
-        description: submittedResource.description,
-        type: submittedResource.type,
-        subject: submittedResource.subject,
+        Title: this.submittedResource.text,
+        Summary: this.submittedResource.summary,
+        Type: this.submittedResource.type,
+        Location: this.submittedResource.website,
+        Recommended_Ages: this.submittedResource.ages,
+        Subjects: this.submittedResource.subject,
+        price: this.submittedResource.price,
+        pricetype: this.submittedResource.pricetype,
+        length: this.submittedResource.length,
+        Description: this.submittedResource.description,
         createdAt: new Date
       });
 

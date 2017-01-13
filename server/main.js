@@ -48,7 +48,7 @@ Meteor.publish('favoriteObjects', function () {
 });
 
 Meteor.publish('resources', function () {
-  if(!this.userId) return null;
+  //if(!this.userId) return null;  //move this... somewhere else
   return Resources.find({});
 });
 

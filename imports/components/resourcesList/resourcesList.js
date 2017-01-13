@@ -56,6 +56,7 @@ class ResourcesListCtrl {
 
     this.isFavorite = function(resourceID) {
       var flag = false;
+      if(!Meteor.user()) return null;
       for(res in Meteor.user().favoritedResources) {
         //console.log(Meteor.user().favoritedResources[res]);
         if(resourceID === Meteor.user().favoritedResources[res]) {

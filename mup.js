@@ -3,7 +3,7 @@ to push:
 cd to project folder
 meteor build .deploy --debug --architecture os.linux.x86_64
 cd to .deploy
-mup init
+mup.cmd init
 mup.cmd setup
 mup.cmd deploy
 */

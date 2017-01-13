@@ -36,7 +36,7 @@ Meteor.methods({
   },
 
   'getFavorites': function(resourceIDs) {
-    if(!this.userId) return null;
+    //if(!this.userId) return null;
     var favorites = [];
 
     for(i in resourceIDs) {

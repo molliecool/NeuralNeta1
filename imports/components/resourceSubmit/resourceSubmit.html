@@ -1,42 +1,58 @@
-<header>
-  <h1>Submit Resource</h1>
-</header>
+<div name="submitResourceForm" ng-controller="ResourceSubmitCtrl as rsCtrl" ng-submit="rsCtrl.addResource(rsCtrl.submittedResource)" class="md-inline-form">
+    <md-card layout-padding layout-margin layout-align="center start" style="max-width: 800px;">
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Submit a Resource</span><br/>
+                <span class="md-subhead">You'll have a chance to preview before you finish.</span>
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="column">
+            <md-input-container flex>
+                <label>Resource Name</label>
+                <input type="text" ng-model="rsCtrl.submittedResource.text" placeholder="enter name">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Summary</label>
+                <input type="text" ng-model="rsCtrl.submittedResource.summary" placeholder="enter a one or two sentence summary">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Medium</label>
+                <md-select ng-model="rsCtrl.submittedResource.type">
+                    <md-option><em>None</em></md-option>
+                    <md-option ng-repeat="medium in rsCtrl.typeOptions" ng-value="medium">
+                        {{medium}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Website</label>
+                <input type="text" ng-model="rsCtrl.submittedResource.website" placeholder="enter a one or two sentence summary">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Ideal Ages</label>
+                <md-select type="text" ng-model="rsCtrl.submittedResource.text">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Subjects</label>
+                <input type="text" ng-model="rsCtrl.submittedResource.subject">
+            </md-input-container>
+            <md-input-container flex>
+                <label>Price</label>
+                <input type="text" ng-model="rsCtrl.submittedResource.price" placeholder="select the type and approximate cost of the resource">
+            </md-input-container>
+            <md-input-container>
+                <md-select ng-model="rsCtrl.submittedResource.pricetype">
+                    <md-option><em>None</em></md-option>
+                    <md-option ng-repeat="medium in rsCtrl.priceOptions">
+                        {{medium}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+            <upload-image files="resourceSubmit.resource.images"></upload-image>
 
-  <form name="submitResourceForm" ng-controller="ResourceSubmitCtrl as rsCtrl" ng-submit="rsCtrl.addResource(rsCtrl.submittedResource)">
-
-      <div layout="row" class="flex">
-        <div layout="column" class="flex" style="padding-right: 50px;">
-          <md-input-container class="flex">
-            <label>Resource Name</label>
-            <input type="text" ng-model="rsCtrl.submittedResource.text" placeholder="enter name">
-          </md-input-container>
-          <md-input-container class="flex">
-            <label>Summary</label>
-            <input type="text" ng-model="rsCtrl.submittedResource.text" placeholder="input summary">
-          </md-input-container>
-      </div>
-      <upload-image files="resourceSubmit.resource.images"></upload-image>
-    </div>
-
-    <div layout="row" class="flex">
-      <div layout="column" class="flex">
-        <md-radio-group>
-          <label>What type of resource is it?</label>
-          <md-radio-button ng-repeat="t in rsCtrl.typeOptions" ng-model="rsCtrl.submittedResource.type" ng-value="t" aria-label="{{t}}">
-            {{t}}
-          </md-radio-button>
-        </md-radio-group>
-      </div>
-      <div layout="column" class="flex">
-        <label>What subjects does it cover?</label>
-        <br/>
-        <md-checkbox ng-repeat="t in rsCtrl.subjectOptions" ng-value="t" aria-label="{{t}}">
-          {{t}}
-        </md-checkbox>
-      </div>
-    </div>
-    <md-button class="md-accent">
-      <input type="submit" value="Submit" />
-    </md-button>
-
-  </form>
+            <md-button class="md-accent" ng-click="rsCtrl.addResource(resourceSubmit)">
+                <input type="submit" value="Submit" />
+            </md-button>
+        </md-card-content>
+    </md-card>
+</div>
