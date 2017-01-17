@@ -18,6 +18,12 @@ Accounts.onCreateUser(function(options,user) {
   return user;
 })
 
+Resources.allow({
+  insert: function(userId, doc) {
+    return true;
+  }
+})
+
 
 Meteor.publish('userXP', function () {
   if(!this.userId) return null;

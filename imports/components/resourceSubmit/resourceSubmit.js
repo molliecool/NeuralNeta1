@@ -15,7 +15,8 @@ class ResourceSubmitCtrl {
 }
 
 export default angular.module('resourceSubmit', [
-  angularMeteor
+  angularMeteor,
+  'ngMessages'
 ])
   .component('resourceSubmit', {
     templateUrl: 'imports/components/resourceSubmit/resourceSubmit.html',
@@ -30,7 +31,7 @@ export default angular.module('resourceSubmit', [
     this.addResource = function(submittedResource) {
       console.log("begin insert");
       // Insert a task into the collection
-      console.log(this.submittedResource.type)
+      console.log(this.submittedResource.text);
 
       /*
       onChange call a push function
@@ -53,6 +54,8 @@ export default angular.module('resourceSubmit', [
         length: this.submittedResource.length,
         Description: this.submittedResource.description,
         createdAt: new Date
+
+        //return true;
       });
 
     this.clearForm = function() {
