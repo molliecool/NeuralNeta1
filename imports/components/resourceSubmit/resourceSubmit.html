@@ -1,7 +1,7 @@
-<div name="submitResourceForm" ng-controller="ResourceSubmitCtrl as rsCtrl" ng-submit="rsCtrl.addResource(rsCtrl.submittedResource)" class="md-inline-form">
+<div ng-controller="ResourceSubmitCtrl as rsCtrl" ng-submit="rsCtrl.addResource(rsCtrl.submittedResource)" class="md-inline-form">
 
     <md-card layout-padding layout-margin style="max-width: 800px; margin: auto;">
-
+      <form name="submitResourceForm">
         <md-card-title>
             <md-card-title-text>
                 <span class="md-headline">Submit a Resource</span><br/>
@@ -10,52 +10,75 @@
         </md-card-title>
 
         <md-card-content layout="column">
-            <md-input-container flex>
+            <md-input-container flex class="md-block">
                 <label>Resource Name</label>
-                <input type="text" ng-model="rsCtrl.submittedResource.text" placeholder="enter name">
+                <input ng-required type="text" ng-model="rsCtrl.submittedResource.text" placeholder="enter name" md-select-on-focus>
+                <div ng-messages="submitResourceForm.text.$error" ng-show="userForm.lastName.$dirty">
+                  <div ng-message="required">This is required!</div>
+                  <div ng-message="md-maxlength">That's too long!</div>
+                  <div ng-message="minlength">That's too short!</div>
+                </div>
             </md-input-container>
-            <md-input-container flex>
+            <md-input-container flex class="md-block">
                 <label>Summary</label>
-                <input type="text" ng-model="rsCtrl.submittedResource.summary" placeholder="enter a one or two sentence summary">
+                <input required type="text" md-maxlength="300" rows="3"
+                  ng-model="rsCtrl.submittedResource.summary" placeholder="enter a one or two sentence summary" md-select-on-focus>
             </md-input-container>
-            <md-input-container flex>
+            <md-input-container flex class="md-block">
                 <label>Medium</label>
-                <md-select ng-model="rsCtrl.submittedResource.type">
-                    <md-option><em>None</em></md-option>
+                <md-select required ng-model="rsCtrl.submittedResource.type">
                     <md-option ng-repeat="medium in rsCtrl.typeOptions" ng-value="medium">
                         {{medium}}
                     </md-option>
                 </md-select>
             </md-input-container>
-            <md-input-container flex>
+            <md-input-container flex class="md-block">
                 <label>Website</label>
-                <input type="text" ng-model="rsCtrl.submittedResource.website" placeholder="enter a one or two sentence summary">
+                <input type="website" ng-model="rsCtrl.submittedResource.website" placeholder="enter a one or two sentence summary" md-select-on-focus>
             </md-input-container>
-            <md-input-container flex>
+            <md-input-container flex class="md-block">
                 <label>Ideal Ages</label>
-                <md-select type="text" ng-model="rsCtrl.submittedResource.text">
+                <md-select required type="text" ng-model="rsCtrl.submittedResource.ages">
+                  <md-option ng-repeat="subjects in rsCtrl.ageOptions" ng-value="subjects">
+                      {{ages}}
+                  </md-option>
+              </md-select>
             </md-input-container>
-            <md-input-container flex>
+            <md-input-container flex class="md-block">
                 <label>Subjects</label>
-                <input type="text" ng-model="rsCtrl.submittedResource.subject">
-            </md-input-container>
-            <md-input-container flex>
-                <label>Price</label>
-                <input type="text" ng-model="rsCtrl.submittedResource.price" placeholder="select the type and approximate cost of the resource">
-            </md-input-container>
-            <md-input-container>
-                <md-select ng-model="rsCtrl.submittedResource.pricetype">
-                    <md-option><em>None</em></md-option>
-                    <md-option ng-repeat="medium in rsCtrl.priceOptions">
-                        {{medium}}
+                <md-select required ng-model="rsCtrl.submittedResource.subjects">
+                    <md-option ng-repeat="subjects in rsCtrl.subjectOptions" ng-value="subjects">
+                        {{subjects}}
                     </md-option>
                 </md-select>
+            </md-input-container>
+            <div layout="row">
+              <md-input-container flex="50" class="md-block" ng-value="price">
+                  <label>Price</label>
+                  <input type="text" ng-model="rsCtrl.submittedResource.price" placeholder="enter the price" md-select-on-focus>
+              </md-input-container>
+              <md-input-container flex class="md-block">
+                  <label>Payment Type</label>
+                  <md-select ng-model="rsCtrl.submittedResource.pricetype">
+                      <md-option ng-repeat="pricetype in rsCtrl.priceOptions" ng-value="pricetype">
+                          {{pricetype}}
+                      </md-option>
+                  </md-select>
+              </md-input-container>
+            </div>
+            <md-input-container flex class="md-block">
+                <label>Long Description</label>
+                <textarea required md-maxlength="1000" rows="5"
+                  ng-model="rsCtrl.submittedResource.description" placeholder="Enter a long description of the resource" md-select-on-focus>
+                </textarea>
             </md-input-container>
             <upload-image files="resourceSubmit.resource.images"></upload-image>
 
             <md-button class="md-accent" ng-click="rsCtrl.addResource(resourceSubmit)">
                 <input type="submit" value="Submit" />
             </md-button>
+
         </md-card-content>
+      </form>
     </md-card>
 </div>

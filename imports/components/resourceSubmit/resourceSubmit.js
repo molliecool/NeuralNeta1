@@ -1,5 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
+import angularMessages from 'angular-messages'
 import { Resources } from '../../api/resources.js';
 
 import template from './resourceSubmit.html';
@@ -16,7 +17,7 @@ class ResourceSubmitCtrl {
 
 export default angular.module('resourceSubmit', [
   angularMeteor,
-  'ngMessages'
+  angularMessages,
 ])
   .component('resourceSubmit', {
     templateUrl: 'imports/components/resourceSubmit/resourceSubmit.html',
@@ -26,7 +27,8 @@ export default angular.module('resourceSubmit', [
     this.submittedResource = {};
     this.typeOptions = ["Book", "Digital Interactive", "Website", "Class Activity"];
     this.subjectOptions = ["Math", "History", "Science", "Health", "Grammar"];
-    this.priceOptions = ["Free", "One-time Fee", "Subscription", "Pay as You Use"]
+    this.priceOptions = ["Variable","Free", "One-time Fee", "Subscription", "Pay as You Use"];
+    this.ageOptions = ["1st","2nd","3rd","4th","5th","6th","7th","8th","9th","10th","11th","12th","College",]
 
     this.addResource = function(submittedResource) {
       console.log("begin insert");
