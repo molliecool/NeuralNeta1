@@ -1,6 +1,6 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
-import angularMessages from 'angular-messages'
+import ngMessages from 'angular-messages';
 import { Resources } from '../../api/resources.js';
 
 import template from './resourceSubmit.html';
@@ -17,7 +17,7 @@ class ResourceSubmitCtrl {
 
 export default angular.module('resourceSubmit', [
   angularMeteor,
-  angularMessages,
+  ngMessages,
 ])
   .component('resourceSubmit', {
     templateUrl: 'imports/components/resourceSubmit/resourceSubmit.html',
@@ -35,14 +35,9 @@ export default angular.module('resourceSubmit', [
       // Insert a task into the collection
       console.log(this.submittedResource.text);
 
-      /*
-      onChange call a push function
-      need to push the subjects onto an array
-      if a box is checked push it on the array
-      else if a box is unchecked find and splice it from the array
+      /*check that everything is filled out before submit
+      after a success redirect to the detail view of that page
       */
-
-
 
       Resources.insert({
         Title: this.submittedResource.text,
@@ -60,17 +55,19 @@ export default angular.module('resourceSubmit', [
         //return true;
       });
 
-    this.clearForm = function() {
-      /* for each field in this.submittedResource,
-        set the child === ''
-        */
-    }
-      // Clear form - replace this with a method
-      this.submittedResource.text = '';
-      this.submittedResource.description = '';
-      this.submittedResource.type = '';  //make this better
-      this.submittedResource.subject = '';
+      //$state.go(to.redirectTo, params, {location: 'replace'})
+      //$stateProvider.state.go('/');
 
+      /*this.clearForm = function() {
+      for each field in this.submittedResource,
+        set the child === ''
+        // Clear form - replace this with a method
+        this.submittedResource.text = '';
+        this.submittedResource.description = '';
+        this.submittedResource.type = '';  //make this better
+        this.submittedResource.subject = '';
+      }
+      */
     }
   }])
   .config(config);

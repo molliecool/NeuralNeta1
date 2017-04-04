@@ -2,6 +2,7 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 import ngMaterial from 'angular-material';
+import ngMessages from 'angular-messages';
 
 import resourcesList from '../imports/components/resourcesList/resourcesList';
 import resourceDetail from '../imports/components/resourceDetail/resourceDetail';

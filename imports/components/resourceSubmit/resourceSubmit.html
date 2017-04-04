@@ -12,7 +12,7 @@
         <md-card-content layout="column">
             <md-input-container flex class="md-block">
                 <label>Resource Name</label>
-                <input ng-required type="text" ng-model="rsCtrl.submittedResource.text" placeholder="enter name" md-select-on-focus>
+                <input required type="text" ng-model="rsCtrl.submittedResource.text" placeholder="enter name" md-select-on-focus>
                 <div ng-messages="submitResourceForm.text.$error" ng-show="userForm.lastName.$dirty">
                   <div ng-message="required">This is required!</div>
                   <div ng-message="md-maxlength">That's too long!</div>
@@ -74,7 +74,7 @@
             </md-input-container>
             <upload-image files="resourceSubmit.resource.images"></upload-image>
 
-            <md-button class="md-accent" ng-click="rsCtrl.addResource(resourceSubmit)">
+            <md-button class="md-accent" ng-click="rsCtrl.addResource(resourceSubmit)" ui-sref="resourcesList">
                 <input type="submit" value="Submit" />
             </md-button>
 
